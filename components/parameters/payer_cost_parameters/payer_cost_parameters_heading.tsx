@@ -10,7 +10,7 @@ const  PayerCostParametersHeading: NextPage<PayerCostParametersHeadingProps> = (
         <div className='flex'>
           <span className="text-2xl font-semibold"> Payer Cost Parameters </span>
         </div>
-        <div className="self-center mt-2 justify-self-end mr-6 select-none">
+        <div className="flex self-center text-sm md:text-base mt-2 justify-self-end mr-6 select-none">
           <span className="cursor-pointer" onClick={() => setExpandAllSetting('expanded')}> Expand All </span>
           <span className="px-3"> | </span>
           <span className="cursor-pointer" onClick={() => setExpandAllSetting('collapsed')}> Collapse All </span>

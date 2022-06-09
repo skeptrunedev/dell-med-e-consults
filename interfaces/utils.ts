@@ -9,3 +9,12 @@ export interface LargeInputProps {
   errored: boolean,
   disabled: boolean
 }
+
+export interface SmallInputProps {
+  placeholder: string,
+  value: string,
+  setValue: Dispatch<string>,
+  type: string,
+  errored: boolean,
+  disabled: boolean
+}

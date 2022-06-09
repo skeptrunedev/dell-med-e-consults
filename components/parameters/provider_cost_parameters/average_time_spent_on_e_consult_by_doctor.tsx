@@ -1,14 +1,12 @@
-
 import type { NextPage } from 'next'
 import { GetExpandedAll } from '../../../interfaces/parameters';
 import { useEffect, useState } from 'react';
 import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/outline';
 import LargeInput from '../../util/large-input';
 
-const  AmountForEConsults: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
+const  AverageTimeSpentOnEConsultByDoctor: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
   const [expanded, setExpanded] = useState(false);
-  const [percentageOfTotalVisits, setPercentageOfTotalVisits] = useState('');
-  const [averageTimeSpent, setAverageTimeSpent] = useState('');
+  const [totalAmount, setTotalAmount] = useState('10.54');
 
   useEffect(() => {
     setExpanded(expandAllSetting == 'expanded');
@@ -18,30 +16,19 @@ const  AmountForEConsults: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
     <div className="grid mt-4 mx-4 px-6 py-6 md:mx-28 border rounded-xl border border-casal-300">
       <div className="flex justify-between">
         <div className="text-lg font-semibold self-center">
-          <span> Amount For E-consults </span>
+          <span> Average Time Spent on E-consult by Doctor </span>
         </div>
         <div className="flex space-x-4 col-span-2 justify-self-end">
-          <div className="grid grid-cols-1 md:grid-cols-2 md:space-x-4">
+          <div className="grid">
           <LargeInput
             {...{
-              label: 'Percentage of total visits',
+              label: 'Time (In Minutes)',
               placeholder: '',
-              value: percentageOfTotalVisits,
-              setValue: setPercentageOfTotalVisits,
-              type: 'percentage',
-              errored: false,
-              disabled: true
-            }}
-          />
-          <LargeInput
-            {...{
-              label: 'Average time spent (in minutes)',
-              placeholder: '',
-              value: averageTimeSpent,
-              setValue: setAverageTimeSpent,
+              value: totalAmount,
+              setValue: () => {},
               type: 'fixed2',
-              errored: false,
-              disabled: true
+              disabled: true,
+              errored: false
             }}
           />
           </div>
@@ -57,4 +44,4 @@ const  AmountForEConsults: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
   )
 }
 
-export default AmountForEConsults;
+export default AverageTimeSpentOnEConsultByDoctor;
