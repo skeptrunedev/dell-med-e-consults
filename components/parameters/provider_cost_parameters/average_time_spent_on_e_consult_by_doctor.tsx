@@ -3,6 +3,7 @@ import { GetExpandedAll } from '../../../interfaces/parameters';
 import { useEffect, useState } from 'react';
 import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/outline';
 import LargeInput from '../../util/large-input';
+import AverageTimeSpentOnEConsultByDoctorTable from './average_time_spent_on_e_consult_by_doctor.table';
 
 const  AverageTimeSpentOnEConsultByDoctor: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
   const [expanded, setExpanded] = useState(false);
@@ -11,6 +12,14 @@ const  AverageTimeSpentOnEConsultByDoctor: NextPage<GetExpandedAll> = ({expandAl
   useEffect(() => {
     setExpanded(expandAllSetting == 'expanded');
   }, [expandAllSetting])
+
+  const displayExpandedTable = () => {
+    if(expanded) {
+      return (
+        <AverageTimeSpentOnEConsultByDoctorTable />
+      )
+    }
+  }
 
   return (
     <div className="grid mt-4 mx-4 px-6 py-6 md:mx-28 border rounded-xl border border-casal-300">
@@ -40,6 +49,7 @@ const  AverageTimeSpentOnEConsultByDoctor: NextPage<GetExpandedAll> = ({expandAl
           </span>
         </div>
       </div>
+      { displayExpandedTable() }
     </div>
   )
 }
