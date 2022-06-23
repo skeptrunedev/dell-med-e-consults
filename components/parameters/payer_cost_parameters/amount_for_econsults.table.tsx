@@ -144,14 +144,14 @@ const  AmountForEConsultsTable: NextPage = () => {
       </div>
       { codeInputs }
       <button
-        className="w-fit"
+        className="w-fit text-casal-300"
         onClick={
           () => {
             setCodes(oldCodes => [...oldCodes, {code: "00000", code_details: "10 mins", CMS_non_facility_price: 0, percentage_of_total_visits: 0.0, avg_physician_time_spent: 0.0}]);
           }
         }
       >
-        New Code
+        + New Code
       </button>
     </div>
   )
