@@ -8,7 +8,7 @@ const Parameters: NextPage = () => {
   return (
     <div>
       <Navbar { ...{ active_page: 'Parameters' } }/>
-      <WelcomeHeading />
+      <WelcomeHeading { ...{ active_page: 'Parameters' } }/>
       <Forms />
       <Footer />
     </div>
