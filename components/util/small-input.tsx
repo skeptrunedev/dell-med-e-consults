@@ -13,7 +13,7 @@ const  SmallInput: NextPage<SmallInputProps> = ({placeholder, value, setValue, t
       <div className="mt-1">
         <input
           type="text"
-          className="focus:border focus:outline-casal-300 w-full border px-2 py-1 border-casal-300 rounded-md text-casal-400 font-medium"
+          className={ "focus:border focus:outline-casal-300 w-full border px-2 py-1 rounded-md text-casal-400 font-medium" + (errored ? " border-red-500" : " border-casal-300") }
           placeholder={placeholder}
           disabled={disabled}
           value={value}

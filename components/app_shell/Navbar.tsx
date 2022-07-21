@@ -18,9 +18,14 @@ const nav_items: NavItem[] = [
     key: 2
   },
   {
+    name: "Decision Tree",
+    link: "decision_tree",
+    key: 3
+  },
+  {
     name: "Results",
     link: "results",
-    key: 3
+    key: 4
   }
 ]
 

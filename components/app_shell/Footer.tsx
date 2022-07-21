@@ -7,7 +7,7 @@ const  Footer: NextPage = () => {
     <footer className="bg-white">
       <div className="w-full mx-auto py-12 px-6">
         <div className="mt-8">
-          <p className="w-full text-center text-base text-gray-400">&copy; 2022 K1 Design LLC. All rights reserved.</p>
+          <p className="w-full text-center text-base text-gray-400">&copy; Created by <a href="https://nicholaskhami.site/">Nicholas Khami</a>, designed by .</p>
         </div>
       </div>
     </footer>

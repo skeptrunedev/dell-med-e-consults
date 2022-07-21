@@ -7,7 +7,7 @@ import Xarrow from "react-xarrows";
 const DecisionTree: NextPage = () => {
     return (
       <div suppressHydrationWarning={true}>
-        <Navbar { ...{ active_page: 'Parameters' } }/>
+        <Navbar { ...{ active_page: 'Decision Tree' } }/>
         <WelcomeHeading { ...{ active_page: 'DecisionTree' } }/>
         <div className="grid w-full space-y-16">
           <div className="grid justify-self-center grid-cols-1">
