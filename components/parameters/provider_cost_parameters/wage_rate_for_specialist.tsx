@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react';
 import LargeInput from '../../util/large-input';
 
 const  WageRateForSpecialist: NextPage = () => {
-  const [specialistWageRate, setSpecialistWageRate] = useState('0');
+  const [specialistWageRate, setSpecialistWageRate] = useState('106.21');
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    setSpecialistWageRate(window.localStorage.getItem('specialistWageRate') || '0');
+    setSpecialistWageRate(window.localStorage.getItem('specialistWageRate') || '106.21');
     setLoading(false);
   }, []);
 
@@ -38,7 +38,7 @@ const  WageRateForSpecialist: NextPage = () => {
             }}
           />
           </div>
-          <span className="self-center mt-2 text-casal-300 cursor-pointer select-none" onClick={() => setSpecialistWageRate('100')}>
+          <span className="self-center mt-2 text-casal-300 cursor-pointer select-none" onClick={() => setSpecialistWageRate('106.21')}>
             Set to default
           </span>
         </div>

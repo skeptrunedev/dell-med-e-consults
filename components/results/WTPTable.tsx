@@ -15,7 +15,7 @@ const  WTPTable: NextPage = () => {
           {/* Row */}
           <div className="grid grid-cols-2 mt-6 font-medium">
             <div>
-              Average price per usual care
+              Average cost per usual care
             </div>
             <span>
               $ 60.00
@@ -24,7 +24,7 @@ const  WTPTable: NextPage = () => {
           {/* Row */}
           <div className="grid grid-cols-2 mt-6 font-medium">
             <div>
-              Average price per e-consult
+              Average cost per e-consult
             </div>
             <span>
               $ 60.00
@@ -33,7 +33,7 @@ const  WTPTable: NextPage = () => {
           {/* Row */}
           <div className="grid grid-cols-2 mt-6 font-medium">
             <div>
-              Average cost/savings per e-consult
+              Total cost per e-consult
             </div>
             <span>
               $ 60.00
@@ -42,7 +42,7 @@ const  WTPTable: NextPage = () => {
           {/* Row */}
           <div className="grid grid-cols-2 mt-6 font-medium">
             <div>
-              Cost per e-consult averaged over entire program
+              Average weighted cost per e-consult
             </div>
             <span>
               $ 60.00
@@ -51,7 +51,7 @@ const  WTPTable: NextPage = () => {
           {/* Row */}
           <div className="grid grid-cols-2 mt-6 font-medium">
             <div>
-              Total cost per 3-consult
+              WTP per e-consult
             </div>
             <span>
               $ 60.00

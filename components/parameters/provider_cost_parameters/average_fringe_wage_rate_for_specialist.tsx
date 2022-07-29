@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react';
 import LargeInput from '../../util/large-input';
 
 const  AverageFringeWageRateForSpecialist: NextPage = () => {
-  const [averageFringeSpecialistWageRate, setAverageFringeSpecialistWageRate] = useState('0');
+  const [averageFringeSpecialistWageRate, setAverageFringeSpecialistWageRate] = useState('32.92');
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    setAverageFringeSpecialistWageRate(window.localStorage.getItem('averageFringeSpecialistWageRate') || '$32.64');
+    setAverageFringeSpecialistWageRate(window.localStorage.getItem('averageFringeSpecialistWageRate') || '32.92');
     setLoading(false);
   }, []);
 
@@ -38,7 +38,7 @@ const  AverageFringeWageRateForSpecialist: NextPage = () => {
             }}
           />
           </div>
-          <span className="self-center mt-2 text-casal-300 cursor-pointer select-none" onClick={() => setAverageFringeSpecialistWageRate('100')}>
+          <span className="self-center mt-2 text-casal-300 cursor-pointer select-none" onClick={() => setAverageFringeSpecialistWageRate('32.92')}>
             Set to default
           </span>
         </div>

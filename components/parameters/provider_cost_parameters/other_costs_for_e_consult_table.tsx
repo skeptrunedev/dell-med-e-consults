@@ -4,17 +4,17 @@ import { useState, useEffect } from 'react';
 import SmallInput from '../../util/small-input';
 
 const  OtherCostsForEConsultTable: NextPage = () => {
-  const [equipmentTechPerHour, setEquipmentTechPerHour] = useState('10');
-  const [phoneInternetPerHour, setPhoneInternetPerHour] = useState('10');
-  const [roomSpaceSqFeet, setRoomSpaceSqFeet] = useState('1000');
-  const [costOfSqFtPerHour, setCostOfSqFtPerHour] = useState('10');
+  const [equipmentTechPerHour, setEquipmentTechPerHour] = useState('0.43');
+  const [phoneInternetPerHour, setPhoneInternetPerHour] = useState('0.04');
+  const [roomSpaceSqFeet, setRoomSpaceSqFeet] = useState('150');
+  const [costOfSqFtPerHour, setCostOfSqFtPerHour] = useState('0.09');
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    setEquipmentTechPerHour(window.localStorage.getItem('equipmentTechPerHour') || '10');
-    setPhoneInternetPerHour(window.localStorage.getItem('phoneInternetPerHour') || '10');
-    setRoomSpaceSqFeet(window.localStorage.getItem('roomSpaceSqFeet') || '1000');
-    setCostOfSqFtPerHour(window.localStorage.getItem('costOfSqFtPerHour') || '10');
+    setEquipmentTechPerHour(window.localStorage.getItem('equipmentTechPerHour') || '0.43');
+    setPhoneInternetPerHour(window.localStorage.getItem('phoneInternetPerHour') || '0.04');
+    setRoomSpaceSqFeet(window.localStorage.getItem('roomSpaceSqFeet') || '150');
+    setCostOfSqFtPerHour(window.localStorage.getItem('costOfSqFtPerHour') || '0.09');
     setLoading(false);
   }, []);
 
@@ -46,7 +46,7 @@ const  OtherCostsForEConsultTable: NextPage = () => {
             errored: false
           }}
         />
-        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => setEquipmentTechPerHour('10')}>
+        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => setEquipmentTechPerHour('0.43')}>
           Set to default
         </span>
       </div>
@@ -66,7 +66,7 @@ const  OtherCostsForEConsultTable: NextPage = () => {
             errored: false
           }}
         />
-        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => setPhoneInternetPerHour('10')}>
+        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => setPhoneInternetPerHour('0.04')}>
           Set to default
         </span>
       </div>
@@ -86,7 +86,7 @@ const  OtherCostsForEConsultTable: NextPage = () => {
             errored: false
           }}
         />
-        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => setRoomSpaceSqFeet('1000')}>
+        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => setRoomSpaceSqFeet('150')}>
           Set to default
         </span>
       </div>
@@ -106,7 +106,7 @@ const  OtherCostsForEConsultTable: NextPage = () => {
             errored: false
           }}
         />
-        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => setCostOfSqFtPerHour('10')}>
+        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => setCostOfSqFtPerHour('0.09')}>
           Set to default
         </span>
       </div>

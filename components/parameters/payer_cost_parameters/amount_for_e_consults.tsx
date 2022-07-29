@@ -10,20 +10,23 @@ import { Code } from '../../../interfaces/tables';
 const calculateAmountForEConsults = () => {
   let percentageOfTotalVisits = 0;
   let averagePhysicianTime = 0;
+  let weightedCostPerVisit = 0;
   const codes: Code[] = JSON.parse(window.localStorage.getItem('codes') || '[]');
   codes.forEach(code => {
     percentageOfTotalVisits += Number(code.percentage_of_total_visits || '0');
     averagePhysicianTime += Number(code.avg_physician_time_spent || '0') * Number(code.percentage_of_total_visits || '0') / 100;
+    weightedCostPerVisit += Number(code.CMS_non_facility_price || '0') * Number(code.percentage_of_total_visits || '0') / 100;
   });
   window.localStorage.setItem('amountForEConsultsPercentageOfTotalVisits', percentageOfTotalVisits.toString());
   window.localStorage.setItem('amountForEConsultsAveragePhysicianTime', averagePhysicianTime.toString());
+  window.localStorage.setItem('amountForEConsultsWeightedCostPerVisit', weightedCostPerVisit.toString());
 
-  return { percentageOfTotalVisits, averagePhysicianTime };
+  return { percentageOfTotalVisits, averagePhysicianTime, weightedCostPerVisit };
 }
 
 const  AmountForEConsults: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
   const [expanded, setExpanded] = useState(false);
-  const [percentageOfTotalVisits, setPercentageOfTotalVisits] = useState('');
+  const [weightedCostPerVisit, setWeightedCostPerVisit] = useState('');
   const [averageTimeSpent, setAverageTimeSpent] = useState('');
 
   useEffect(() => {
@@ -32,8 +35,8 @@ const  AmountForEConsults: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
 
   useEffect(() => {
     const handleStorageEvent = () => {
-      const { percentageOfTotalVisits, averagePhysicianTime } = calculateAmountForEConsults();
-      setPercentageOfTotalVisits(String(percentageOfTotalVisits));
+      const { weightedCostPerVisit, averagePhysicianTime } = calculateAmountForEConsults();
+      setWeightedCostPerVisit(String(weightedCostPerVisit));
       setAverageTimeSpent(String(averagePhysicianTime));
     }
     handleStorageEvent();
@@ -61,11 +64,11 @@ const  AmountForEConsults: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
           <div className="grid grid-cols-1 md:grid-cols-2 md:space-x-4">
           <LargeInput
             {...{
-              label: 'Percentage of total visits',
+              label: 'Weighted cost per visit ($)',
               placeholder: '',
-              value: percentageOfTotalVisits,
-              setValue: setPercentageOfTotalVisits,
-              type: 'percentage',
+              value: weightedCostPerVisit,
+              setValue: setWeightedCostPerVisit,
+              type: 'fixed2',
               errored: false,
               disabled: true
             }}

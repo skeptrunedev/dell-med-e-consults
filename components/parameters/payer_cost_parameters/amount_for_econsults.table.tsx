@@ -1,9 +1,7 @@
 
-import { render } from '@headlessui/react/dist/utils/render';
 import type { NextPage } from 'next'
 import { useState, useEffect, ReactNode } from 'react';
 import { Code } from '../../../interfaces/tables';
-import SmallInput from '../../util/small-input';
 
 const  AmountForEConsultsTable: NextPage = () => {
   const [codes, setCodes] = useState<Code[]>([]);

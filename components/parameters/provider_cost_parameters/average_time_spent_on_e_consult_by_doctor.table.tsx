@@ -4,17 +4,17 @@ import { useState, useEffect } from 'react';
 import SmallInput from '../../util/small-input';
 
 const  AverageTimeSpentOnEConsultByDoctorTable: NextPage = () => {
-  const [sevenPointFive, setSevenPointFive] = useState<number>(25);
-  const [fifteen, setFifteen] = useState<number>(25);
-  const [twentyFive, setTwentyFive] = useState<number>(25);
-  const [fourtyFive, setFourtyFive] = useState<number>(25);
+  const [sevenPointFive, setSevenPointFive] = useState<number>(30);
+  const [fifteen, setFifteen] = useState<number>(50);
+  const [twentyFive, setTwentyFive] = useState<number>(14);
+  const [fourtyFive, setFourtyFive] = useState<number>(6);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    setSevenPointFive(Number(window.localStorage.getItem('sevenPointFive') || '0'));
-    setFifteen(Number(window.localStorage.getItem('fifteen') || '0'));
-    setTwentyFive(Number(window.localStorage.getItem('twentyFive') || '0'));
-    setFourtyFive(Number(window.localStorage.getItem('fourtyFive') || '0'));
+    setSevenPointFive(Number(window.localStorage.getItem('sevenPointFive') || '30'));
+    setFifteen(Number(window.localStorage.getItem('fifteen') || '50'));
+    setTwentyFive(Number(window.localStorage.getItem('twentyFive') || '14'));
+    setFourtyFive(Number(window.localStorage.getItem('fourtyFive') || '6'));
     window.dispatchEvent(new Event('averageTimeSpentOnEConsultByDoctor'));
     setLoading(false);
   }, [])
@@ -59,7 +59,7 @@ const  AverageTimeSpentOnEConsultByDoctorTable: NextPage = () => {
           value={sevenPointFive}
           onChange={(e) => { setSevenPointFive(Number(e.target.value)) }}
         />
-        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => { setSevenPointFive(25) }}>
+        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => { setSevenPointFive(30) }}>
           Set to default
         </span>
         {/* Row */}
@@ -79,7 +79,7 @@ const  AverageTimeSpentOnEConsultByDoctorTable: NextPage = () => {
           value={fifteen}
           onChange={(e) => { setFifteen(Number(e.target.value)) }}
         />
-        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => { setFifteen(25) }}>
+        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => { setFifteen(50) }}>
           Set to default
         </span>
         {/* Row */}
@@ -99,7 +99,7 @@ const  AverageTimeSpentOnEConsultByDoctorTable: NextPage = () => {
           value={twentyFive}
           onChange={(e) => { setTwentyFive(Number(e.target.value)) }}
         />
-        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => { setTwentyFive(25) }}>
+        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => { setTwentyFive(14) }}>
           Set to default
         </span>
         {/* Row */}
@@ -119,7 +119,7 @@ const  AverageTimeSpentOnEConsultByDoctorTable: NextPage = () => {
           value={fourtyFive}
           onChange={(e) => { setFourtyFive(Number(e.target.value)) }}
         />
-        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => { setFourtyFive(25) }}>
+        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => { setFourtyFive(6) }}>
           Set to default
         </span>
       </div>
