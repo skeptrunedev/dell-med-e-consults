@@ -1,13 +1,33 @@
 
 import type { NextPage } from 'next'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SmallInput from '../../util/small-input';
 
 const  AverageTimeSpentOnEConsultByDoctorTable: NextPage = () => {
-  const [sevenPointFive, setSevenPointFive] = useState<number>(0);
-  const [fifteen, setFifteen] = useState<number>(0);
-  const [twentyFive, setTwentyFive] = useState<number>(0);
-  const [fourtyFive, setFourtyFive] = useState<number>(0);
+  const [sevenPointFive, setSevenPointFive] = useState<number>(25);
+  const [fifteen, setFifteen] = useState<number>(25);
+  const [twentyFive, setTwentyFive] = useState<number>(25);
+  const [fourtyFive, setFourtyFive] = useState<number>(25);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    setSevenPointFive(Number(window.localStorage.getItem('sevenPointFive') || '0'));
+    setFifteen(Number(window.localStorage.getItem('fifteen') || '0'));
+    setTwentyFive(Number(window.localStorage.getItem('twentyFive') || '0'));
+    setFourtyFive(Number(window.localStorage.getItem('fourtyFive') || '0'));
+    window.dispatchEvent(new Event('averageTimeSpentOnEConsultByDoctor'));
+    setLoading(false);
+  }, [])
+
+  useEffect(() => {
+    if(!loading) {
+      window.localStorage.setItem('sevenPointFive', sevenPointFive.toString());
+      window.localStorage.setItem('fifteen', fifteen.toString());
+      window.localStorage.setItem('twentyFive', twentyFive.toString());
+      window.localStorage.setItem('fourtyFive', fourtyFive.toString());
+      window.dispatchEvent(new Event('averageTimeSpentOnEConsultByDoctor'));
+    }
+  }, [sevenPointFive, fifteen, twentyFive, fourtyFive, loading]);
 
   return (
     <div className="grid mt-6 border-t border-casal-300">
@@ -39,7 +59,7 @@ const  AverageTimeSpentOnEConsultByDoctorTable: NextPage = () => {
           value={sevenPointFive}
           onChange={(e) => { setSevenPointFive(Number(e.target.value)) }}
         />
-        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => {}}>
+        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => { setSevenPointFive(25) }}>
           Set to default
         </span>
         {/* Row */}
@@ -59,7 +79,7 @@ const  AverageTimeSpentOnEConsultByDoctorTable: NextPage = () => {
           value={fifteen}
           onChange={(e) => { setFifteen(Number(e.target.value)) }}
         />
-        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => {}}>
+        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => { setFifteen(25) }}>
           Set to default
         </span>
         {/* Row */}
@@ -79,7 +99,7 @@ const  AverageTimeSpentOnEConsultByDoctorTable: NextPage = () => {
           value={twentyFive}
           onChange={(e) => { setTwentyFive(Number(e.target.value)) }}
         />
-        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => {}}>
+        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => { setTwentyFive(25) }}>
           Set to default
         </span>
         {/* Row */}
@@ -99,7 +119,7 @@ const  AverageTimeSpentOnEConsultByDoctorTable: NextPage = () => {
           value={fourtyFive}
           onChange={(e) => { setFourtyFive(Number(e.target.value)) }}
         />
-        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => {}}>
+        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => { setFourtyFive(25) }}>
           Set to default
         </span>
       </div>

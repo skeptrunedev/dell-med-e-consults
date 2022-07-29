@@ -5,13 +5,33 @@ import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/outline';
 import LargeInput from '../../util/large-input';
 import AverageTimeSpentOnEConsultByDoctorTable from './average_time_spent_on_e_consult_by_doctor.table';
 
+const calculateAverageTimeSpentOnEConsultByDoctor = () => {
+  let averageTimeSpentOnEConsultByDoctor = 0;
+  averageTimeSpentOnEConsultByDoctor += 7.5 * parseInt(window.localStorage.getItem('sevenPointFive') || '0') / 100;
+  averageTimeSpentOnEConsultByDoctor += 15 * parseInt(window.localStorage.getItem('fifteen') || '0') / 100;
+  averageTimeSpentOnEConsultByDoctor += 25 * parseInt(window.localStorage.getItem('twentyFive') || '0') / 100;
+  averageTimeSpentOnEConsultByDoctor += 45 * parseInt(window.localStorage.getItem('fourtyFive') || '0') / 100;
+  return String(averageTimeSpentOnEConsultByDoctor);
+}
+
 const  AverageTimeSpentOnEConsultByDoctor: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
   const [expanded, setExpanded] = useState(false);
-  const [totalAmount, setTotalAmount] = useState('10.54');
+  const [totalAmount, setTotalAmount] = useState('0');
 
   useEffect(() => {
     setExpanded(expandAllSetting == 'expanded');
   }, [expandAllSetting])
+
+  useEffect(() => {
+    const handleStorageEvent = () => {
+      setTotalAmount(calculateAverageTimeSpentOnEConsultByDoctor());
+    }
+    handleStorageEvent();
+
+    window.addEventListener('averageTimeSpentOnEConsultByDoctor', handleStorageEvent);
+
+    return () => window.removeEventListener('averageTimeSpentOnEConsultByDoctor', handleStorageEvent);
+  }, [])
 
   const displayExpandedTable = () => {
     if(expanded) {
@@ -41,9 +61,6 @@ const  AverageTimeSpentOnEConsultByDoctor: NextPage<GetExpandedAll> = ({expandAl
             }}
           />
           </div>
-          <span className="self-center mt-2 text-casal-300 cursor-pointer select-none">
-            Set to default
-          </span>
           <span className="h-6 w-6 ml-2 mt-2 self-center cursor-pointer" onClick={() => setExpanded(!expanded)}>
             {expanded ? <ChevronDownIcon /> : <ChevronUpIcon />}
           </span>
