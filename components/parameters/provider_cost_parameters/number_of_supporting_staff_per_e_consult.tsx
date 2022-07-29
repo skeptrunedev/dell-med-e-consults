@@ -1,9 +1,22 @@
 import type { NextPage } from 'next'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import LargeInput from '../../util/large-input';
 
 const  NumberOfSupportingStaffPerEConsult: NextPage = () => {
-  const [numOfSupportingStaff, setNumOfSupportingStaff] = useState('0');
+  const [numOfSupportingStaff, setNumOfSupportingStaff] = useState('2');
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    setNumOfSupportingStaff(window.localStorage.getItem('numOfSupportingStaff') || '2');
+    setLoading(false);
+  }, []);
+
+  useEffect(() => {
+    if(!loading) {
+      window.localStorage.setItem('numOfSupportingStaff', numOfSupportingStaff);
+      window.dispatchEvent(new Event('numOfSupportingStaff'));
+    }
+  }, [numOfSupportingStaff, loading]);
 
   return (
     <div className="grid mt-4 mx-4 px-6 py-6 md:mx-28 border rounded-xl border border-casal-300">
