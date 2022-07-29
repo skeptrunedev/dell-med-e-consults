@@ -3,21 +3,21 @@ import type { NextPage } from 'next'
 import { useState, useEffect } from 'react';
 
 const  AmountForOfficeVisitsTable: NextPage = () => {
-  const [medicareFee, setMedicareFee] = useState<number>(0);
-  const [medicarePercentage, setMedicarePercentage] = useState<number>(0);
-  const [commercialFee, setCommercialFee] = useState<number>(0);
-  const [commercialPercentage, setCommercialPercentage] = useState<number>(0);
-  const [otherFee, setOtherFee] = useState<number>(0);
-  const [otherPercentage, setOtherPercentage] = useState<number>(0);
+  const [medicareFee, setMedicareFee] = useState<number>(112);
+  const [medicarePercentage, setMedicarePercentage] = useState<number>(20);
+  const [commercialFee, setCommercialFee] = useState<number>(100);
+  const [commercialPercentage, setCommercialPercentage] = useState<number>(70);
+  const [otherFee, setOtherFee] = useState<number>(80);
+  const [otherPercentage, setOtherPercentage] = useState<number>(10);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    setMedicareFee(Number(window.localStorage.getItem('medicareFee') || '0'));
-    setMedicarePercentage(Number(window.localStorage.getItem('medicarePercentage') || '0'));
-    setCommercialFee(Number(window.localStorage.getItem('commercialFee') || '0'));
-    setCommercialPercentage(Number(window.localStorage.getItem('commercialPercentage') || '0'));
-    setOtherFee(Number(window.localStorage.getItem('otherFee') || '0'));
-    setOtherPercentage(Number(window.localStorage.getItem('otherPercentage') || '0'));
+    setMedicareFee(Number(window.localStorage.getItem('medicareFee') || '112'));
+    setMedicarePercentage(Number(window.localStorage.getItem('medicarePercentage') || '20'));
+    setCommercialFee(Number(window.localStorage.getItem('commercialFee') || '100'));
+    setCommercialPercentage(Number(window.localStorage.getItem('commercialPercentage') || '70'));
+    setOtherFee(Number(window.localStorage.getItem('otherFee') || '80'));
+    setOtherPercentage(Number(window.localStorage.getItem('otherPercentage') || '10'));
     window.dispatchEvent(new Event('amountForOfficeVisits'));
     setLoading(false);
   }, []);
@@ -75,8 +75,8 @@ const  AmountForOfficeVisitsTable: NextPage = () => {
           onChange={(e) => { setMedicarePercentage(Number(e.target.value)) }}
         />
         <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => {
-          setMedicareFee(0);
-          setMedicarePercentage(0);
+          setMedicareFee(112);
+          setMedicarePercentage(20);
         }}>
           Set to default
         </span>
@@ -105,8 +105,8 @@ const  AmountForOfficeVisitsTable: NextPage = () => {
           onChange={(e) => { setCommercialPercentage(Number(e.target.value)) }}
         />
         <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => {
-          setCommercialFee(0);
-          setCommercialPercentage(0);
+          setCommercialFee(100);
+          setCommercialPercentage(70);
         }}>
           Set to default
         </span>
@@ -135,8 +135,8 @@ const  AmountForOfficeVisitsTable: NextPage = () => {
           onChange={(e) => { setOtherPercentage(Number(e.target.value)) }}
         />
         <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => {
-          setOtherFee(0);
-          setOtherPercentage(0);
+          setOtherFee(80);
+          setOtherPercentage(10);
         }}>
           Set to default
         </span>
