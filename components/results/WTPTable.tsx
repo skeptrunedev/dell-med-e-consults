@@ -75,6 +75,7 @@ const  WTPTable: NextPage = () => {
         <button
           type="button"
           className="self-center w-fit h-fit px-16 py-4 font-medium rounded-xl text-white text-xl bg-casal-400 hover:bg-casal-400/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          onClick={() => { window.print() }}
         >
           Print
         </button>
