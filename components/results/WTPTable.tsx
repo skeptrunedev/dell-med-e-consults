@@ -1,7 +1,42 @@
 
 import type { NextPage } from 'next'
+import { useState, useEffect } from 'react'
+
+const calculateTotalCostPerEConsult = () => {
+  // TODO: THIS NUMBER IS WRONG SO YOU NEED TO CONSOLE LOG AND COMPARE TO GOOGLE SHEET
+
+  let totalCostPerEConsult = 0;
+  const equipmentAndTechnology = Number(window.localStorage.getItem('equipmentTechPerHour') || '0');
+  const space = Number(window.localStorage.getItem('costOfSqFtPerHour') || '0');
+  const phoneAndInternet = Number(window.localStorage.getItem('phoneInternetPerHour') || '0');
+  const specialistTimeOne = Number(window.localStorage.getItem('amountForEConsultsAveragePhysicianTime') || '0');
+  const specialistTimeTwo = Number(window.localStorage.getItem('averageTimeSpentOnEConsultByDoctor') || '0');
+  const specialistTime = (specialistTimeOne + specialistTimeTwo) * Number(window.localStorage.getItem('specialistWageRate') || '0'); // This is likely the problem
+  const nurseTime = Number(window.localStorage.getItem('averageWageRateForSupportingStaff') || '0');
+
+  totalCostPerEConsult = equipmentAndTechnology + space + phoneAndInternet + specialistTime + nurseTime;
+  const totalCostPerEConsultString = totalCostPerEConsult.toFixed(2);
+  window.localStorage.setItem('totalCostPerEConsult', totalCostPerEConsultString);
+
+  return totalCostPerEConsultString;
+}
+
+const calculateAverageWeightedCostPerEConsult = () => {
+  let averageWeightedCostPerEConsult = 0;
+  
+}
 
 const  WTPTable: NextPage = () => {
+  const [averageCostPerUsualCare, setAverageCostPerUsualCare] = useState('0')
+  const [averageCostPerEConsultation, setAverageCostPerEConsultation] = useState('0')
+  const [totalCostPerEConsultation, setTotalCostPerEConsultation] = useState('0')
+  const [wtpPerEConsultation, setWTPPerEConsultation] = useState('0')
+  const [lossGainPerEConsultation, setLossGainPerEConsultation] = useState('0')
+
+  useEffect(() => {
+    setTotalCostPerEConsultation(calculateTotalCostPerEConsult());
+  }, []);
+
   return (
     <div className="mt-16 mx-4 md:mx-28 text-casal-400">
       <span className="text-2xl font-semibold"> Calculated Results </span>
@@ -36,7 +71,7 @@ const  WTPTable: NextPage = () => {
               Total cost per e-consult
             </div>
             <span>
-              $ 60.00
+              $ {totalCostPerEConsultation}
             </span>
           </div>
           {/* Row */}
