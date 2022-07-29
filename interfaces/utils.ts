@@ -18,3 +18,13 @@ export interface SmallInputProps {
   errored: boolean,
   disabled: boolean
 }
+
+export interface DecisionTreeInputProps {
+  placeholder: string,
+  value: string,
+  setValue: Dispatch<string>,
+  type: string,
+  errored: boolean,
+  disabled: boolean,
+  borderColor: string
+}
