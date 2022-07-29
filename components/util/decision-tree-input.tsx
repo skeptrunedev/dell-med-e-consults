@@ -14,6 +14,7 @@ const  DecisionTreeInput: NextPage<DecisionTreeInputProps> = ({placeholder, valu
       <span className="hidden focus:outline-purple-500"> </span>
       <span className="hidden focus:outline-blue-500"> </span>
       <span className="hidden focus:outline-yellow-500"> </span>
+      <span className="hidden focus:outline-orange-500"> </span>
 
       <div className="mt-1">
         <input

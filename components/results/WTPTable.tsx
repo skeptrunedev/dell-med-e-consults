@@ -23,7 +23,7 @@ const calculateTotalCostPerEConsult = () => {
 
 const calculateAverageWeightedCostPerEConsult = () => {
   let averageWeightedCostPerEConsult = 0;
-  
+
 }
 
 const  WTPTable: NextPage = () => {
