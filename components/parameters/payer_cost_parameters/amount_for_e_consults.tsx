@@ -15,6 +15,9 @@ const calculateAmountForEConsults = () => {
     percentageOfTotalVisits += Number(code.percentage_of_total_visits || '0');
     averagePhysicianTime += Number(code.avg_physician_time_spent || '0') * Number(code.percentage_of_total_visits || '0') / 100;
   });
+  window.localStorage.setItem('amountForEConsultsPercentageOfTotalVisits', percentageOfTotalVisits.toString());
+  window.localStorage.setItem('amountForEConsultsAveragePhysicianTime', averagePhysicianTime.toString());
+
   return { percentageOfTotalVisits, averagePhysicianTime };
 }
 
@@ -79,9 +82,6 @@ const  AmountForEConsults: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
             }}
           />
           </div>
-          <span className="self-center mt-2 text-casal-300 cursor-pointer select-none">
-            Set to default
-          </span>
           <span className="h-6 w-6 ml-2 mt-2 self-center cursor-pointer" onClick={() => setExpanded(!expanded)}>
             {expanded ? <ChevronDownIcon /> : <ChevronUpIcon />}
           </span>

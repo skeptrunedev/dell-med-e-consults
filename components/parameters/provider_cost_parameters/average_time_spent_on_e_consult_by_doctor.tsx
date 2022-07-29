@@ -11,6 +11,8 @@ const calculateAverageTimeSpentOnEConsultByDoctor = () => {
   averageTimeSpentOnEConsultByDoctor += 15 * Number(window.localStorage.getItem('fifteen') || '0') / 100;
   averageTimeSpentOnEConsultByDoctor += 25 * Number(window.localStorage.getItem('twentyFive') || '0') / 100;
   averageTimeSpentOnEConsultByDoctor += 45 * Number(window.localStorage.getItem('fourtyFive') || '0') / 100;
+  window.localStorage.setItem('averageTimeSpentOnEConsultByDoctor', averageTimeSpentOnEConsultByDoctor.toString());
+
   return String(averageTimeSpentOnEConsultByDoctor);
 }
 
