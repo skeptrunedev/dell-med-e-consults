@@ -7,10 +7,10 @@ import AverageTimeSpentOnEConsultByDoctorTable from './average_time_spent_on_e_c
 
 const calculateAverageTimeSpentOnEConsultByDoctor = () => {
   let averageTimeSpentOnEConsultByDoctor = 0;
-  averageTimeSpentOnEConsultByDoctor += 7.5 * parseInt(window.localStorage.getItem('sevenPointFive') || '0') / 100;
-  averageTimeSpentOnEConsultByDoctor += 15 * parseInt(window.localStorage.getItem('fifteen') || '0') / 100;
-  averageTimeSpentOnEConsultByDoctor += 25 * parseInt(window.localStorage.getItem('twentyFive') || '0') / 100;
-  averageTimeSpentOnEConsultByDoctor += 45 * parseInt(window.localStorage.getItem('fourtyFive') || '0') / 100;
+  averageTimeSpentOnEConsultByDoctor += 7.5 * Number(window.localStorage.getItem('sevenPointFive') || '0') / 100;
+  averageTimeSpentOnEConsultByDoctor += 15 * Number(window.localStorage.getItem('fifteen') || '0') / 100;
+  averageTimeSpentOnEConsultByDoctor += 25 * Number(window.localStorage.getItem('twentyFive') || '0') / 100;
+  averageTimeSpentOnEConsultByDoctor += 45 * Number(window.localStorage.getItem('fourtyFive') || '0') / 100;
   return String(averageTimeSpentOnEConsultByDoctor);
 }
 

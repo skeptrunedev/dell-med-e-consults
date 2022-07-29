@@ -7,9 +7,9 @@ import AmountForOfficeVisitsTable from './amount_for_office_visits_table';
 
 const calculateAmountForOfficeVisit = () => {
   let amountForOfficeVisit = 0;
-  amountForOfficeVisit += parseInt(window.localStorage.getItem('medicareFee') || '0') * parseInt(window.localStorage.getItem('medicarePercentage') || '0') / 100;
-  amountForOfficeVisit += parseInt(window.localStorage.getItem('commercialFee') || '0') * parseInt(window.localStorage.getItem('commercialPercentage') || '0') / 100;
-  amountForOfficeVisit += parseInt(window.localStorage.getItem('otherFee') || '0') * parseInt(window.localStorage.getItem('otherPercentage') || '0') / 100;
+  amountForOfficeVisit += Number(window.localStorage.getItem('medicareFee') || '0') * Number(window.localStorage.getItem('medicarePercentage') || '0') / 100;
+  amountForOfficeVisit += Number(window.localStorage.getItem('commercialFee') || '0') * Number(window.localStorage.getItem('commercialPercentage') || '0') / 100;
+  amountForOfficeVisit += Number(window.localStorage.getItem('otherFee') || '0') * Number(window.localStorage.getItem('otherPercentage') || '0') / 100;
   return String(amountForOfficeVisit);
 }
 

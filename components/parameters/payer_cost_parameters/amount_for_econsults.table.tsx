@@ -7,6 +7,19 @@ import SmallInput from '../../util/small-input';
 
 const  AmountForEConsultsTable: NextPage = () => {
   const [codes, setCodes] = useState<Code[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    setCodes(window.localStorage.getItem('codes') ? JSON.parse(window.localStorage.getItem('codes') || '[]') : []);
+    setLoading(false);
+  }, []);
+
+  useEffect(() => {
+    if(!loading) {
+      window.localStorage.setItem('codes', JSON.stringify(codes));
+      window.dispatchEvent(new Event('amountForEConsults'));
+    }
+  }, [codes, loading]);
 
   const codeInputs: ReactNode = codes.map( (code, index) => {
     return (

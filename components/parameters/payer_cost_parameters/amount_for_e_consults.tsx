@@ -5,6 +5,18 @@ import { useEffect, useState } from 'react';
 import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/outline';
 import AmountForEConsultsTable from './amount_for_econsults.table';
 import LargeInput from '../../util/large-input';
+import { Code } from '../../../interfaces/tables';
+
+const calculateAmountForEConsults = () => {
+  let percentageOfTotalVisits = 0;
+  let averagePhysicianTime = 0;
+  const codes: Code[] = JSON.parse(window.localStorage.getItem('codes') || '[]');
+  codes.forEach(code => {
+    percentageOfTotalVisits += Number(code.percentage_of_total_visits || '0');
+    averagePhysicianTime += Number(code.avg_physician_time_spent || '0') * Number(code.percentage_of_total_visits || '0') / 100;
+  });
+  return { percentageOfTotalVisits, averagePhysicianTime };
+}
 
 const  AmountForEConsults: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
   const [expanded, setExpanded] = useState(false);
@@ -13,7 +25,20 @@ const  AmountForEConsults: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
 
   useEffect(() => {
     setExpanded(expandAllSetting == 'expanded');
-  }, [expandAllSetting])
+  }, [expandAllSetting]);
+
+  useEffect(() => {
+    const handleStorageEvent = () => {
+      const { percentageOfTotalVisits, averagePhysicianTime } = calculateAmountForEConsults();
+      setPercentageOfTotalVisits(String(percentageOfTotalVisits));
+      setAverageTimeSpent(String(averagePhysicianTime));
+    }
+    handleStorageEvent();
+
+    window.addEventListener('amountForEConsults', handleStorageEvent);
+
+    return () => window.removeEventListener('amountForEConsults', handleStorageEvent);
+  }, []);
 
   const displayExpandedTable = () => {
     if(expanded) {
