@@ -5,6 +5,14 @@ import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/outline';
 import LargeInput from '../../util/large-input';
 import AmountForOfficeVisitsTable from './amount_for_office_visits_table';
 
+const calculateAmountForOfficeVisit = () => {
+  let amountForOfficeVisit = 0;
+  amountForOfficeVisit += parseInt(window.localStorage.getItem('medicareFee') || '0') * parseInt(window.localStorage.getItem('medicarePercentage') || '0') / 100;
+  amountForOfficeVisit += parseInt(window.localStorage.getItem('commercialFee') || '0') * parseInt(window.localStorage.getItem('commercialPercentage') || '0') / 100;
+  amountForOfficeVisit += parseInt(window.localStorage.getItem('otherFee') || '0') * parseInt(window.localStorage.getItem('otherPercentage') || '0') / 100;
+  return String(amountForOfficeVisit);
+}
+
 const  AmountForOfficeVisit: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
   const [expanded, setExpanded] = useState(false);
   const [totalAmount, setTotalAmount] = useState('$100');
@@ -12,6 +20,17 @@ const  AmountForOfficeVisit: NextPage<GetExpandedAll> = ({expandAllSetting}) => 
   useEffect(() => {
     setExpanded(expandAllSetting == 'expanded');
   }, [expandAllSetting])
+
+  useEffect(() => {
+    const handleStorageEvent = () => {
+      setTotalAmount(calculateAmountForOfficeVisit());
+    }
+    handleStorageEvent();
+
+    window.addEventListener('amountForOfficeVisits', handleStorageEvent);
+
+    return () => window.removeEventListener('amountForOfficeVisits', handleStorageEvent);
+  }, []);
 
   const displayExpandedTable = () => {
     if(expanded) {
@@ -41,9 +60,6 @@ const  AmountForOfficeVisit: NextPage<GetExpandedAll> = ({expandAllSetting}) => 
             }}
           />
           </div>
-          <span className="self-center mt-2 text-casal-300 cursor-pointer select-none">
-            Set to default
-          </span>
           <span className="h-6 w-6 ml-2 mt-2 self-center cursor-pointer" onClick={() => setExpanded(!expanded)}>
             {expanded ? <ChevronDownIcon /> : <ChevronUpIcon />}
           </span>
