@@ -3,8 +3,43 @@ import type { NextPage } from 'next'
 import { useState, useEffect, ReactNode } from 'react';
 import { Code } from '../../../interfaces/tables';
 
+const defaultCodes: Code[] = [
+  {
+    id: 1,
+    code: "99441",
+    code_details: "phone 5-10 minutes",
+    CMS_non_facility_price: 56.75,
+    percentage_of_total_visits: 0.3,
+    avg_physician_time_spent: 7.5,
+  },
+  {
+    id: 2,
+    code: "99442",
+    code_details: "phone 11-20 minutes",
+    CMS_non_facility_price: 91.71,
+    percentage_of_total_visits: 0.2,
+    avg_physician_time_spent: 15,
+  },
+  {
+    id: 3,
+    code: "99443",
+    code_details: "phone 21-30 minutes",
+    CMS_non_facility_price: 129.77,
+    percentage_of_total_visits: 0.1,
+    avg_physician_time_spent: 25,
+  },
+  {
+    id: 3,
+    code: "99451",
+    code_details: "interprofessional consult 5+ minutes",
+    CMS_non_facility_price: 36.34,
+    percentage_of_total_visits: 0.4,
+    avg_physician_time_spent: 10,
+  },
+]
+
 const  AmountForEConsultsTable: NextPage = () => {
-  const [codes, setCodes] = useState<Code[]>([]);
+  const [codes, setCodes] = useState<Code[]>(defaultCodes);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -154,16 +189,26 @@ const  AmountForEConsultsTable: NextPage = () => {
         </div>
       </div>
       { codeInputs }
-      <button
-        className="w-fit text-casal-300"
-        onClick={
-          () => {
-            setCodes(oldCodes => [...oldCodes, {code: "00000", code_details: "10 mins", CMS_non_facility_price: 0, percentage_of_total_visits: 0.0, avg_physician_time_spent: 0.0}]);
+      <div className="flex space-x-4">
+        <button
+          className="w-fit text-casal-300"
+          onClick={
+            () => {
+              setCodes(oldCodes => [...oldCodes, {code: "00000", code_details: "10 mins", CMS_non_facility_price: 0, percentage_of_total_visits: 0.0, avg_physician_time_spent: 0.0}]);
+            }
           }
-        }
-      >
-        + New Code
-      </button>
+        >
+          + New Code
+        </button>
+        <span 
+          className="self-center text-casal-300 cursor-pointer select-none" 
+          onClick={() => {
+            setCodes(defaultCodes)
+          }}
+        >
+          Set to default
+        </span>
+      </div>
     </div>
   )
 }

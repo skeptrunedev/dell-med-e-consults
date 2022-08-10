@@ -11,6 +11,7 @@ import AverageFringeWageRateForSpecialist from './provider_cost_parameters/avera
 import NumberOfSupportingStaffPerEConsult from './provider_cost_parameters/number_of_supporting_staff_per_e_consult';
 import AverageWageRateForSupportingStaff from './provider_cost_parameters/average_wage_rate_for_supporting_staff';
 import OtherCostsForEConsult from './provider_cost_parameters/other_costs_for_e_consult';
+import AmountForMedicaidConsults from './payer_cost_parameters/amount_for_medicaid_consults';
 
 
 const  Forms: NextPage = () => {
@@ -20,6 +21,7 @@ const  Forms: NextPage = () => {
     <div>
       <PayerCostParametersHeading {...{setExpandAllSetting}} />
       <AmountForEConsults {...{expandAllSetting}} />
+      <AmountForMedicaidConsults {...{expandAllSetting}} />
       <AmountForOfficeVisit {...{expandAllSetting}}/>
       <ProviderCostParametersHeading />
       <AverageTimeSpentOnEConsultByDoctor {...{expandAllSetting}}/>

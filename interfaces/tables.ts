@@ -6,3 +6,10 @@ export interface Code {
   percentage_of_total_visits: number,
   avg_physician_time_spent: number,
 }
+
+export interface Medicare_Medicaid_Code {
+  id?: number,
+  code: string,
+  CMS_non_facility_price: number,
+  percentage_of_total_visits: number,
+}
