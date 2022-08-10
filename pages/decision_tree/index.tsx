@@ -82,7 +82,7 @@ const DecisionTree: NextPage = () => {
     <div suppressHydrationWarning={true}>
       <Navbar {...{ active_page: 'Decision Tree' }} />
       <WelcomeHeading {...{ active_page: 'DecisionTree' }} />
-      <div className="grid justify-center mt-20">
+      <div className="justify-center mt-20 hidden md:grid">
         <div className="grid max-w-[1200px] space-y-16 min-w-[1100px] text-center ml-10">
           <div className="grid justify-self-center grid-cols-1">
             <div id="PSC" className="px-20 py-4 bg-slate-100 font-semibold rounded-lg">
@@ -357,6 +357,9 @@ const DecisionTree: NextPage = () => {
           <Xarrow start="SAThree" end="PNSThree" path="grid" dashness={true} gridBreak='50%' strokeWidth={2} color='blue' showHead={false} showTail={false} startAnchor={{ position: "bottom", offset: { x: 0 } }} endAnchor={{ position: "top", offset: { x: 0 } }} />
           <Xarrow start="SAThree" end="PAThree" path="grid" dashness={true} gridBreak='50%' strokeWidth={2} color='blue' showHead={false} showTail={false} startAnchor={{ position: "bottom", offset: { x: 0 } }} endAnchor={{ position: "top", offset: { x: 0 } }} />
         </div>
+      </div>
+      <div className="grid mt-20 justify-center md:hidden">
+        View On Desktop To Access Decision Tree
       </div>
 
       <div className="grid mt-12 mx-4 px-6 py-6 md:mx-28">
