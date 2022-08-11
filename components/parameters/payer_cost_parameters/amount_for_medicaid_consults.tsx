@@ -5,29 +5,25 @@ import { useEffect, useState } from 'react';
 import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/outline';
 import AmountForMedicaidConsultsTable from './amount_for_medicaid_table';
 import LargeInput from '../../util/large-input';
-import { Code } from '../../../interfaces/tables';
+import { Medicare_Medicaid_Code } from '../../../interfaces/tables';
 
-const calculateAmountForEConsults = () => {
+const calculateAmountForMedicaid = () => {
   let percentageOfTotalVisits = 0;
-  let averagePhysicianTime = 0;
   let weightedCostPerVisit = 0;
-  const codes: Code[] = JSON.parse(window.localStorage.getItem('codes') || '[]');
+  const codes: Medicare_Medicaid_Code[] = JSON.parse(window.localStorage.getItem('codes') || '[]');
   codes.forEach(code => {
     percentageOfTotalVisits += Number(code.percentage_of_total_visits || '0');
-    averagePhysicianTime += Number(code.avg_physician_time_spent || '0') * Number(code.percentage_of_total_visits || '0');
     weightedCostPerVisit += Number(code.CMS_non_facility_price || '0') * Number(code.percentage_of_total_visits || '0');
   });
-  window.localStorage.setItem('amountForEConsultsPercentageOfTotalVisits', percentageOfTotalVisits.toString());
-  window.localStorage.setItem('amountForEConsultsAveragePhysicianTime', averagePhysicianTime.toString());
-  window.localStorage.setItem('amountForEConsultsWeightedCostPerVisit', weightedCostPerVisit.toString());
+  window.localStorage.setItem('amountForMedicaidPercentageOfTotalVisits', percentageOfTotalVisits.toString());
+  window.localStorage.setItem('amountForMedicaidWeightedCostPerVisit', weightedCostPerVisit.toString());
 
-  return { percentageOfTotalVisits, averagePhysicianTime, weightedCostPerVisit };
+  return { percentageOfTotalVisits, weightedCostPerVisit };
 }
 
 const  AmountForMedicaidConsults: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
   const [expanded, setExpanded] = useState(false);
   const [weightedCostPerVisit, setWeightedCostPerVisit] = useState('');
-  const [averageTimeSpent, setAverageTimeSpent] = useState('');
 
   useEffect(() => {
     setExpanded(expandAllSetting == 'expanded');
@@ -35,13 +31,12 @@ const  AmountForMedicaidConsults: NextPage<GetExpandedAll> = ({expandAllSetting}
 
   useEffect(() => {
     const handleStorageEvent = () => {
-      const { weightedCostPerVisit, averagePhysicianTime } = calculateAmountForEConsults();
+      const { weightedCostPerVisit } = calculateAmountForMedicaid();
       setWeightedCostPerVisit(String(weightedCostPerVisit));
-      setAverageTimeSpent(String(averagePhysicianTime));
     }
     handleStorageEvent();
 
-    window.addEventListener('amountForEConsults', handleStorageEvent);
+    window.addEventListener('amountForMedicaid', handleStorageEvent);
 
     return () => window.removeEventListener('amountForEConsults', handleStorageEvent);
   }, []);
