@@ -58,7 +58,8 @@ const  AmountForEConsults: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
     <div className="grid mt-4 mx-4 px-6 py-6 md:mx-28 border rounded-xl border border-casal-300">
       <div className="flex justify-between">
         <div className="text-lg font-semibold self-center">
-          <span> For E-consults </span>
+          <p> For E-consults </p>
+          <p className="text-sm font-normal"> Enter details of payor reimbursement for telemedicine visits </p>
         </div>
         <div className="flex space-x-4 col-span-2 justify-self-end">
           <div className="grid grid-cols-1 md:grid-cols-2 md:space-x-4">
