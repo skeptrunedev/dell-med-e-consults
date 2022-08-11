@@ -58,13 +58,13 @@ const  AmountForEConsults: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
     <div className="grid mt-4 mx-4 px-6 py-6 md:mx-28 border rounded-xl border border-casal-300">
       <div className="flex justify-between">
         <div className="text-lg font-semibold self-center">
-          <span> Amount For E-consults </span>
+          <span> For E-consults </span>
         </div>
         <div className="flex space-x-4 col-span-2 justify-self-end">
           <div className="grid grid-cols-1 md:grid-cols-2 md:space-x-4">
           <LargeInput
             {...{
-              label: 'Weighted cost per visit ($)',
+              label: 'Average cost per visit ($)',
               placeholder: '',
               value: weightedCostPerVisit,
               setValue: setWeightedCostPerVisit,

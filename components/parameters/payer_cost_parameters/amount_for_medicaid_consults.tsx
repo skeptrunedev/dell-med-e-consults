@@ -59,7 +59,7 @@ const  AmountForMedicaidConsults: NextPage<GetExpandedAll> = ({expandAllSetting}
           <div className="grid grid-cols-1">
           <LargeInput
             {...{
-              label: 'Weighted cost per visit ($)',
+              label: 'Average cost per visit ($)',
               placeholder: '',
               value: weightedCostPerVisit,
               setValue: setWeightedCostPerVisit,

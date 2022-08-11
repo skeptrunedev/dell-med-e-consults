@@ -176,10 +176,10 @@ const  AmountForEConsultsTable: NextPage = () => {
           CPT Codes
         </div>
         <div>
-          Code details
+          Comments
         </div>
         <div>
-          CMS non facility price
+          CMS non facility price ($)
         </div>
         <div>
           Percentage of total visits

@@ -77,7 +77,7 @@ const  WTPTable: NextPage = () => {
           {/* Row */}
           <div className="grid grid-cols-2 mt-6 font-medium">
             <div>
-              Average weighted cost per e-consult
+              Average cost per e-consult
             </div>
             <span>
               $ 60.00
