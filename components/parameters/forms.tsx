@@ -12,6 +12,10 @@ import NumberOfSupportingStaffPerEConsult from './provider_cost_parameters/numbe
 import AverageWageRateForSupportingStaff from './provider_cost_parameters/average_wage_rate_for_supporting_staff';
 import OtherCostsForEConsult from './provider_cost_parameters/other_costs_for_e_consult';
 import AmountForMedicaidConsults from './payer_cost_parameters/amount_for_medicaid_consults';
+import NumberOfDoctorsPerEConsult from './provider_cost_parameters/number_of_doctors_per_e_consult';
+import AverageFringeWageRateForSupportingStaff from './provider_cost_parameters/average_fring_wage_rate_for_supporting_staff';
+import AverageTimeSpentOnAdministrativeWork from './provider_cost_parameters/average_time_spent_on_administrative_work';
+import TimeBreakdownSpecialistsVsNurses from './provider_cost_parameters/time_breakdown_specialists_vs_nurses';
 
 
 const  Forms: NextPage = () => {
@@ -22,14 +26,18 @@ const  Forms: NextPage = () => {
       <PayerCostParametersHeading {...{setExpandAllSetting}} />
       <AmountForEConsults {...{expandAllSetting}} />
       <AmountForMedicaidConsults {...{expandAllSetting}} />
-      <AmountForOfficeVisit {...{expandAllSetting}}/>
+      <AmountForOfficeVisit {...{expandAllSetting}} />
       <ProviderCostParametersHeading />
-      <AverageTimeSpentOnEConsultByDoctor {...{expandAllSetting}}/>
+      <AverageTimeSpentOnEConsultByDoctor {...{expandAllSetting}} />
       <WageRateForSpecialist />
       <AverageFringeWageRateForSpecialist />
       <NumberOfSupportingStaffPerEConsult />
+      <NumberOfDoctorsPerEConsult />
       <AverageWageRateForSupportingStaff />
-      <OtherCostsForEConsult {...{expandAllSetting}}/>
+      <AverageFringeWageRateForSupportingStaff />
+      <AverageTimeSpentOnAdministrativeWork {...{expandAllSetting}} />
+      <TimeBreakdownSpecialistsVsNurses />
+      <OtherCostsForEConsult {...{expandAllSetting}} />
       <div className="grid mt-12 mx-4 px-6 py-6 md:mx-28">
         <a
           href="/results"

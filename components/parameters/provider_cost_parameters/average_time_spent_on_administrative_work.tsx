@@ -3,20 +3,20 @@ import { GetExpandedAll } from '../../../interfaces/parameters';
 import { useEffect, useState } from 'react';
 import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/outline';
 import LargeInput from '../../util/large-input';
-import AverageTimeSpentOnEConsultByDoctorTable from './average_time_spent_on_e_consult_by_doctor.table';
+import AverageTimeSpentOnAdministrativeWorkTable from './average_time_spent_on_administrative_work.table';
 
-const calculateAverageTimeSpentOnEConsultByDoctor = () => {
-  let averageTimeSpentOnEConsultByDoctor = 0;
-  averageTimeSpentOnEConsultByDoctor += 7.5 * Number(window.localStorage.getItem('sevenPointFive') || '0') / 100;
-  averageTimeSpentOnEConsultByDoctor += 10 * Number(window.localStorage.getItem('ten') || '0') / 100;
-  averageTimeSpentOnEConsultByDoctor += 15 * Number(window.localStorage.getItem('fifteen') || '0') / 100;
-  averageTimeSpentOnEConsultByDoctor += 25 * Number(window.localStorage.getItem('twentyFive') || '0') / 100;
-  window.localStorage.setItem('averageTimeSpentOnEConsultByDoctor', averageTimeSpentOnEConsultByDoctor.toString());
+const calculateAverageTimeSpentOnAdministrativeWork = () => {
+  let averageTimeSpentOnAdministrativeWork = 0;
+  averageTimeSpentOnAdministrativeWork += 5 * Number(window.localStorage.getItem('fiveAdmin') || '0') / 100;
+  averageTimeSpentOnAdministrativeWork += 10 * Number(window.localStorage.getItem('tenAdmin') || '0') / 100;
+  averageTimeSpentOnAdministrativeWork += 15 * Number(window.localStorage.getItem('fifteenAdmin') || '0') / 100;
+  averageTimeSpentOnAdministrativeWork += 20 * Number(window.localStorage.getItem('twentyAdmin') || '0') / 100;
+  window.localStorage.setItem('averageTimeSpentAdministrativeWork', averageTimeSpentOnAdministrativeWork.toString());
 
-  return String(averageTimeSpentOnEConsultByDoctor);
+  return String(averageTimeSpentOnAdministrativeWork);
 }
 
-const  AverageTimeSpentOnEConsultByDoctor: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
+const  AverageTimeSpentOnAdministrativeWork: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
   const [expanded, setExpanded] = useState(false);
   const [totalAmount, setTotalAmount] = useState('0');
 
@@ -26,19 +26,19 @@ const  AverageTimeSpentOnEConsultByDoctor: NextPage<GetExpandedAll> = ({expandAl
 
   useEffect(() => {
     const handleStorageEvent = () => {
-      setTotalAmount(calculateAverageTimeSpentOnEConsultByDoctor());
+      setTotalAmount(calculateAverageTimeSpentOnAdministrativeWork());
     }
     handleStorageEvent();
 
-    window.addEventListener('averageTimeSpentOnEConsultByDoctor', handleStorageEvent);
+    window.addEventListener('averageTimeSpentOnAdministrativeWork', handleStorageEvent);
 
-    return () => window.removeEventListener('averageTimeSpentOnEConsultByDoctor', handleStorageEvent);
+    return () => window.removeEventListener('averageTimeSpentOnAdministrativeWork', handleStorageEvent);
   }, [])
 
   const displayExpandedTable = () => {
     if(expanded) {
       return (
-        <AverageTimeSpentOnEConsultByDoctorTable />
+        <AverageTimeSpentOnAdministrativeWorkTable />
       )
     }
   }
@@ -47,7 +47,7 @@ const  AverageTimeSpentOnEConsultByDoctor: NextPage<GetExpandedAll> = ({expandAl
     <div className="grid mt-4 mx-4 px-6 py-6 md:mx-28 border rounded-xl border border-casal-300">
       <div className="flex justify-between">
         <div className="text-lg font-semibold self-center">
-          <span> Average Time Spent on E-consult by Doctor </span>
+          <span> Average Time Spent on Administrative Work</span>
         </div>
         <div className="flex space-x-4 col-span-2 justify-self-end">
           <div className="grid">
@@ -73,4 +73,4 @@ const  AverageTimeSpentOnEConsultByDoctor: NextPage<GetExpandedAll> = ({expandAl
   )
 }
 
-export default AverageTimeSpentOnEConsultByDoctor;
+export default AverageTimeSpentOnAdministrativeWork;
