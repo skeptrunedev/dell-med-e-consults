@@ -92,9 +92,37 @@ const DecisionTree: NextPage = () => {
           <div className="grid justify-self-center grid-cols-2 space-x-28">
             <div id="ECR" className="w-fit px-20 py-4 bg-slate-100 font-semibold border-2 rounded-lg border-purple-500">
               E-Consult
+              <div className="grid grid-cols-2 gap-x-2 justify-items-start font-normal mt-2">
+                <p className="text-green-700">
+                  Payor: 
+                </p>
+                <p className="text-green-700">
+                  $65.45
+                </p>
+                <p className="text-amber-700">
+                  Provider:
+                </p>
+                <p className="text-amber-700">
+                  $12.20
+                </p>
+              </div>
             </div>
             <div id="UC" className="w-fit px-20 py-4 bg-slate-100 font-semibold border-2 rounded-lg border-orange-500">
               Usual Care
+              <div className="grid grid-cols-2 gap-x-2 justify-items-start font-normal mt-2">
+                <p className="text-green-700">
+                  Payor: 
+                </p>
+                <p className="text-green-700">
+                  $129.74
+                </p>
+                <p className="text-amber-700">
+                  Provider:
+                </p>
+                <p className="text-amber-700">
+                  $23.27
+                </p>
+              </div>
             </div>
           </div>
           <div className="grid justify-self-center grid-cols-4">
@@ -112,6 +140,22 @@ const DecisionTree: NextPage = () => {
                   borderColor: 'purple-500'
                 }}
               />
+              <div className="w-full flex justify-center">
+                <div className="grid grid-cols-2 gap-x-2 justify-items-start font-normal mt-2">
+                  <p className="text-green-700">
+                    Payor: 
+                  </p>
+                  <p className="text-green-700">
+                    $53.30
+                  </p>
+                  <p className="text-amber-700">
+                    Provider:
+                  </p>
+                  <p className="text-amber-700">
+                    $13.62
+                  </p>
+                </div>
+              </div>
             </div>
             <div id="DCP" className="w-fit px-5 py-4 bg-blue-100 font-semibold border-2 rounded-lg border-blue-500">
               <span> Don{"'"}t Call Patient </span>
@@ -127,6 +171,22 @@ const DecisionTree: NextPage = () => {
                   borderColor: 'blue-500'
                 }}
               />
+              <div className="w-full flex justify-center">
+                <div className="grid grid-cols-2 gap-x-2 justify-items-start font-normal mt-2">
+                  <p className="text-green-700">
+                    Payor: 
+                  </p>
+                  <p className="text-green-700">
+                    $83.66
+                  </p>
+                  <p className="text-amber-700">
+                    Provider:
+                  </p>
+                  <p className="text-amber-700">
+                    $10.05
+                  </p>
+                </div>
+              </div>
             </div>
             <div id="SAOne" className="w-fit px-5 py-4 bg-yellow-100 font-semibold border-2 rounded-lg border-yellow-500 mr-6">
               <span> Schedule Appointment </span>
@@ -142,6 +202,22 @@ const DecisionTree: NextPage = () => {
                   borderColor: 'yellow-500'
                 }}
               />
+              <div className="w-full flex justify-center">
+                <div className="grid grid-cols-2 gap-x-2 justify-items-start font-normal mt-2">
+                  <p className="text-green-700">
+                    Payor: 
+                  </p>
+                  <p className="text-green-700">
+                    $65.45
+                  </p>
+                  <p className="text-amber-700">
+                    Provider:
+                  </p>
+                  <p className="text-amber-700">
+                    $12.20
+                  </p>
+                </div>
+              </div>
             </div>
             <div id="NA" className="w-fit px-5 py-4 bg-red-100 font-semibold border-2 rounded-lg border-orange-500">
               <span> No action </span>
@@ -175,6 +251,22 @@ const DecisionTree: NextPage = () => {
                   borderColor: 'purple-500'
                 }}
               />
+              <div className="w-full flex justify-center">
+                <div className="grid grid-cols-2 gap-x-2 justify-items-start font-normal mt-2">
+                  <p className="text-green-700">
+                    Payor: 
+                  </p>
+                  <p className="text-green-700">
+                    $140.71
+                  </p>
+                  <p className="text-amber-700">
+                    Provider:
+                  </p>
+                  <p className="text-amber-700">
+                    $28.22
+                  </p>
+                </div>
+              </div>
             </div>
             <div id="RT" className="w-fit px-5 py-4 bg-purple-100 font-semibold border-2 rounded-lg border-purple-500">
               <span> Recommend Treatment </span>
@@ -287,6 +379,22 @@ const DecisionTree: NextPage = () => {
                   borderColor: 'blue-500'
                 }}
               />
+              <div className="w-full flex justify-center">
+                <div className="grid grid-cols-2 gap-x-2 justify-items-start font-normal mt-2">
+                  <p className="text-green-700">
+                    Payor: 
+                  </p>
+                  <p className="text-green-700">
+                    $130.98
+                  </p>
+                  <p className="text-amber-700">
+                    Provider:
+                  </p>
+                  <p className="text-amber-700">
+                    $20.11
+                  </p>
+                </div>
+              </div>
             </div>
             <div id="RTTwo" className="w-fit px-5 py-4 bg-blue-100 font-semibold border-2 rounded-lg border-blue-500">
               <span> Recommend Treatment </span>
