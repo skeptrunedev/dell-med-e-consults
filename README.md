@@ -1,34 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# EconAnalysis
 
-## Getting Started
+Telemedicine is being more widely adapted by medical practices than ever before. These include eConsult programs where medical specialists review patient referrals and communicate with the patient preemptively to provide care and make recommendations.
 
-First, run the development server:
+But questions about the financial feasibility of this model abound.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+How do payors determine how much to pay for each telemedicine visit?
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+How do payors know if telemedicine programs are saving or costing money when compared to traditional reimbursement models for in person visits?
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+From a clinic perspective, what is the total cost of a telemedicine visit considering all provider, support staff, and administrative costs?
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Are clinics losing money by performing telemedicine instead of seeing patients in person?
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Dell Medical School and the LBJ School of Public Affairs at the University of Texas at Austin has teamed up to bring you this telemedicine cost effectiveness calculator to answer your questions about the cost effectiveness of any outpatient eConsult or telemedicine program.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Use [data from the Dell Medical School Gastroenterology eConsult program](https://pubmed.ncbi.nlm.nih.gov/32954940/) by default 1 or enter your own parameters to calculate the cost effectiveness of telemedicine for your situation.
