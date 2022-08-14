@@ -23,15 +23,17 @@ const  AmountForOfficeVisitsTable: NextPage = () => {
   }, []);
 
   useEffect(() => {
-    if(!loading) {
-      window.localStorage.setItem('medicareFee', medicareFee.toString());
-      window.localStorage.setItem('medicarePercentage', medicarePercentage.toString());
-      window.localStorage.setItem('commercialFee', commercialFee.toString());
-      window.localStorage.setItem('commercialPercentage', commercialPercentage.toString());
-      window.localStorage.setItem('otherFee', otherFee.toString());
-      window.localStorage.setItem('otherPercentage', otherPercentage.toString());
-      window.dispatchEvent(new Event('amountForOfficeVisits'));
+    if(loading) {
+      return;
     }
+
+    window.localStorage.setItem('medicareFee', medicareFee.toString());
+    window.localStorage.setItem('medicarePercentage', medicarePercentage.toString());
+    window.localStorage.setItem('commercialFee', commercialFee.toString());
+    window.localStorage.setItem('commercialPercentage', commercialPercentage.toString());
+    window.localStorage.setItem('otherFee', otherFee.toString());
+    window.localStorage.setItem('otherPercentage', otherPercentage.toString());
+    window.dispatchEvent(new Event('amountForOfficeVisits'));
   }, [medicareFee, medicarePercentage, commercialFee, commercialPercentage, otherFee, otherPercentage, loading]);
 
   return (

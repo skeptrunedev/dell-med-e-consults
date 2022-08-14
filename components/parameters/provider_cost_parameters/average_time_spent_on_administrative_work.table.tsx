@@ -22,14 +22,16 @@ const  AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
   }, [])
 
   useEffect(() => {
-    if(!loading) {
-      window.localStorage.setItem('zeroAdmin', zeroAdmin.toString());
-      window.localStorage.setItem('fiveAdmin', fiveAdmin.toString());
-      window.localStorage.setItem('tenAdmin', tenAdmin.toString());
-      window.localStorage.setItem('fifteenAdmin', fifteenAdmin.toString());
-      window.localStorage.setItem('twentyAdmin', twentyAdmin.toString());
-      window.dispatchEvent(new Event('averageTimeSpentOnAdministrativeWork'));
+    if(loading) {
+      return;
     }
+    
+    window.localStorage.setItem('zeroAdmin', zeroAdmin.toString());
+    window.localStorage.setItem('fiveAdmin', fiveAdmin.toString());
+    window.localStorage.setItem('tenAdmin', tenAdmin.toString());
+    window.localStorage.setItem('fifteenAdmin', fifteenAdmin.toString());
+    window.localStorage.setItem('twentyAdmin', twentyAdmin.toString());
+    window.dispatchEvent(new Event('averageTimeSpentOnAdministrativeWork'));
   }, [zeroAdmin, fiveAdmin, tenAdmin, fifteenAdmin, twentyAdmin, loading]);
 
   return (

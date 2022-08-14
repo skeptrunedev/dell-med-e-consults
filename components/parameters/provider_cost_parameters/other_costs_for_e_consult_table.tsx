@@ -19,13 +19,15 @@ const  OtherCostsForEConsultTable: NextPage = () => {
   }, []);
 
   useEffect(() => {
-    if(!loading) {
-      window.localStorage.setItem('equipmentTechPerHour', equipmentTechPerHour);
-      window.localStorage.setItem('phoneInternetPerHour', phoneInternetPerHour);
-      window.localStorage.setItem('roomSpaceSqFeet', roomSpaceSqFeet);
-      window.localStorage.setItem('costOfSqFtPerHour', costOfSqFtPerHour);
-      window.dispatchEvent(new Event('otherCostsForEConsults'));
+    if(loading) {
+      return;
     }
+    
+    window.localStorage.setItem('equipmentTechPerHour', equipmentTechPerHour);
+    window.localStorage.setItem('phoneInternetPerHour', phoneInternetPerHour);
+    window.localStorage.setItem('roomSpaceSqFeet', roomSpaceSqFeet);
+    window.localStorage.setItem('costOfSqFtPerHour', costOfSqFtPerHour);
+    window.dispatchEvent(new Event('otherCostsForEConsults'));
   }, [equipmentTechPerHour, phoneInternetPerHour, roomSpaceSqFeet, costOfSqFtPerHour, loading]);
 
   return (
