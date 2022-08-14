@@ -7,14 +7,14 @@ const  OtherCostsForEConsultTable: NextPage = () => {
   const [equipmentTechPerHour, setEquipmentTechPerHour] = useState('0.43');
   const [phoneInternetPerHour, setPhoneInternetPerHour] = useState('0.04');
   const [roomSpaceSqFeet, setRoomSpaceSqFeet] = useState('150');
-  const [costOfSqFtPerHour, setCostOfSqFtPerHour] = useState('0.09');
+  const [costOfSqFtPerHour, setCostOfSqFtPerHour] = useState('0.01');
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     setEquipmentTechPerHour(window.localStorage.getItem('equipmentTechPerHour') || '0.43');
     setPhoneInternetPerHour(window.localStorage.getItem('phoneInternetPerHour') || '0.04');
     setRoomSpaceSqFeet(window.localStorage.getItem('roomSpaceSqFeet') || '150');
-    setCostOfSqFtPerHour(window.localStorage.getItem('costOfSqFtPerHour') || '0.09');
+    setCostOfSqFtPerHour(window.localStorage.getItem('costOfSqFtPerHour') || '0.01');
     setLoading(false);
   }, []);
 
@@ -108,7 +108,7 @@ const  OtherCostsForEConsultTable: NextPage = () => {
             errored: false
           }}
         />
-        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => setCostOfSqFtPerHour('0.09')}>
+        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => setCostOfSqFtPerHour('0.01')}>
           Set to default
         </span>
       </div>
