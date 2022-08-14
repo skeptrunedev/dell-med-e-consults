@@ -46,7 +46,7 @@ const Home: NextPage = () => {
                   <div className="aspect-w-12 aspect-h-7 lg:aspect-none">
                     <img
                       className="rounded-lg shadow-lg object-cover object-center"
-                      src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fwww.creativefabrica.com%2Fwp-content%2Fuploads%2F2020%2F01%2F05%2FDoctor-medical-check-up-for-healthcare-Graphics-1-16.jpg&sp=1660233374T2f8abaeabe1c31e4a5d4ff76d5fb2f26f73af2a860833f8cf5bbc68035261560"
+                      src="/Dell_Medical_animation.gif"
                       alt="Whitney leaning against a railing on a downtown street"
                       width={1184}
                       height={1376}
