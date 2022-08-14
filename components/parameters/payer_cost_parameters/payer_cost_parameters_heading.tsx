@@ -8,7 +8,7 @@ const  PayerCostParametersHeading: NextPage<PayerCostParametersHeadingProps> = (
     <div className="mt-8 px-4 md:px-28 text-casal-400">
       <div className="grid grid-cols-2">
         <div className='flex'>
-          <span className="text-2xl font-semibold"> Payer Cost </span>
+          <span className="text-2xl font-semibold"> Payor Cost </span>
         </div>
         <div className="flex self-center text-sm md:text-base mt-2 justify-self-end mr-6 select-none">
           <span className="cursor-pointer" onClick={() => setExpandAllSetting('expanded')}> Expand All </span>

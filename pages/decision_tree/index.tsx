@@ -5,6 +5,15 @@ import WelcomeHeading from '../../components/parameters/WelcomeHeading'
 import Xarrow from "react-xarrows";
 import { useState, useEffect } from 'react';
 import DecisionTreeInput from '../../components/util/decision-tree-input';
+import { 
+  calculatePayerCostScheduleAppointmentCallPatient, 
+  calculatePayerCostCallPatient,
+  calculatePayerCostScheduleAppointmentDoNotCallPatient,
+  calculatePayerCostDoNotCallPatient,
+  calculatePayerCostEConsult,
+  calculatePayerCostScheduleAppointmentUsualCare,
+  calculatePayerCostUsualCare,
+} from '../../utils/decision-tree-calculations';
 
 const DecisionTree: NextPage = () => {
   // E-Consult
@@ -17,8 +26,8 @@ const DecisionTree: NextPage = () => {
   const [patientShowsCallPatientEConsult, setPatientShowsCallPatientEConsult] = useState('80');
   const [scheduleAppointmentDoNotCallPatient, setScheduleAppointmentDoNotCallPatient] = useState('50');
   const [recommendPhysicianDoNotCallPatient, setRecommendPhysicianDoNotCallPatient] = useState('50');
-  const [patientNoShowDoNotCallPatientEConsult, setPatientNoShowDoNotCallPatientEConsult] = useState('70');
-  const [patientShowsDoNotCallPatientEConsult, setPatientShowsDoNotCallPatientEConsult] = useState('30');
+  const [patientNoShowDoNotCallPatientEConsult, setPatientNoShowDoNotCallPatientEConsult] = useState('30');
+  const [patientShowsDoNotCallPatientEConsult, setPatientShowsDoNotCallPatientEConsult] = useState('70');
 
   // Usual Care
   const [scheduleAppointmentUsualCare, setScheduleAppointmentUsualCare] = useState('90');
@@ -28,6 +37,15 @@ const DecisionTree: NextPage = () => {
 
   // LocalStorage
   const [loading, setLoading] = useState(true);
+
+  // Calculations
+  const [payerCostScheduleAppointmentCallPatient, setPayerCostScheduleAppointmentCallPatient] = useState('0');
+  const [payerCostScheduleAppointmentDoNotCallPatient, setPayerCostScheduleAppointmentDoNotCallPatient] = useState('0');
+  const [payerCostCallPatient, setPayerCostCallPatient] = useState('0');
+  const [payerCostDoNotCallPatient, setPayerCostDoNotCallPatient] = useState('0');
+  const [payerCostEConsult, setPayerCostEConsult] = useState('0');
+  const [payerCostScheduleAppointmentUsualCare, setPayerCostScheduleAppointmentUsualCare] = useState('0');
+  const [payerCostUsualCare, setPayerCostUsualCare] = useState('0');
 
   useEffect(() => {
     const loadData = () => {
@@ -56,26 +74,38 @@ const DecisionTree: NextPage = () => {
   }, []);
 
   useEffect(() => {
-    if(!loading) {
-      // E-Consult
-      localStorage.setItem('callPatient', callPatient);
-      localStorage.setItem('doNotCallPatient', doNotCallPatient);
-      localStorage.setItem('scheduleAppointmentCallPatient', scheduleAppointmentCallPatient);
-      localStorage.setItem('recommendPhysicianCallPatient', recommendPhysicianCallPatient);
-      localStorage.setItem('noActionCallPatient', noActionCallPatient);
-      localStorage.setItem('patientNoShowCallPatientEConsult', patientNoShowCallPatientEConsult);
-      localStorage.setItem('patientShowsCallPatientEConsult', patientShowsCallPatientEConsult);
-      localStorage.setItem('scheduleAppointmentDoNotCallPatient', scheduleAppointmentDoNotCallPatient);
-      localStorage.setItem('recommendPhysicianDoNotCallPatient', recommendPhysicianDoNotCallPatient);
-      localStorage.setItem('patientNoShowDoNotCallPatientEConsult', patientNoShowDoNotCallPatientEConsult);
-      localStorage.setItem('patientShowsDoNotCallPatientEConsult', patientShowsDoNotCallPatientEConsult);
-
-      // Usual Care
-      localStorage.setItem('scheduleAppointmentUsualCare', scheduleAppointmentUsualCare);
-      localStorage.setItem('doNotScheduleAppointmentUsualCare', doNotScheduleAppointmentUsualCare);
-      localStorage.setItem('patientNoShowUsualCare', patientNoShowUsualCare);
-      localStorage.setItem('patientShowsUsualCare', patientShowsUsualCare);
+    if(loading) {
+      return;
     }
+
+    // E-Consult
+    localStorage.setItem('callPatient', callPatient);
+    localStorage.setItem('doNotCallPatient', doNotCallPatient);
+    localStorage.setItem('scheduleAppointmentCallPatient', scheduleAppointmentCallPatient);
+    localStorage.setItem('recommendPhysicianCallPatient', recommendPhysicianCallPatient);
+    localStorage.setItem('noActionCallPatient', noActionCallPatient);
+    localStorage.setItem('patientNoShowCallPatientEConsult', patientNoShowCallPatientEConsult);
+    localStorage.setItem('patientShowsCallPatientEConsult', patientShowsCallPatientEConsult);
+    localStorage.setItem('scheduleAppointmentDoNotCallPatient', scheduleAppointmentDoNotCallPatient);
+    localStorage.setItem('recommendPhysicianDoNotCallPatient', recommendPhysicianDoNotCallPatient);
+    localStorage.setItem('patientNoShowDoNotCallPatientEConsult', patientNoShowDoNotCallPatientEConsult);
+    localStorage.setItem('patientShowsDoNotCallPatientEConsult', patientShowsDoNotCallPatientEConsult);
+
+    // Usual Care
+    localStorage.setItem('scheduleAppointmentUsualCare', scheduleAppointmentUsualCare);
+    localStorage.setItem('doNotScheduleAppointmentUsualCare', doNotScheduleAppointmentUsualCare);
+    localStorage.setItem('patientNoShowUsualCare', patientNoShowUsualCare);
+    localStorage.setItem('patientShowsUsualCare', patientShowsUsualCare);
+    
+    // Calculations
+    setPayerCostScheduleAppointmentCallPatient(calculatePayerCostScheduleAppointmentCallPatient());
+    setPayerCostScheduleAppointmentDoNotCallPatient(calculatePayerCostScheduleAppointmentDoNotCallPatient());
+    setPayerCostCallPatient(calculatePayerCostCallPatient());
+    setPayerCostDoNotCallPatient(calculatePayerCostDoNotCallPatient());
+    setPayerCostEConsult(calculatePayerCostEConsult());
+    setPayerCostScheduleAppointmentUsualCare(calculatePayerCostScheduleAppointmentUsualCare());
+    setPayerCostUsualCare(calculatePayerCostUsualCare());
+
   }, [callPatient, doNotCallPatient, scheduleAppointmentCallPatient, recommendPhysicianCallPatient, noActionCallPatient, patientNoShowCallPatientEConsult, patientShowsCallPatientEConsult, scheduleAppointmentDoNotCallPatient, recommendPhysicianDoNotCallPatient, patientNoShowDoNotCallPatientEConsult, patientShowsDoNotCallPatientEConsult, scheduleAppointmentUsualCare, doNotScheduleAppointmentUsualCare, patientNoShowUsualCare, patientShowsUsualCare, loading]);
 
   return (
@@ -97,13 +127,7 @@ const DecisionTree: NextPage = () => {
                   Payor: 
                 </p>
                 <p className="text-green-700">
-                  $65.45
-                </p>
-                <p className="text-amber-700">
-                  Provider:
-                </p>
-                <p className="text-amber-700">
-                  $12.20
+                  { payerCostEConsult }
                 </p>
               </div>
             </div>
@@ -114,13 +138,7 @@ const DecisionTree: NextPage = () => {
                   Payor: 
                 </p>
                 <p className="text-green-700">
-                  $129.74
-                </p>
-                <p className="text-amber-700">
-                  Provider:
-                </p>
-                <p className="text-amber-700">
-                  $23.27
+                  { payerCostUsualCare }
                 </p>
               </div>
             </div>
@@ -146,13 +164,7 @@ const DecisionTree: NextPage = () => {
                     Payor: 
                   </p>
                   <p className="text-green-700">
-                    $53.30
-                  </p>
-                  <p className="text-amber-700">
-                    Provider:
-                  </p>
-                  <p className="text-amber-700">
-                    $13.62
+                    { payerCostCallPatient }
                   </p>
                 </div>
               </div>
@@ -177,13 +189,7 @@ const DecisionTree: NextPage = () => {
                     Payor: 
                   </p>
                   <p className="text-green-700">
-                    $83.66
-                  </p>
-                  <p className="text-amber-700">
-                    Provider:
-                  </p>
-                  <p className="text-amber-700">
-                    $10.05
+                    { payerCostDoNotCallPatient }
                   </p>
                 </div>
               </div>
@@ -208,13 +214,7 @@ const DecisionTree: NextPage = () => {
                     Payor: 
                   </p>
                   <p className="text-green-700">
-                    $65.45
-                  </p>
-                  <p className="text-amber-700">
-                    Provider:
-                  </p>
-                  <p className="text-amber-700">
-                    $12.20
+                    { payerCostScheduleAppointmentUsualCare }
                   </p>
                 </div>
               </div>
@@ -257,13 +257,7 @@ const DecisionTree: NextPage = () => {
                     Payor: 
                   </p>
                   <p className="text-green-700">
-                    $140.71
-                  </p>
-                  <p className="text-amber-700">
-                    Provider:
-                  </p>
-                  <p className="text-amber-700">
-                    $28.22
+                    { payerCostScheduleAppointmentCallPatient }
                   </p>
                 </div>
               </div>
@@ -332,7 +326,7 @@ const DecisionTree: NextPage = () => {
 
           <div className="grid justify-self-center grid-cols-5 space-x-14 px-8">
             <div id="PNSTwo" className="w-fit px-5 py-4 bg-slate-100 font-semibold border-2 rounded-lg border-purple-500 justify-self-end mr-6">
-              <span>  Patient No Shows </span>
+              <span>  Patient No Shows <br></br> (in person)  </span>
               <DecisionTreeInput
                 {...{
                   label: '',
@@ -347,7 +341,7 @@ const DecisionTree: NextPage = () => {
               />
             </div>
             <div id="PATwo" className="w-fit px-10 py-4 bg-purple-100 font-semibold border-2 rounded-lg border-purple-500">
-              <span> Patient Attends </span>
+              <span> Patient Attends <br></br> (in person) </span>
               <DecisionTreeInput
                 {...{
                   label: '',
@@ -385,13 +379,7 @@ const DecisionTree: NextPage = () => {
                     Payor: 
                   </p>
                   <p className="text-green-700">
-                    $130.98
-                  </p>
-                  <p className="text-amber-700">
-                    Provider:
-                  </p>
-                  <p className="text-amber-700">
-                    $20.11
+                    { payerCostScheduleAppointmentDoNotCallPatient }
                   </p>
                 </div>
               </div>
