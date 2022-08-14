@@ -24,7 +24,7 @@ export const calculatePayerCostScheduleAppointmentCallPatient = () => {
 // DecisionTree!J23
 export const calculatePayerCostCallPatient = () => {
   const payerCostScheduleAppointment = calculatePayerCostScheduleAppointmentCallPatient(); // DecisionTree!L20
-  const payerCostScheduleAppointmentPercentage = Number(window.localStorage.getItem('scheduleAppointmentCallPatient')) / 100;
+  const payerCostScheduleAppointmentPercentage = Number(window.localStorage.getItem('scheduleAppointmentCallPatient')) / 100; // DecisionTree!K22
   const payerCostScheduleAppointmentUpside = Number(payerCostScheduleAppointment) * payerCostScheduleAppointmentPercentage;
 
   const reccToPCP = 36.34 // DecisionTree!Q11 & Q29
@@ -60,7 +60,7 @@ export const calculatePayerCostScheduleAppointmentDoNotCallPatient = () => {
 // DecisionTree!J38
 export const calculatePayerCostDoNotCallPatient = () => {
   const payerCostScheduleAppointment = Number(calculatePayerCostScheduleAppointmentDoNotCallPatient()); // DecisionTree!L35
-  const payerCostScheduleAppointmentPercentage = Number(window.localStorage.getItem('scheduleAppointmentDoNotCallPatient')) / 100;
+  const payerCostScheduleAppointmentPercentage = Number(window.localStorage.getItem('scheduleAppointmentDoNotCallPatient')) / 100; // DecisionTree!L37
   const payerCostScheduleAppointmentUpside = payerCostScheduleAppointment * payerCostScheduleAppointmentPercentage;
 
   const reccToPCP = 36.34 // DecisionTree!Q11 & Q29
@@ -75,11 +75,11 @@ export const calculatePayerCostDoNotCallPatient = () => {
 
 export const calculatePayerCostEConsult = () => {
   const payerCostCallPatient = Number(calculatePayerCostCallPatient()); // DecisionTree!J23
-  const payerCostCallPatientPercentage = Number(window.localStorage.getItem('callPatient')) / 100;
+  const payerCostCallPatientPercentage = Number(window.localStorage.getItem('callPatient')) / 100; // DecisionTree!I25
   const payerCostCallPatientUpside = payerCostCallPatient * payerCostCallPatientPercentage;
 
   const payerCostDoNotCallPatient = Number(calculatePayerCostDoNotCallPatient()); // DecisionTree!J38
-  const payerCostDoNotCallPatientPercentage = Number(window.localStorage.getItem('doNotCallPatient')) / 100;
+  const payerCostDoNotCallPatientPercentage = Number(window.localStorage.getItem('doNotCallPatient')) / 100; // DecisionTree!I41
   const payerCostDoNotCallPatientUpside = payerCostDoNotCallPatient * payerCostDoNotCallPatientPercentage;
   
   const result = String(Number(payerCostCallPatientUpside + payerCostDoNotCallPatientUpside).toFixed(2));
@@ -106,6 +106,20 @@ export const calculatePayerCostUsualCare = () => {
 
   const result = String(Number(payerCostScheduleAppointmentUpside).toFixed(2));
   window.localStorage.setItem('payerCostUsualCareDT', result);
+
+  return result;
+}
+
+export const calculateDecisionTreeAveragedOverProgram = () => {
+  const payerCostDoNotCallPatientPercentage = Number(window.localStorage.getItem('doNotCallPatient')) / 100; // DecisionTree!I41
+  const payerCostScheduleAppointmentDoNotCallPatientPercentage = Number(window.localStorage.getItem('scheduleAppointmentDoNotCallPatient')) / 100; // DecisionTree!L37
+  const valOne = payerCostDoNotCallPatientPercentage * payerCostScheduleAppointmentDoNotCallPatientPercentage;
+
+  const payerCostCallPatientPercentage = Number(window.localStorage.getItem('callPatient')) / 100; // DecisionTree!I25
+  const payerCostScheduleAppointmentCallPatientPercentage = Number(window.localStorage.getItem('scheduleAppointmentCallPatient')) / 100; // DecisionTree!K22
+  const valTwo = payerCostCallPatientPercentage * payerCostScheduleAppointmentCallPatientPercentage;
+
+  const result = String(Number((1 - valOne - valTwo)).toFixed(2));
 
   return result;
 }

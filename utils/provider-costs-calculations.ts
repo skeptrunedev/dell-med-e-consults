@@ -69,3 +69,23 @@ export const calculateProviderCostsEConsultTotal = () => {
 
   return result;
 }
+
+export const calculateAverageSavingsPerEConsultation = () => {
+  const payerCostEConsultDT = Number(window.localStorage.getItem('payerCostEConsultDT') || '0');
+  const payerCostUsualCareDT = Number(window.localStorage.getItem('payerCostUsualCareDT') || '0');
+
+  const result = String(Number(payerCostUsualCareDT - payerCostEConsultDT).toFixed(2));
+  window.localStorage.setItem('averageSavingsPerEConsultation', result);
+
+  return result;
+}
+
+export const calculateSavingsForEConsultationAveragedOverProgram = (DecisionTreeNumber: String) => {
+  const amountForEConsultsWeightedCostPerVisit = Number(window.localStorage.getItem('amountForEConsultsWeightedCostPerVisit')); // Parameters!E66
+  const DTNumber = Number(DecisionTreeNumber);
+
+  const result = String(Number(amountForEConsultsWeightedCostPerVisit * DTNumber).toFixed(2));
+  window.localStorage.setItem('savingsForEConsultationAveragedOverProgram', result);
+
+  return result;
+}

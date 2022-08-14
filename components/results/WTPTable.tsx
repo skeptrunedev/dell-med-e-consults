@@ -1,18 +1,37 @@
 
 import type { NextPage } from 'next'
 import { useState, useEffect } from 'react'
-import { calculateProviderCostsEConsultTotal } from '../../utils/provider-costs-calculations';
+import { 
+  calculateProviderCostsEConsultTotal, 
+  calculateAverageSavingsPerEConsultation, 
+  calculateSavingsForEConsultationAveragedOverProgram 
+} from '../../utils/provider-costs-calculations';
+import { calculateDecisionTreeAveragedOverProgram } from '../../utils/decision-tree-calculations';
 
 const  WTPTable: NextPage = () => {
-  const [averageCostPerUsualCare, setAverageCostPerUsualCare] = useState('0')
-  const [averageCostPerEConsultation, setAverageCostPerEConsultation] = useState('0')
-  const [totalCostPerEConsultation, setTotalCostPerEConsultation] = useState('0')
-  const [wtpPerEConsultation, setWTPPerEConsultation] = useState('0')
-  const [lossGainPerEConsultation, setLossGainPerEConsultation] = useState('0')
+  const [averageCostPerUsualCare, setAverageCostPerUsualCare] = useState('0');
+  const [averageCostPerEConsultation, setAverageCostPerEConsultation] = useState('0');
+  const [averageSavingsPerEConsultation, setAverageSavingsPerEConsultation] = useState('0');
+  const [totalCostPerEConsultation, setTotalCostPerEConsultation] = useState('0');
+  const [costPerEConsultationAeragedOverProgram, setCostPerEConsultationAeragedOverProgram] = useState('0');
+  const [wtpPerEConsultation, setWTPPerEConsultation] = useState('0');
+  const [lossGainPerEConsultation, setLossGainPerEConsultation] = useState('0');
 
   useEffect(() => {
+    setAverageCostPerEConsultation(window.localStorage.getItem('payerCostEConsultDT') || '0');
+    setAverageCostPerUsualCare(window.localStorage.getItem('payerCostUsualCareDT') || '0');
+    setAverageSavingsPerEConsultation(calculateAverageSavingsPerEConsultation());
     setTotalCostPerEConsultation(calculateProviderCostsEConsultTotal());
+    setCostPerEConsultationAeragedOverProgram(calculateSavingsForEConsultationAveragedOverProgram(calculateDecisionTreeAveragedOverProgram()));
   }, []);
+
+  useEffect(() => {
+    setWTPPerEConsultation(String(Number(Number(costPerEConsultationAeragedOverProgram) + Number(averageSavingsPerEConsultation)).toFixed(2)));
+  }, [costPerEConsultationAeragedOverProgram, averageSavingsPerEConsultation]);
+
+  useEffect(() => {
+    setLossGainPerEConsultation(String(Number(Number(wtpPerEConsultation) - Number(totalCostPerEConsultation)).toFixed(2)));
+  } , [wtpPerEConsultation, totalCostPerEConsultation]);
 
   return (
     <div className="mt-16 mx-4 md:mx-28 text-casal-400">
@@ -27,19 +46,28 @@ const  WTPTable: NextPage = () => {
           {/* Row */}
           <div className="grid grid-cols-2 mt-6 font-medium">
             <div>
-              Average cost per usual care
+              Average cost per e-consult
             </div>
             <span>
-              $ 60.00
+              $ { averageCostPerEConsultation }
             </span>
           </div>
           {/* Row */}
           <div className="grid grid-cols-2 mt-6 font-medium">
             <div>
-              Average cost per e-consult
+              Average cost per usual care
             </div>
             <span>
-              $ 60.00
+              $ { averageCostPerUsualCare}
+            </span>
+          </div>
+          {/* Row */}
+          <div className="grid grid-cols-2 mt-6 font-medium">
+            <div>
+              Average savings per e-consult visit
+            </div>
+            <span>
+              $ { averageSavingsPerEConsultation }
             </span>
           </div>
           {/* Row */}
@@ -54,10 +82,10 @@ const  WTPTable: NextPage = () => {
           {/* Row */}
           <div className="grid grid-cols-2 mt-6 font-medium">
             <div>
-              Average cost per e-consult
+              Cost per e-consult averaged over program
             </div>
             <span>
-              $ 60.00
+              $ { costPerEConsultationAeragedOverProgram }
             </span>
           </div>
           {/* Row */}
@@ -66,7 +94,7 @@ const  WTPTable: NextPage = () => {
               WTP per e-consult
             </div>
             <span>
-              $ 60.00
+              $ { wtpPerEConsultation }
             </span>
           </div>
           {/* Row */}
@@ -75,7 +103,7 @@ const  WTPTable: NextPage = () => {
               Loss/Gain per e-consult
             </div>
             <span>
-              $ 60.00
+              $ { lossGainPerEConsultation }
             </span>
           </div>
         </div>
