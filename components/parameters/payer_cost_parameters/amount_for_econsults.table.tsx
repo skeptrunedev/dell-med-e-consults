@@ -29,7 +29,7 @@ const defaultCodes: Code[] = [
     avg_physician_time_spent: 25,
   },
   {
-    id: 3,
+    id: 4,
     code: "99451",
     code_details: "interprofessional consult 5+ minutes",
     CMS_non_facility_price: 36.34,
@@ -39,7 +39,7 @@ const defaultCodes: Code[] = [
 ]
 
 const  AmountForEConsultsTable: NextPage = () => {
-  const [codes, setCodes] = useState<Code[]>(defaultCodes);
+  const [codes, setCodes] = useState<Code[]>(JSON.parse(JSON.stringify(defaultCodes)));
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -67,7 +67,7 @@ const  AmountForEConsultsTable: NextPage = () => {
           value={code.code}
           onChange={
             (e) => {
-              var codesCopy: Code[] = codes;
+              var codesCopy: Code[] = JSON.parse(JSON.stringify(codes));
               code.code = e.target.value;
               codesCopy[index] = code;
               setCodes([...codesCopy]);
@@ -84,7 +84,7 @@ const  AmountForEConsultsTable: NextPage = () => {
           value={code.code_details}
           onChange={
             (e) => {
-              var codesCopy: Code[] = codes;
+              var codesCopy: Code[] = JSON.parse(JSON.stringify(codes));
               code.code_details = e.target.value;
               codesCopy[index] = code;
               setCodes([...codesCopy]);
@@ -104,7 +104,7 @@ const  AmountForEConsultsTable: NextPage = () => {
           value={code.CMS_non_facility_price}
           onChange={
             (e) => {
-              var codesCopy: Code[] = codes;
+              var codesCopy: Code[] = JSON.parse(JSON.stringify(codes));
               code.CMS_non_facility_price = Number(e.target.value);
               codesCopy[index] = code;
               setCodes([...codesCopy]);
@@ -125,7 +125,7 @@ const  AmountForEConsultsTable: NextPage = () => {
           value={code.percentage_of_total_visits}
           onChange={
             (e) => {
-              var codesCopy: Code[] = codes;
+              var codesCopy: Code[] = JSON.parse(JSON.stringify(codes));
               code.percentage_of_total_visits = Number(e.target.value);
               codesCopy[index] = code;
               setCodes([...codesCopy]);
@@ -146,7 +146,7 @@ const  AmountForEConsultsTable: NextPage = () => {
           value={code.avg_physician_time_spent}
           onChange={
             (e) => {
-              var codesCopy: Code[] = codes;
+              var codesCopy: Code[] = JSON.parse(JSON.stringify(codes));
               code.avg_physician_time_spent = Number(e.target.value);
               codesCopy[index] = code;
               setCodes([...codesCopy]);
@@ -157,8 +157,12 @@ const  AmountForEConsultsTable: NextPage = () => {
           <span
             className="self-center mt-2 text-casal-300 cursor-pointer select-none"
             onClick={() => {
-              var codesCopy: Code[] = codes;
-              index == 0 ? codesCopy.shift() : codesCopy.splice(index, index);
+              var codesCopy: Code[] = JSON.parse(JSON.stringify(codes));
+              if(index == 0) {
+                codesCopy.shift();
+              } else {
+                codesCopy.splice(index, 1);
+              }
               setCodes([...codesCopy]);
             }}
           >
@@ -203,7 +207,7 @@ const  AmountForEConsultsTable: NextPage = () => {
         <span 
           className="self-center text-casal-300 cursor-pointer select-none" 
           onClick={() => {
-            setCodes(defaultCodes)
+            setCodes(JSON.parse(JSON.stringify(defaultCodes)));
           }}
         >
           Set to default
