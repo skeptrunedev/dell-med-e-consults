@@ -63,7 +63,7 @@ const  AmountForMedicaidConsults: NextPage<GetExpandedAll> = ({expandAllSetting}
               placeholder: '',
               value: weightedCostPerVisit,
               setValue: setWeightedCostPerVisit,
-              type: 'fixed2',
+              type: 'USD',
               errored: false,
               disabled: true
             }}

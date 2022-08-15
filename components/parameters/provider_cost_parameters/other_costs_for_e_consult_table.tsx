@@ -43,7 +43,7 @@ const  OtherCostsForEConsultTable: NextPage = () => {
             placeholder: '',
             value: equipmentTechPerHour,
             setValue: setEquipmentTechPerHour,
-            type: 'integer',
+            type: 'USD',
             disabled: false,
             errored: false
           }}
@@ -63,7 +63,7 @@ const  OtherCostsForEConsultTable: NextPage = () => {
             placeholder: '',
             value: phoneInternetPerHour,
             setValue: setPhoneInternetPerHour,
-            type: 'integer',
+            type: 'USD',
             disabled: false,
             errored: false
           }}
@@ -83,7 +83,7 @@ const  OtherCostsForEConsultTable: NextPage = () => {
             placeholder: '',
             value: roomSpaceSqFeet,
             setValue: setRoomSpaceSqFeet,
-            type: 'integer',
+            type: 'USD',
             disabled: false,
             errored: false
           }}
@@ -103,7 +103,7 @@ const  OtherCostsForEConsultTable: NextPage = () => {
             placeholder: '',
             value: costOfSqFtPerHour,
             setValue: setCostOfSqFtPerHour,
-            type: 'integer',
+            type: 'USD',
             disabled: false,
             errored: false
           }}

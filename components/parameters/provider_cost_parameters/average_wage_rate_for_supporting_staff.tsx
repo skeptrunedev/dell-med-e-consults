@@ -32,7 +32,7 @@ const  AverageWageRateForSupportingStaff: NextPage = () => {
               placeholder: '',
               value: averageWageRateForSupportingStaff,
               setValue: setAverageWageRateForSupportingStaff,
-              type: 'fixed2',
+              type: 'USD',
               disabled: false,
               errored: false
             }}

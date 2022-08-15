@@ -57,7 +57,7 @@ const  AmountForOfficeVisit: NextPage<GetExpandedAll> = ({expandAllSetting}) => 
               placeholder: '',
               value: totalAmount,
               setValue: () => {},
-              type: 'usd',
+              type: 'USD',
               disabled: true,
               errored: false
             }}

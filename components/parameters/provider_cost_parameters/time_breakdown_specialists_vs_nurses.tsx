@@ -33,38 +33,48 @@ const  TimeBreakdownSpecialistsVsNurses: NextPage = () => {
               <label htmlFor="specialist_percentage" className="w-fit font-medium">
                 Specialist Percentage
               </label>
-              <input
-                type="number"
-                min="0.00"
-                max="100.00"
-                step="0.1"
-                name={"specialist_percentage"}
-                id={"specialist_percentage_id"}
-                className="focus:border focus:outline-casal-300 w-full border px-3 py-2 rounded-md text-casal-400 border-casal-300 md:mr-4 mt-2"
-                placeholder={"00000"}
-                disabled={false}
-                value={specialistPercentage}
-                onChange={(e) => { setSpecialistPercentage(Number(e.target.value)) }}
-              />
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-2 mt-2 flex items-center pointer-events-none">
+                  <span className="text-gray-500 sm:text-sm">%</span>
+                </div>
+                <input
+                  type="number"
+                  min="0.00"
+                  max="100.00"
+                  step="0.1"
+                  name={"specialist_percentage"}
+                  id={"specialist_percentage_id"}
+                  className="focus:border focus:outline-casal-300 w-full border px-3 py-2 pl-6 rounded-md text-casal-400 border-casal-300 md:mr-4 mt-2 md:mt-8 xl:mt-2"
+                  placeholder={"00000"}
+                  disabled={false}
+                  value={specialistPercentage}
+                  onChange={(e) => { setSpecialistPercentage(Number(e.target.value)) }}
+                />
+              </div>
             </div>
             
             <div>
               <label htmlFor="supporting_staff_percentage" className="w-fit font-medium">
                 Supporting Staff Percentage
               </label>
-              <input
-                type="number"
-                min="0.00"
-                max="100.00"
-                step="0.1"
-                name={"supporting_staff_percentage"}
-                id={"supporting_staff_percentage_id"}
-                className="focus:border focus:outline-casal-300 w-full border px-3 py-2 rounded-md text-casal-400 border-casal-300 mt-2"
-                placeholder={"00000"}
-                disabled={false}
-                value={supportingStaffPercentage}
-                onChange={(e) => { setSupportingStaffPercentage(Number(e.target.value)) }}
-              />
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-2 mt-2 flex items-center pointer-events-none">
+                  <span className="text-gray-500 sm:text-sm">%</span>
+                </div>
+                <input
+                  type="number"
+                  min="0.00"
+                  max="100.00"
+                  step="0.1"
+                  name={"supporting_staff_percentage"}
+                  id={"supporting_staff_percentage_id"}
+                  className="focus:border focus:outline-casal-300 w-full border px-3 py-2 pl-6 rounded-md text-casal-400 border-casal-300 mt-2"
+                  placeholder={"00000"}
+                  disabled={false}
+                  value={supportingStaffPercentage}
+                  onChange={(e) => { setSupportingStaffPercentage(Number(e.target.value)) }}
+                />
+              </div>
             </div>
           </div>
 

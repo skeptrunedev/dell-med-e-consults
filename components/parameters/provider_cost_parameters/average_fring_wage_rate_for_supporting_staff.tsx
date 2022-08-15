@@ -32,7 +32,7 @@ const  AverageFringeWageRateForSupportingStaff: NextPage = () => {
               placeholder: '',
               value: averageFringeWageRateForSupportingStaff,
               setValue: setAverageFringeWageRateForSupportingStaff,
-              type: 'fixed2',
+              type: 'USD',
               disabled: false,
               errored: false
             }}

@@ -32,7 +32,7 @@ const  AverageFringeWageRateForSpecialist: NextPage = () => {
               placeholder: '',
               value: averageFringeSpecialistWageRate,
               setValue: setAverageFringeSpecialistWageRate,
-              type: 'fixed2',
+              type: 'USD',
               disabled: false,
               errored: false
             }}

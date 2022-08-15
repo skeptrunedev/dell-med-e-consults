@@ -17,6 +17,7 @@ const calculateAmountForEConsults = () => {
     averagePhysicianTime += Number(code.avg_physician_time_spent || '0') * Number(code.percentage_of_total_visits || '0');
     weightedCostPerVisit += Number(code.CMS_non_facility_price || '0') * Number(code.percentage_of_total_visits || '0');
   });
+  weightedCostPerVisit = Number(weightedCostPerVisit.toFixed(2));
   window.localStorage.setItem('amountForEConsultsPercentageOfTotalVisits', percentageOfTotalVisits.toString());
   window.localStorage.setItem('amountForEConsultsAveragePhysicianTime', averagePhysicianTime.toString());
   window.localStorage.setItem('amountForEConsultsWeightedCostPerVisit', weightedCostPerVisit.toString());
@@ -69,7 +70,7 @@ const  AmountForEConsults: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
               placeholder: '',
               value: weightedCostPerVisit,
               setValue: setWeightedCostPerVisit,
-              type: 'fixed2',
+              type: 'USD',
               errored: false,
               disabled: true
             }}

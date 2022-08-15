@@ -51,19 +51,24 @@ const  AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
         <div className="text-md font-medium mt-5">
           <span> 0 mins </span>
         </div>
-        <input
-          type="number"
-          min="0.00"
-          max="100.00"
-          step="0.1"
-          name={"seven_point_five"}
-          id={"seven_point_five_Id"}
-          className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium"
-          placeholder={"00000"}
-          disabled={false}
-          value={zeroAdmin}
-          onChange={(e) => { setZeroAdmin(Number(e.target.value)) }}
-        />
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+            <span className="text-gray-500 sm:text-sm">%</span>
+          </div>
+          <input
+            type="number"
+            min="0.00"
+            max="100.00"
+            step="0.1"
+            name={"seven_point_five"}
+            id={"seven_point_five_Id"}
+            className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 pl-6 border-casal-300 rounded-md text-casal-400 font-medium"
+            placeholder={"00000"}
+            disabled={false}
+            value={zeroAdmin}
+            onChange={(e) => { setZeroAdmin(Number(e.target.value)) }}
+          />
+        </div>
         <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => { setZeroAdmin(0) }}>
           Set to default
         </span>
@@ -71,19 +76,24 @@ const  AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
         <div className="text-md font-medium mt-5">
           <span> 5 mins </span>
         </div>
-        <input
-          type="number"
-          min="0.00"
-          max="100.00"
-          step="0.1"
-          name={"seven_point_five"}
-          id={"seven_point_five_Id"}
-          className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium"
-          placeholder={"00000"}
-          disabled={false}
-          value={fiveAdmin}
-          onChange={(e) => { setFiveAdmin(Number(e.target.value)) }}
-        />
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+            <span className="text-gray-500 sm:text-sm">%</span>
+          </div>
+          <input
+            type="number"
+            min="0.00"
+            max="100.00"
+            step="0.1"
+            name={"seven_point_five"}
+            id={"seven_point_five_Id"}
+            className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 pl-6 border-casal-300 rounded-md text-casal-400 font-medium"
+            placeholder={"00000"}
+            disabled={false}
+            value={fiveAdmin}
+            onChange={(e) => { setFiveAdmin(Number(e.target.value)) }}
+          />
+        </div>
         <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => { setFiveAdmin(50) }}>
           Set to default
         </span>
@@ -91,19 +101,24 @@ const  AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
         <div className="text-md font-medium mt-1">
           <span> 10 mins </span>
         </div>
-        <input
-          type="number"
-          min="0.00"
-          max="100.00"
-          step="0.1"
-          name={"fourty_five"}
-          id={"fourty_five_Id"}
-          className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium"
-          placeholder={"00000"}
-          disabled={false}
-          value={tenAdmin}
-          onChange={(e) => { setTenAdmin(Number(e.target.value)) }}
-        />
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+            <span className="text-gray-500 sm:text-sm">%</span>
+          </div>
+          <input
+            type="number"
+            min="0.00"
+            max="100.00"
+            step="0.1"
+            name={"fourty_five"}
+            id={"fourty_five_Id"}
+            className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 pl-6 border-casal-300 rounded-md text-casal-400 font-medium"
+            placeholder={"00000"}
+            disabled={false}
+            value={tenAdmin}
+            onChange={(e) => { setTenAdmin(Number(e.target.value)) }}
+          />
+        </div>
         <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => { setTenAdmin(40) }}>
           Set to default
         </span>
@@ -111,19 +126,24 @@ const  AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
         <div className="text-md font-medium mt-1">
           <span> 15 mins </span>
         </div>
-        <input
-          type="number"
-          min="0.00"
-          max="100.00"
-          step="0.1"
-          name={"fifteen"}
-          id={"fifteen_Id"}
-          className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium"
-          placeholder={"00000"}
-          disabled={false}
-          value={fifteenAdmin}
-          onChange={(e) => { setFifteenAdmin(Number(e.target.value)) }}
-        />
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+            <span className="text-gray-500 sm:text-sm">%</span>
+          </div>
+          <input
+            type="number"
+            min="0.00"
+            max="100.00"
+            step="0.1"
+            name={"fifteen"}
+            id={"fifteen_Id"}
+            className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 pl-6 border-casal-300 rounded-md text-casal-400 font-medium"
+            placeholder={"00000"}
+            disabled={false}
+            value={fifteenAdmin}
+            onChange={(e) => { setFifteenAdmin(Number(e.target.value)) }}
+          />
+        </div>
         <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => { setFifteenAdmin(10) }}>
           Set to default
         </span>
@@ -131,19 +151,24 @@ const  AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
         <div className="text-md font-medium mt-1">
           <span> 20 mins </span>
         </div>
-        <input
-          type="number"
-          min="0.00"
-          max="100.00"
-          step="0.1"
-          name={"twenty_five"}
-          id={"twenty_five_Id"}
-          className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium"
-          placeholder={"00000"}
-          disabled={false}
-          value={twentyAdmin}
-          onChange={(e) => { setTwentyAdmin(Number(e.target.value)) }}
-        />
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+            <span className="text-gray-500 sm:text-sm">%</span>
+          </div>
+          <input
+            type="number"
+            min="0.00"
+            max="100.00"
+            step="0.1"
+            name={"twenty_five"}
+            id={"twenty_five_Id"}
+            className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 pl-6 border-casal-300 rounded-md text-casal-400 font-medium"
+            placeholder={"00000"}
+            disabled={false}
+            value={twentyAdmin}
+            onChange={(e) => { setTwentyAdmin(Number(e.target.value)) }}
+          />
+        </div>
         <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => { setTwentyAdmin(0) }}>
           Set to default
         </span>

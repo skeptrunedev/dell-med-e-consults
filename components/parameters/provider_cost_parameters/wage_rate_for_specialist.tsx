@@ -32,7 +32,7 @@ const  WageRateForSpecialist: NextPage = () => {
               placeholder: '',
               value: specialistWageRate,
               setValue: setSpecialistWageRate,
-              type: 'fixed2',
+              type: 'USD',
               disabled: false,
               errored: false
             }}
