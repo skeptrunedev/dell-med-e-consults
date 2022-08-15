@@ -13,7 +13,7 @@ const  WelcomeHeading: NextPage<NavbarProps> = ({ active_page }) => {
       <div className="grid">
           <a
             type="button"
-            className="justify-self-end self-center w-fit h-fit px-8 py-4 border-2 border-casal-300 font-medium rounded-xl text-casal-400 bg-honeysuckle-600/20 hover:bg-honeysuckle-600/40 focus:outline-none focus:ring-none"
+            className="justify-self-end self-center w-fit h-fit px-8 py-4 border-2 border-casal-300 font-medium rounded-xl text-casal-400 bg-honeysuckle-600/20 hover:bg-honeysuckle-600/40 focus:outline-none focus:ring-none text-center"
             href={ active_page == 'Parameters' ? "/decision_tree" : "/parameters" }
           >
             View { active_page == 'Parameters' ? "Decision Tree" : "Parameters" }

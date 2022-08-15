@@ -54,13 +54,13 @@ const  AmountForOfficeVisitsTable: NextPage = () => {
       <div className="grid grid-cols-4 mt-6 space-y-4">
         {/* Row */}
         <div className="text-md font-medium mt-5">
-          <span> Medicare/Medicaid </span>
+          <p> Medicare / Medicaid </p>
         </div>
         <input
           type="number"
           name={"medicare_fee"}
           id={"medicare_fee_Id"}
-          className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium"
+          className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium justify-self-center md:justify-self-start"
           placeholder={"00000"}
           disabled={false}
           value={medicareFee}
@@ -70,7 +70,7 @@ const  AmountForOfficeVisitsTable: NextPage = () => {
           type="number"
           name={"medicare_percentage"}
           id={"medicare_percentage_id"}
-          className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium"
+          className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium justify-self-center md:justify-self-start"
           placeholder={"00000"}
           disabled={false}
           value={medicarePercentage}
@@ -90,7 +90,7 @@ const  AmountForOfficeVisitsTable: NextPage = () => {
           type="number"
           name={"medicare_fee"}
           id={"medicare_fee_Id"}
-          className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium"
+          className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium justify-self-center md:justify-self-start ml-1 md:ml-0" 
           placeholder={"00000"}
           disabled={false}
           value={commercialFee}
@@ -100,7 +100,7 @@ const  AmountForOfficeVisitsTable: NextPage = () => {
           type="number"
           name={"medicare_percentage"}
           id={"medicare_percentage_id"}
-          className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium"
+          className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium justify-self-center md:justify-self-start"
           placeholder={"00000"}
           disabled={false}
           value={commercialPercentage}
@@ -120,7 +120,7 @@ const  AmountForOfficeVisitsTable: NextPage = () => {
           type="number"
           name={"medicare_fee"}
           id={"medicare_fee_Id"}
-          className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium"
+          className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium justify-self-center md:justify-self-start"
           placeholder={"00000"}
           disabled={false}
           value={otherFee}

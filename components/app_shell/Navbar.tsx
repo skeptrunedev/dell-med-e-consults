@@ -9,7 +9,7 @@ import Head from 'next/head'
 const nav_items: NavItem[] = [
   {
     name: "About The Tool",
-    link: "",
+    link: "home",
     key: 1
   },
   {
@@ -37,8 +37,8 @@ const  Navbar: NextPage<NavbarProps> = ({ active_page }) => {
         href={"/" + navItem.link}
         className={
           active_page == navItem.name ?
-                          "text-honeysuckle inline-flex items-center px-1 pt-1 text-lg" :
-                          "text-white inline-flex items-center px-1 pt-1 hover:text-honeysuckle-600 text-lg"
+                          "text-honeysuckle inline-flex items-center px-1 pt-1 text-base md:text-lg lg:text-xl" :
+                          "text-white inline-flex items-center px-1 pt-1 hover:text-honeysuckle-600 text-base md:text-lg lg:text-xl"
         }
       >
         {navItem.name}
@@ -80,12 +80,12 @@ const  Navbar: NextPage<NavbarProps> = ({ active_page }) => {
               <div className="flex justify-between h-12">
                 <div className="flex items-center">
                   <img src='/EconAnalysisFavicon.png' alt="logo" className="w-4 h-4 mr-2"/>
-                  <a href='/' className="flex-shrink-0 flex font-medium items-center text-xl text-white">
+                  <a href='/' className="flex-shrink-0 flex font-medium items-center text-xl lg:text-2xl text-white">
                     <span className="font-extrabold">Econ</span>
                     Analysis
                   </a>
                 </div>
-                <div className="hidden sm:flex space-x-6">
+                <div className="hidden sm:flex md:space-x-2 lg:space-x-6">
                   {links}
                 </div>
                 <div className="-mr-2 flex items-center sm:hidden">

@@ -91,7 +91,9 @@ const  AmountForEConsults: NextPage<GetExpandedAll> = ({expandAllSetting}) => {
           </span>
         </div>
       </div>
-      { displayExpandedTable() }
+      <div>
+        { displayExpandedTable() }
+      </div>
     </div>
   )
 }

@@ -98,7 +98,7 @@ const  AmountForEConsultsTable: NextPage = () => {
           step="0.01"
           name={"CMS_non_facility_price" + index}
           id={"CMS_non_facility_price" + index + "Id"}
-          className="focus:border focus:outline-casal-300 w-fit border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium"
+          className="focus:border focus:outline-casal-300 w-5/6 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium"
           placeholder={"10.00"}
           disabled={false}
           value={code.CMS_non_facility_price}
@@ -119,7 +119,7 @@ const  AmountForEConsultsTable: NextPage = () => {
           step="0.1"
           name={"percentage_of_total_visits" + index}
           id={"percentage_of_total_visits" + index + "Id"}
-          className="focus:border focus:outline-casal-300 w-fit border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium"
+          className="focus:border focus:outline-casal-300 w-2/3 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium"
           placeholder={"0.00"}
           disabled={false}
           value={code.percentage_of_total_visits}
@@ -140,7 +140,7 @@ const  AmountForEConsultsTable: NextPage = () => {
           step="0.1"
           name={"avg_physician_time_spent" + index}
           id={"avg_physician_time_spent" + index + "Id"}
-          className="focus:border focus:outline-casal-300 w-fit border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium"
+          className="focus:border focus:outline-casal-300 w-2/3 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium"
           placeholder={"30"}
           disabled={false}
           value={code.avg_physician_time_spent}
@@ -166,7 +166,7 @@ const  AmountForEConsultsTable: NextPage = () => {
               setCodes([...codesCopy]);
             }}
           >
-            Delete Code
+            Delete
           </span>
       </div>
     )
@@ -180,13 +180,13 @@ const  AmountForEConsultsTable: NextPage = () => {
           CPT Codes
         </div>
         <div>
-          Comments
+          Extra Info
         </div>
         <div>
           CMS non facility price ($)
         </div>
         <div>
-          Percentage of total visits
+        % of total visits
         </div>
         <div>
           Average physician time on e-consult
