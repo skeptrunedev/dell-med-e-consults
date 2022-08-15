@@ -59,8 +59,8 @@ const DecisionTree: NextPage = () => {
       setPatientShowsCallPatientEConsult(localStorage.getItem('patientShowsCallPatientEConsult') || '80');
       setScheduleAppointmentDoNotCallPatient(localStorage.getItem('scheduleAppointmentDoNotCallPatient') || '50');
       setRecommendPhysicianDoNotCallPatient(localStorage.getItem('recommendPhysicianDoNotCallPatient') || '50');
-      setPatientNoShowDoNotCallPatientEConsult(localStorage.getItem('patientNoShowDoNotCallPatientEConsult') || '70');
-      setPatientShowsDoNotCallPatientEConsult(localStorage.getItem('patientShowsDoNotCallPatientEConsult') || '30');
+      setPatientNoShowDoNotCallPatientEConsult(localStorage.getItem('patientNoShowDoNotCallPatientEConsult') || '30');
+      setPatientShowsDoNotCallPatientEConsult(localStorage.getItem('patientShowsDoNotCallPatientEConsult') || '70');
 
       // Usual Care
       setScheduleAppointmentUsualCare(localStorage.getItem('scheduleAppointmentUsualCare') || '90');
