@@ -14,12 +14,13 @@ const calculateAmountForEConsults = () => {
   const codes: Code[] = JSON.parse(window.localStorage.getItem('codes') || '[]');
   codes.forEach(code => {
     percentageOfTotalVisits += Number(code.percentage_of_total_visits || '0');
-    averagePhysicianTime += Number(code.avg_physician_time_spent || '0') * Number(code.percentage_of_total_visits || '0');
-    weightedCostPerVisit += Number(code.CMS_non_facility_price || '0') * Number(code.percentage_of_total_visits || '0');
+    averagePhysicianTime += Number(code.avg_physician_time_spent || '0') * Number(code.percentage_of_total_visits || '0') / 100;
+    weightedCostPerVisit += Number(code.CMS_non_facility_price || '0') * Number(code.percentage_of_total_visits || '0')  / 100;
   });
   weightedCostPerVisit = Number(weightedCostPerVisit.toFixed(2));
   window.localStorage.setItem('amountForEConsultsPercentageOfTotalVisits', percentageOfTotalVisits.toString());
   window.localStorage.setItem('amountForEConsultsAveragePhysicianTime', averagePhysicianTime.toString());
+  window.localStorage.setItem('averageTimeSpentOnEConsultByDoctor', averagePhysicianTime.toString());
   window.localStorage.setItem('amountForEConsultsWeightedCostPerVisit', weightedCostPerVisit.toString());
 
   return { percentageOfTotalVisits, averagePhysicianTime, weightedCostPerVisit };

@@ -9,7 +9,7 @@ const defaultCodes: Code[] = [
     code: "99441",
     code_details: "phone 5-10 minutes",
     CMS_non_facility_price: 56.75,
-    percentage_of_total_visits: 0.3,
+    percentage_of_total_visits: 30,
     avg_physician_time_spent: 7.5,
   },
   {
@@ -17,7 +17,7 @@ const defaultCodes: Code[] = [
     code: "99442",
     code_details: "phone 11-20 minutes",
     CMS_non_facility_price: 91.71,
-    percentage_of_total_visits: 0.2,
+    percentage_of_total_visits: 20,
     avg_physician_time_spent: 15,
   },
   {
@@ -25,7 +25,7 @@ const defaultCodes: Code[] = [
     code: "99443",
     code_details: "phone 21-30 minutes",
     CMS_non_facility_price: 129.77,
-    percentage_of_total_visits: 0.1,
+    percentage_of_total_visits: 10,
     avg_physician_time_spent: 25,
   },
   {
@@ -33,7 +33,7 @@ const defaultCodes: Code[] = [
     code: "99451",
     code_details: "interprofessional consult 5+ minutes",
     CMS_non_facility_price: 36.34,
-    percentage_of_total_visits: 0.4,
+    percentage_of_total_visits: 40,
     avg_physician_time_spent: 10,
   },
 ]

@@ -68,6 +68,9 @@ const DecisionTree: NextPage = () => {
       setPatientNoShowUsualCare(localStorage.getItem('patientNoShowUsualCare') || '10');
       setPatientShowsUsualCare(localStorage.getItem('patientShowsUsualCare') || '90');
 
+      // Set Visited
+      window.localStorage.setItem('decisionTreeVisited', JSON.stringify(true));
+
       setLoading(false);
     }
     loadData();
