@@ -43,7 +43,7 @@ const  AmountForEConsultsTable: NextPage = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    setCodes(window.localStorage.getItem('codes') ? JSON.parse(window.localStorage.getItem('codes') || '[]') : []);
+    setCodes(window.localStorage.getItem('codes') ? JSON.parse(window.localStorage.getItem('codes') || JSON.stringify(defaultCodes)) : defaultCodes);
     setLoading(false);
   }, []);
 
