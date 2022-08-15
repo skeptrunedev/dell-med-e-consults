@@ -43,7 +43,7 @@ export default function Modal({ pageName, pageLink }: { pageName: string, pageLi
                     </Dialog.Title>
                     <div className="mt-2">
                       <p className="text-sm text-gray-500">
-                        You need to view the decision tree before seeing the results. You can do this by clicking the &quot;View {pageName}&quot; button below.
+                        You need to view the {pageName} page before seeing the results. You can do this by clicking the &quot;View {pageName}&quot; button below.
                       </p>
                     </div>
                   </div>
