@@ -67,7 +67,12 @@ const  Navbar: NextPage<NavbarProps> = ({ active_page }) => {
     <div>
       <Head>
         <title>EconAnalysis</title>
-        <meta name="description" content="An app to help healthcare providers calculate cost." />
+        <meta property="og:title" content="EconAnalysis"> </meta>
+        <meta property="og:site_name" content="EconAnalysis"> </meta>
+        <meta property="og:url" content="https://www.econanalysis.io/"> </meta>
+        <meta property="og:description" content="Determine if your clinic is losing money by performing telemedicine instead of seeing patients in person."> </meta>
+        <meta property="og:type" content="website"> </meta>
+        <meta property="og:image" content="https://www.econanalysis.io/stat ic_screenshot.png"> </meta>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
