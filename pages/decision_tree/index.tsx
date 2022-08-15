@@ -132,7 +132,7 @@ const DecisionTree: NextPage = () => {
               </div>
             </div>
             <div id="UC" className="w-fit px-20 py-4 bg-slate-100 font-semibold border-2 rounded-lg border-orange-500">
-              Usual Care
+              In Person Clinic Visit
               <div className="grid grid-cols-2 gap-x-2 justify-items-start font-normal mt-2">
                 <p className="text-green-700">
                   Payor: 
@@ -145,7 +145,7 @@ const DecisionTree: NextPage = () => {
           </div>
           <div className="grid justify-self-center grid-cols-4">
             <div id="CP" className="w-fit px-5 py-4 bg-purple-100 font-semibold border-2 rounded-lg border-purple-500 justify-self-end mr-6">
-              <span> Call Patient </span>
+              <span> Contact Patient </span>
               <DecisionTreeInput
                 {...{
                   label: '',
@@ -170,7 +170,7 @@ const DecisionTree: NextPage = () => {
               </div>
             </div>
             <div id="DCP" className="w-fit px-5 py-4 bg-blue-100 font-semibold border-2 rounded-lg border-blue-500">
-              <span> Don{"'"}t Call Patient </span>
+              <span> Don{"'"}t Contact Patient </span>
               <DecisionTreeInput
                 {...{
                   label: '',
@@ -220,7 +220,7 @@ const DecisionTree: NextPage = () => {
               </div>
             </div>
             <div id="NA" className="w-fit px-5 py-4 bg-red-100 font-semibold border-2 rounded-lg border-orange-500">
-              <span> No action </span>
+              <span> Unable to Reach </span>
               <DecisionTreeInput
                 {...{
                   label: '',
@@ -263,7 +263,7 @@ const DecisionTree: NextPage = () => {
               </div>
             </div>
             <div id="RT" className="w-fit px-5 py-4 bg-purple-100 font-semibold border-2 rounded-lg border-purple-500">
-              <span> Recommend Treatment </span>
+              <span> Make Recommendations </span>
               <DecisionTreeInput
                 {...{
                   label: '',
@@ -278,7 +278,7 @@ const DecisionTree: NextPage = () => {
               />
             </div>
             <div id="NATwo" className="w-fit px-5 py-4 bg-purple-100 font-semibold border-2 rounded-lg border-purple-500 mr-6">
-              <span> No Action </span>
+              <span> Unable to Reach </span>
               <DecisionTreeInput
                 {...{
                   label: '',
@@ -385,7 +385,7 @@ const DecisionTree: NextPage = () => {
               </div>
             </div>
             <div id="RTTwo" className="w-fit px-5 py-4 bg-blue-100 font-semibold border-2 rounded-lg border-blue-500">
-              <span> Recommend Treatment </span>
+              <span> Make Recommendations </span>
               <DecisionTreeInput
                 {...{
                   label: '',

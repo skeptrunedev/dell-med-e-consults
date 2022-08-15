@@ -201,7 +201,7 @@ const  AmountForEConsultsTable: NextPage = () => {
         % of total visits
         </div>
         <div>
-          Average physician time on e-consult (minutes)
+          Time per e-consult (minutes)
         </div>
       </div>
       { codeInputs }
