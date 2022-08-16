@@ -119,7 +119,7 @@ const DecisionTree: NextPage = () => {
         <div className="grid max-w-[1200px] space-y-16 min-w-[1100px] text-center ml-10">
           <div className="grid justify-self-center grid-cols-1">
             <div id="PSC" className="px-20 py-4 bg-slate-100 font-semibold rounded-lg">
-              Patient seeks care
+              Patient Seeks Care
             </div>
           </div>
           <div className="grid justify-self-center grid-cols-2 space-x-28">

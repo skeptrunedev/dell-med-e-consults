@@ -17,7 +17,7 @@ const  DecisionTreeInput: NextPage<DecisionTreeInputProps> = ({placeholder, valu
       <span className="hidden focus:outline-orange-500"> </span>
 
       <div className="mt-1 relative">
-        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
           <span className="text-gray-500 sm:text-sm">%</span>
         </div>
         <input
