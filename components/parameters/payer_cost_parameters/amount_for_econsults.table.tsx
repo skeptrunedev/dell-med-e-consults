@@ -28,14 +28,14 @@ const defaultCodes: Code[] = [
     percentage_of_total_visits: 10,
     avg_physician_time_spent: 25,
   },
-  {
-    id: 4,
-    code: "99451",
-    code_details: "interprofessional consult 5+ minutes",
-    CMS_non_facility_price: 36.34,
-    percentage_of_total_visits: 40,
-    avg_physician_time_spent: 10,
-  },
+  // {
+  //   id: 4,
+  //   code: "99451",
+  //   code_details: "interprofessional consult 5+ minutes",
+  //   CMS_non_facility_price: 36.34,
+  //   percentage_of_total_visits: 40,
+  //   avg_physician_time_spent: 10,
+  // },
 ]
 
 const  AmountForEConsultsTable: NextPage = () => {

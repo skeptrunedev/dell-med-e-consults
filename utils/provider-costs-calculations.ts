@@ -43,7 +43,7 @@ const calculateProviderCostsNursesTime = () => {
 }
 
 const calculateProviderCostsAdministrative = () => {
-  const weightedTimeAverage = Number(window.localStorage.getItem('averageTimeSpentAdministrativeWork')); // Parameters!D128
+  const weightedTimeAverage = Number(window.localStorage.getItem('averageTimeSpentAdministrativeWork')) / 60; // Parameters!D128
   const nurseTimePercentage = Number(window.localStorage.getItem('supportingStaffPercentage')) / 100; // Parameters!C132
   const specialistTimePercentage = Number(window.localStorage.getItem('specialistPercentage')) / 100; // Parameters!B132
   const totalNurseWageRate  = getTotalNurseWageRate();

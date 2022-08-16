@@ -1,6 +1,6 @@
 
 import type { NextPage } from 'next'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PayerCostParametersHeading from './payer_cost_parameters/payer_cost_parameters_heading';
 import AmountForOfficeVisit from './payer_cost_parameters/amount_for_office_visits';
 import AmountForEConsults from './payer_cost_parameters/amount_for_e_consults';
@@ -19,6 +19,12 @@ import TimeBreakdownSpecialistsVsNurses from './provider_cost_parameters/time_br
 
 const  Forms: NextPage = () => {
   const [expandAllSetting, setExpandAllSetting] = useState('expanded');
+  const [decisionTreeVisited, setDecisionTreeVisited] = useState(false);
+
+  useEffect(() => {
+    const decisionTreeVisited = JSON.parse(window.localStorage.getItem('decisionTreeVisited') || 'false');
+    setDecisionTreeVisited(decisionTreeVisited);
+  } , []);
 
   return (
     <div>
@@ -38,10 +44,10 @@ const  Forms: NextPage = () => {
       <OtherCostsForEConsult {...{expandAllSetting}} />
       <div className="grid mt-12 mx-4 px-6 py-6 md:mx-28">
         <a
-          href="/results"
+          href={decisionTreeVisited ? '/results' : '/decision_tree'}
           className="justify-self-end self-center w-fit h-fit px-16 py-4 font-medium rounded-xl text-white text-xl bg-casal-400 hover:bg-casal-400/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
-          Calculate
+          {decisionTreeVisited ? 'Calculate' : 'View Decision Tree'}
         </a>
       </div>
     </div>
