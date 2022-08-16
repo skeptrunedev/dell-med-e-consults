@@ -74,7 +74,7 @@ const  AmountForOfficeVisitsTable: NextPage = () => {
         </div>
 
         <div className="relative">
-          <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+          <div className="absolute inset-y-0 right-0 pr-[45%] flex items-center pointer-events-none">
             <span className="text-gray-500 sm:text-sm">%</span>
           </div>
 
@@ -117,7 +117,7 @@ const  AmountForOfficeVisitsTable: NextPage = () => {
         </div>
 
         <div className="relative">
-          <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+          <div className="absolute inset-y-0 right-0 pr-[45%] flex items-center pointer-events-none">
             <span className="text-gray-500 sm:text-sm">%</span>
           </div>
           <input
@@ -160,7 +160,7 @@ const  AmountForOfficeVisitsTable: NextPage = () => {
         </div>
 
         <div className="relative">
-          <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+          <div className="absolute inset-y-0 right-0 pr-[45%] flex items-center pointer-events-none">
             <span className="text-gray-500 sm:text-sm">%</span>
           </div>
           <input

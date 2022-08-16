@@ -52,7 +52,7 @@ const  AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
           <span> 0 mins </span>
         </div>
         <div className="relative">
-          <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+          <div className="absolute inset-y-0 right-0 pr-[45%] flex items-center pointer-events-none">
             <span className="text-gray-500 sm:text-sm">%</span>
           </div>
           <input
@@ -77,7 +77,7 @@ const  AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
           <span> 5 mins </span>
         </div>
         <div className="relative">
-          <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+          <div className="absolute inset-y-0 right-0 pr-[45%] flex items-center pointer-events-none">
             <span className="text-gray-500 sm:text-sm">%</span>
           </div>
           <input
@@ -102,7 +102,7 @@ const  AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
           <span> 10 mins </span>
         </div>
         <div className="relative">
-          <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+          <div className="absolute inset-y-0 right-0 pr-[45%] flex items-center pointer-events-none">
             <span className="text-gray-500 sm:text-sm">%</span>
           </div>
           <input
@@ -127,7 +127,7 @@ const  AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
           <span> 15 mins </span>
         </div>
         <div className="relative">
-          <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+          <div className="absolute inset-y-0 right-0 pr-[45%] flex items-center pointer-events-none">
             <span className="text-gray-500 sm:text-sm">%</span>
           </div>
           <input
@@ -152,7 +152,7 @@ const  AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
           <span> 20 mins </span>
         </div>
         <div className="relative">
-          <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+          <div className="absolute inset-y-0 right-0 pr-[45%] flex items-center pointer-events-none">
             <span className="text-gray-500 sm:text-sm">%</span>
           </div>
           <input

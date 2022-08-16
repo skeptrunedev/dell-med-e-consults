@@ -34,7 +34,7 @@ const  TimeBreakdownSpecialistsVsNurses: NextPage = () => {
                 Specialist Percentage
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-2 mt-2 flex items-center pointer-events-none">
+                <div className="absolute inset-y-0 right-0 pr-[5%] mt-2 flex items-center pointer-events-none">
                   <span className="text-gray-500 sm:text-sm">%</span>
                 </div>
                 <input
@@ -58,7 +58,7 @@ const  TimeBreakdownSpecialistsVsNurses: NextPage = () => {
                 Supporting Staff Percentage
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-2 mt-2 flex items-center pointer-events-none">
+                <div className="absolute inset-y-0 right-0 pr-[5%] mt-2 flex items-center pointer-events-none">
                   <span className="text-gray-500 sm:text-sm">%</span>
                 </div>
                 <input
