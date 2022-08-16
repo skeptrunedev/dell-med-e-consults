@@ -82,7 +82,7 @@ const Home: NextPage = () => {
                 effectiveness of any outpatient eConsult or telemedicine program.
               </p>
               <p className="mb-4">
-                Use <a className="text-casal-300" href="https://pubmed.ncbi.nlm.nih.gov/32954940/"> data from the Dell Medical School Gastroenterology eConsult program </a> by default 1 or enter your
+                Use <a className="text-casal-300" href="https://pubmed.ncbi.nlm.nih.gov/32954940/"> data from the Dell Medical School Gastroenterology eConsult program </a> by default or enter your
                 own parameters to calculate the cost effectiveness of telemedicine for your situation.
               </p>
             </div>

@@ -28,14 +28,14 @@ const defaultCodes: Code[] = [
     percentage_of_total_visits: 10,
     avg_physician_time_spent: 25,
   },
-  // {
-  //   id: 4,
-  //   code: "99451",
-  //   code_details: "interprofessional consult 5+ minutes",
-  //   CMS_non_facility_price: 36.34,
-  //   percentage_of_total_visits: 40,
-  //   avg_physician_time_spent: 10,
-  // },
+  {
+    id: 4,
+    code: "99451",
+    code_details: "interprofessional consult 5+ minutes",
+    CMS_non_facility_price: 36.34,
+    percentage_of_total_visits: 40,
+    avg_physician_time_spent: 10,
+  },
 ]
 
 const  AmountForEConsultsTable: NextPage = () => {
@@ -79,7 +79,7 @@ const  AmountForEConsultsTable: NextPage = () => {
           name={"code_details" + index}
           id={"code_details" + index + "Id"}
           className="focus:border focus:outline-casal-300 w-11/12 border px-3 py-2 border-casal-300 rounded-md text-casal-400 font-medium"
-          placeholder={"10 mins"}
+          placeholder={""}
           disabled={false}
           value={code.code_details}
           onChange={
@@ -210,7 +210,7 @@ const  AmountForEConsultsTable: NextPage = () => {
           className="w-fit text-casal-300"
           onClick={
             () => {
-              setCodes(oldCodes => [...oldCodes, {code: "00000", code_details: "10 mins", CMS_non_facility_price: 0, percentage_of_total_visits: 0.0, avg_physician_time_spent: 0.0}]);
+              setCodes(oldCodes => [...oldCodes, {code: "00000", code_details: "", CMS_non_facility_price: 0, percentage_of_total_visits: 0.0, avg_physician_time_spent: 0.0}]);
             }
           }
         >
