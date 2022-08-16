@@ -35,10 +35,18 @@ const  WTPTable: NextPage = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 mt-14 px-4 md:px-28">
+      <div className="grid grid-cols-3 mt-14 px-4 md:px-28">
         <div className="text-center">
-          <p className={"text-2xl font-semibold " + (Number(lossGainPerEConsultation) > 0 ? 'text-green-500' : 'text-red-600') }> $ { lossGainPerEConsultation }</p>
-          <p className=""> Provider Average cost/savings e-consult </p>
+          <p className="text-2xl font-semibold"> $ { averageCostPerEConsultation }</p>
+          <p className=""> Provider Average cost/savings per e-consult </p>
+        </div>
+        <div className="text-center">
+          <p className="text-2xl font-semibold"> $ { wtpPerEConsultation }</p>
+          <p className=""> Payors WTP per e-consult </p>
+        </div>
+        <div className="text-center">
+          <p className={"text-2xl font-semibold " + (Number(lossGainPerEConsultation) > 0 ? 'text-green-500' : 'text-red-600') }> $ { Number(lossGainPerEConsultation) > 0 ? '+' : '' } { lossGainPerEConsultation }</p>
+          <p className=""> Provider Average loss/gain per e-consult </p>
         </div>
       </div>
     
@@ -111,7 +119,7 @@ const  WTPTable: NextPage = () => {
                 Loss/Gain per e-consult
               </div>
               <span className={(Number(lossGainPerEConsultation) > 0 ? 'text-green-500' : 'text-red-600')}>
-                $ { lossGainPerEConsultation }
+                $ { Number(lossGainPerEConsultation) > 0 ? '+' : '' } { lossGainPerEConsultation }
               </span>
             </div>
           </div>
