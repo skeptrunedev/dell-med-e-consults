@@ -8,7 +8,6 @@ const  ResultsHeading: NextPage<NavbarProps> = ({ active_page }) => {
     <div className="grid mt-14 px-4 md:px-28">
       <div>
         <p className="text-2xl font-semibold"> Results </p>
-        <p> Your cost metrics. </p>
       </div>
     </div>
   )

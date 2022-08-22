@@ -37,16 +37,16 @@ const  WTPTable: NextPage = () => {
     <div>
       <div className="grid grid-cols-3 mt-14 px-4 md:px-28">
         <div className="text-center">
-          <p className="text-2xl font-semibold"> $ { averageCostPerEConsultation }</p>
-          <p className=""> Provider Average cost/savings per e-consult </p>
+          <p className={"text-2xl font-semibold " + (Number(averageCostPerEConsultation) > 0 ? 'text-green-500' : 'text-red-600') }> $ { Number(averageCostPerEConsultation) > 0 ? '+' : '' } { averageCostPerEConsultation }</p>
+          <p className=""> Provider Average {Number(averageCostPerEConsultation) > 0 ? 'Savings' : 'Cost'} Per E-consult </p>
         </div>
         <div className="text-center">
           <p className="text-2xl font-semibold"> $ { wtpPerEConsultation }</p>
-          <p className=""> Payors WTP per e-consult </p>
+          <p className=""> Payors Willingness To Pay Per E-consult </p>
         </div>
         <div className="text-center">
           <p className={"text-2xl font-semibold " + (Number(lossGainPerEConsultation) > 0 ? 'text-green-500' : 'text-red-600') }> $ { Number(lossGainPerEConsultation) > 0 ? '+' : '' } { lossGainPerEConsultation }</p>
-          <p className=""> Provider Average loss/gain per e-consult </p>
+          <p className=""> Provider Average {Number(lossGainPerEConsultation) > 0 ? 'Gain' : 'Loss'} Per E-consult </p>
         </div>
       </div>
     
@@ -55,14 +55,14 @@ const  WTPTable: NextPage = () => {
         <div className="grid px-6 py-6 mt-6 border rounded-xl border border-casal-300">
           <div className="flex justify-between">
             <div className="text-lg font-semibold self-center">
-              <span> Willingness to pay (WTP) per e-consult </span>
+              <span> Payor </span>
             </div>
           </div>
           <div className="grid mt-6 border-t border-casal-300">
             {/* Row */}
             <div className="grid grid-cols-2 mt-6 font-medium gap-x-6">
               <div className="font-bold">
-                Average cost per e-consult
+                Average cost per e-consult visit
               </div>
               <span className="text-casal-200">
                 $ { averageCostPerEConsultation }
@@ -71,7 +71,7 @@ const  WTPTable: NextPage = () => {
             {/* Row */}
             <div className="grid grid-cols-2 mt-6 font-medium gap-x-6">
               <div className="font-bold">
-                Average cost per usual care
+                Average cost per in-person clinic visit
               </div>
               <span className="text-casal-200">
                 $ { averageCostPerUsualCare}
@@ -84,15 +84,6 @@ const  WTPTable: NextPage = () => {
               </div>
               <span className="text-casal-200">
                 $ { averageSavingsPerEConsultation }
-              </span>
-            </div>
-            {/* Row */}
-            <div className="grid grid-cols-2 mt-6 font-medium gap-x-6">
-              <div className="font-bold">
-                Total cost per e-consult
-              </div>
-              <span className="text-casal-200">
-                $ {totalCostPerEConsultation}
               </span>
             </div>
             {/* Row */}
@@ -113,10 +104,28 @@ const  WTPTable: NextPage = () => {
                 $ { wtpPerEConsultation }
               </span>
             </div>
+          </div>
+        </div>
+        <div className="grid px-6 py-6 mt-6 border rounded-xl border border-casal-300">
+          <div className="flex justify-between">
+            <div className="text-lg font-semibold self-center">
+              <span> Provider </span>
+            </div>
+          </div>
+          <div className="grid mt-6 border-t border-casal-300">
             {/* Row */}
             <div className="grid grid-cols-2 mt-6 font-medium gap-x-6">
               <div className="font-bold">
-                Loss/Gain per e-consult
+                Total cost per e-consult
+              </div>
+              <span className="text-casal-200">
+                $ {totalCostPerEConsultation}
+              </span>
+            </div>
+            {/* Row */}
+            <div className="grid grid-cols-2 mt-6 font-medium gap-x-6">
+              <div className="font-bold">
+                {Number(lossGainPerEConsultation) > 0 ? 'Gain' : 'Loss'} per e-consult
               </div>
               <span className={(Number(lossGainPerEConsultation) > 0 ? 'text-green-500' : 'text-red-600')}>
                 $ { Number(lossGainPerEConsultation) > 0 ? '+' : '' } { lossGainPerEConsultation }
