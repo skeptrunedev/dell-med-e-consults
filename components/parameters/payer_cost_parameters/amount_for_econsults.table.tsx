@@ -127,7 +127,7 @@ const  AmountForEConsultsTable: NextPage = () => {
             type="number"
             min="0.00"
             max="100.00"
-            step="0.1"
+            step="1.0"
             name={"percentage_of_total_visits" + index}
             id={"percentage_of_total_visits" + index + "Id"}
             className="focus:border focus:outline-casal-300 w-2/3 border px-3 py-2 pl-6 border-casal-300 rounded-md text-casal-400 font-medium"
@@ -192,10 +192,10 @@ const  AmountForEConsultsTable: NextPage = () => {
           CPT Codes
         </div>
         <div>
-          Extra Info
+          Visit Type
         </div>
         <div>
-          CMS non facility price ($)
+          Price Paid ($)
         </div>
         <div>
         % of total visits

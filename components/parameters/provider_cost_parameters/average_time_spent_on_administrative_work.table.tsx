@@ -1,7 +1,6 @@
 
 import type { NextPage } from 'next'
 import { useState, useEffect } from 'react';
-import SmallInput from '../../util/small-input';
 
 const  AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
   const [zeroAdmin, setZeroAdmin] = useState<number>(0);

@@ -7,12 +7,12 @@ import AmountForEConsults from './payer_cost_parameters/amount_for_e_consults';
 import ProviderCostParametersHeading from './provider_cost_parameters/provider_cost_parameters_heading';
 // import AverageTimeSpentOnEConsultByDoctor from './provider_cost_parameters/average_time_spent_on_e_consult_by_doctor';
 import WageRateForSpecialist from './provider_cost_parameters/wage_rate_for_specialist';
-import AverageFringeWageRateForSpecialist from './provider_cost_parameters/average_fringe_wage_rate_for_specialist';
+// import AverageFringeWageRateForSpecialist from './provider_cost_parameters/average_fringe_wage_rate_for_specialist';
 import NumberOfSupportingStaffPerEConsult from './provider_cost_parameters/number_of_supporting_staff_per_e_consult';
 import AverageWageRateForSupportingStaff from './provider_cost_parameters/average_wage_rate_for_supporting_staff';
 import OtherCostsForEConsult from './provider_cost_parameters/other_costs_for_e_consult';
 import NumberOfDoctorsPerEConsult from './provider_cost_parameters/number_of_doctors_per_e_consult';
-import AverageFringeWageRateForSupportingStaff from './provider_cost_parameters/average_fring_wage_rate_for_supporting_staff';
+// import AverageFringeWageRateForSupportingStaff from './provider_cost_parameters/average_fring_wage_rate_for_supporting_staff';
 import AverageTimeSpentOnAdministrativeWork from './provider_cost_parameters/average_time_spent_on_administrative_work';
 import TimeBreakdownSpecialistsVsNurses from './provider_cost_parameters/time_breakdown_specialists_vs_nurses';
 
@@ -24,6 +24,8 @@ const  Forms: NextPage = () => {
   useEffect(() => {
     const decisionTreeVisited = JSON.parse(window.localStorage.getItem('decisionTreeVisited') || 'false');
     setDecisionTreeVisited(decisionTreeVisited);
+    window.localStorage.setItem('averageFringeSpecialistWageRate', '0');
+    window.localStorage.setItem('averageFringeWageRateForSupportingStaff', '0');
   } , []);
 
   return (
@@ -34,11 +36,11 @@ const  Forms: NextPage = () => {
       <ProviderCostParametersHeading />
       {/* <AverageTimeSpentOnEConsultByDoctor {...{expandAllSetting}} /> */}
       <WageRateForSpecialist />
-      <AverageFringeWageRateForSpecialist />
+      {/* <AverageFringeWageRateForSpecialist /> */}
       <NumberOfSupportingStaffPerEConsult />
       <NumberOfDoctorsPerEConsult />
       <AverageWageRateForSupportingStaff />
-      <AverageFringeWageRateForSupportingStaff />
+      {/* <AverageFringeWageRateForSupportingStaff /> */}
       <AverageTimeSpentOnAdministrativeWork {...{expandAllSetting}} />
       <TimeBreakdownSpecialistsVsNurses />
       <OtherCostsForEConsult {...{expandAllSetting}} />

@@ -44,7 +44,7 @@ const  AmountForOfficeVisitsTable: NextPage = () => {
           Insurance Type
         </div>
         <div>
-          Contract Fee
+          Average Fee
         </div>
         <div>
           Percentage of Total Visits

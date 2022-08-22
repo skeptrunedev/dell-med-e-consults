@@ -8,7 +8,6 @@ const  WelcomeHeading: NextPage<NavbarProps> = ({ active_page }) => {
     <div className="grid grid-cols-2 mt-14 px-4 md:px-28">
       <div>
         <p className="text-2xl font-semibold"> Welcome to EconAnalysis </p>
-        <p> We help you calculate costs for seeing patients virtually. </p>
       </div>
       <div className="grid">
           <a

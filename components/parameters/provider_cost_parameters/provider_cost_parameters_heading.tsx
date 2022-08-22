@@ -7,7 +7,7 @@ const  ProviderCostParametersHeading: NextPage = () => {
     <div className="mt-8 px-4 md:px-28 text-casal-400">
       <div className="grid grid-cols-2">
         <div className='flex'>
-          <span className="text-2xl font-semibold"> Provider Cost Parameters </span>
+          <span className="text-2xl font-semibold"> Enter Costs From A Provider Perspective </span>
         </div>
       </div>
     </div>

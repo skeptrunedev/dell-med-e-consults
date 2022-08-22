@@ -22,7 +22,7 @@ const  TimeBreakdownSpecialistsVsNurses: NextPage = () => {
   }, [specialistPercentage, supportingStaffPercentage, loading]);
 
   return (
-    <div className="grid mt-4 mx-4 px-6 py-6 md:mx-28 border rounded-xl border border-casal-300">
+    <div className="grid mt-4 mx-4 px-6 py-6 md:mx-28 border rounded-xl border border-casal-300 hidden">
       <div className="flex justify-between">
         <div className="text-lg font-semibold self-center">
           <span> Time Breakdown for Specialists vs. Supporting Staff </span>
