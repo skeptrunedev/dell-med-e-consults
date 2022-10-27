@@ -2,6 +2,7 @@
 import type { NextPage } from 'next'
 import { useState, useEffect } from 'react';
 import SmallInput from '../../util/small-input';
+import {  DetermineErrorStateForTextTwoDecimals } from '../../../utils/helpers';
 
 const  OtherCostsForEConsultTable: NextPage = () => {
   const [equipmentTechPerHour, setEquipmentTechPerHour] = useState('0.43');
@@ -45,7 +46,7 @@ const  OtherCostsForEConsultTable: NextPage = () => {
             setValue: setEquipmentTechPerHour,
             type: 'USD',
             disabled: false,
-            errored: false
+            errored: !DetermineErrorStateForTextTwoDecimals(equipmentTechPerHour).valid,
           }}
         />
         <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => setEquipmentTechPerHour('0.43')}>
@@ -65,7 +66,7 @@ const  OtherCostsForEConsultTable: NextPage = () => {
             setValue: setPhoneInternetPerHour,
             type: 'USD',
             disabled: false,
-            errored: false
+            errored: !DetermineErrorStateForTextTwoDecimals(phoneInternetPerHour).valid,
           }}
         />
         <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => setPhoneInternetPerHour('0.04')}>
@@ -83,9 +84,9 @@ const  OtherCostsForEConsultTable: NextPage = () => {
             placeholder: '',
             value: roomSpaceSqFeet,
             setValue: setRoomSpaceSqFeet,
-            type: 'USD',
+            type: 'numeric',
             disabled: false,
-            errored: false
+            errored: !DetermineErrorStateForTextTwoDecimals(roomSpaceSqFeet).valid,
           }}
         />
         <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => setRoomSpaceSqFeet('150')}>
@@ -105,7 +106,7 @@ const  OtherCostsForEConsultTable: NextPage = () => {
             setValue: setCostOfSqFtPerHour,
             type: 'USD',
             disabled: false,
-            errored: false
+            errored: !DetermineErrorStateForTextTwoDecimals(costOfSqFtPerHour).valid,
           }}
         />
         <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => setCostOfSqFtPerHour('0.01')}>

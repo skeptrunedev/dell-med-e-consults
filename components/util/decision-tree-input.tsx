@@ -1,12 +1,18 @@
+import type { NextPage } from "next";
+import { DecisionTreeInputProps } from "../../interfaces/utils";
 
-import type { NextPage } from 'next'
-import { DecisionTreeInputProps } from '../../interfaces/utils';
-
-
-const  DecisionTreeInput: NextPage<DecisionTreeInputProps> = ({placeholder, value, setValue, type, errored, disabled, borderColor}) => {
+const DecisionTreeInput: NextPage<DecisionTreeInputProps> = ({
+  placeholder,
+  value,
+  setValue,
+  type,
+  errored,
+  disabled,
+  borderColor,
+}) => {
   const setValueChecked = (newValue: string) => {
     setValue(newValue);
-  }
+  };
 
   return (
     <div>
@@ -16,13 +22,18 @@ const  DecisionTreeInput: NextPage<DecisionTreeInputProps> = ({placeholder, valu
       <span className="hidden focus:outline-yellow-500"> </span>
       <span className="hidden focus:outline-orange-500"> </span>
 
-      <div className="mt-1 relative">
-        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+      <div className="relative mt-1">
+        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
           <span className="text-gray-500 sm:text-sm">%</span>
         </div>
         <input
           type="text"
-          className={ "border px-2 py-1 w-40 rounded-md text-casal-400 text-center font-medium" + " focus:outline-" + borderColor + (errored ? " border-red-500" : " border-" + borderColor) }
+          className={
+            "w-40 rounded-md border px-2 py-1 text-center font-medium text-casal-400" +
+            " focus:outline-" +
+            borderColor +
+            (errored ? " border-red-500 focus:outline-red-500" : " border-" + borderColor)
+          }
           placeholder={placeholder}
           disabled={disabled}
           value={value}
@@ -30,7 +41,7 @@ const  DecisionTreeInput: NextPage<DecisionTreeInputProps> = ({placeholder, valu
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default DecisionTreeInput;

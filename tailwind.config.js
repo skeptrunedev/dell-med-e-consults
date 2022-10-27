@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'dt': '1215px',
+      },
       colors: {
         'dell-blue': {
           100: '#6a92f8',

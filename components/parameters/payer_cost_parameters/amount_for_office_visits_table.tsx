@@ -1,8 +1,8 @@
+import type { NextPage } from "next";
+import { useState, useEffect } from "react";
+import { DetermineErrorStateForTwoDecimals } from "../../../utils/helpers";
 
-import type { NextPage } from 'next'
-import { useState, useEffect } from 'react';
-
-const  AmountForOfficeVisitsTable: NextPage = () => {
+const AmountForOfficeVisitsTable: NextPage = () => {
   const [medicareFee, setMedicareFee] = useState<number>(169);
   const [medicarePercentage, setMedicarePercentage] = useState<number>(90);
   const [commercialFee, setCommercialFee] = useState<number>(100);
@@ -11,53 +11,73 @@ const  AmountForOfficeVisitsTable: NextPage = () => {
   const [otherPercentage, setOtherPercentage] = useState<number>(10);
   const [loading, setLoading] = useState<boolean>(true);
 
+  const checkPercentageSum = (): boolean => {
+    return medicarePercentage + commercialPercentage + otherPercentage === 100;
+  };
+
   useEffect(() => {
-    setMedicareFee(Number(window.localStorage.getItem('medicareFee') || '169'));
-    setMedicarePercentage(Number(window.localStorage.getItem('medicarePercentage') || '90'));
-    setCommercialFee(Number(window.localStorage.getItem('commercialFee') || '100'));
-    setCommercialPercentage(Number(window.localStorage.getItem('commercialPercentage') || '0'));
-    setOtherFee(Number(window.localStorage.getItem('otherFee') || '80'));
-    setOtherPercentage(Number(window.localStorage.getItem('otherPercentage') || '10'));
-    window.dispatchEvent(new Event('amountForOfficeVisits'));
+    setMedicareFee(Number(window.localStorage.getItem("medicareFee") || "169"));
+    setMedicarePercentage(
+      Number(window.localStorage.getItem("medicarePercentage") || "90")
+    );
+    setCommercialFee(
+      Number(window.localStorage.getItem("commercialFee") || "100")
+    );
+    setCommercialPercentage(
+      Number(window.localStorage.getItem("commercialPercentage") || "0")
+    );
+    setOtherFee(Number(window.localStorage.getItem("otherFee") || "80"));
+    setOtherPercentage(
+      Number(window.localStorage.getItem("otherPercentage") || "10")
+    );
+    window.dispatchEvent(new Event("amountForOfficeVisits"));
     setLoading(false);
   }, []);
 
   useEffect(() => {
-    if(loading) {
+    if (loading) {
       return;
     }
 
-    window.localStorage.setItem('medicareFee', medicareFee.toString());
-    window.localStorage.setItem('medicarePercentage', medicarePercentage.toString());
-    window.localStorage.setItem('commercialFee', commercialFee.toString());
-    window.localStorage.setItem('commercialPercentage', commercialPercentage.toString());
-    window.localStorage.setItem('otherFee', otherFee.toString());
-    window.localStorage.setItem('otherPercentage', otherPercentage.toString());
-    window.dispatchEvent(new Event('amountForOfficeVisits'));
-  }, [medicareFee, medicarePercentage, commercialFee, commercialPercentage, otherFee, otherPercentage, loading]);
+    window.localStorage.setItem("medicareFee", medicareFee.toString());
+    window.localStorage.setItem(
+      "medicarePercentage",
+      medicarePercentage.toString()
+    );
+    window.localStorage.setItem("commercialFee", commercialFee.toString());
+    window.localStorage.setItem(
+      "commercialPercentage",
+      commercialPercentage.toString()
+    );
+    window.localStorage.setItem("otherFee", otherFee.toString());
+    window.localStorage.setItem("otherPercentage", otherPercentage.toString());
+    window.dispatchEvent(new Event("amountForOfficeVisits"));
+  }, [
+    medicareFee,
+    medicarePercentage,
+    commercialFee,
+    commercialPercentage,
+    otherFee,
+    otherPercentage,
+    loading,
+  ]);
 
   return (
-    <div className="grid mt-6 border-t border-casal-300">
+    <div className="mt-6 grid border-t border-casal-300">
       {/* Row */}
-      <div className="grid grid-cols-4 mt-6 font-medium">
-        <div>
-          Insurance Type
-        </div>
-        <div>
-          Average Fee
-        </div>
-        <div>
-          Percentage of Total Visits
-        </div>
+      <div className="mt-6 grid grid-cols-4 font-medium">
+        <div>Insurance Type</div>
+        <div>Average Fee</div>
+        <div>Percentage of Total Visits</div>
         <span></span>
       </div>
-      <div className="grid grid-cols-4 mt-6 space-y-4">
+      <div className="mt-6 grid grid-cols-4 space-y-4">
         {/* Row */}
-        <div className="text-md font-medium mt-5">
+        <div className="text-md mt-5 font-medium">
           <p> Medicare / Medicaid </p>
         </div>
         <div className="relative">
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
             <span className="text-gray-500 sm:text-sm">$</span>
           </div>
 
@@ -65,16 +85,18 @@ const  AmountForOfficeVisitsTable: NextPage = () => {
             type="number"
             name={"medicare_fee"}
             id={"medicare_fee_Id"}
-            className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 pl-6 border-casal-300 rounded-md text-casal-400 font-medium justify-self-center md:justify-self-start"
+            className={"w-3/5 justify-self-center rounded-md border border-casal-300 px-3 py-2 pl-6 font-medium text-casal-400 focus:border focus:outline-casal-300 md:justify-self-start " + (DetermineErrorStateForTwoDecimals(medicareFee).valid ? "" : "border-red-500 focus:outline-red-500") }
             placeholder={"00000"}
             disabled={false}
             value={medicareFee}
-            onChange={(e) => { setMedicareFee(Number(e.target.value)) }}
+            onChange={(e) => {
+              setMedicareFee(Number(e.target.value));
+            }}
           />
         </div>
 
         <div className="relative">
-          <div className="absolute inset-y-0 right-0 pr-[45%] flex items-center pointer-events-none">
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-[45%]">
             <span className="text-gray-500 sm:text-sm">%</span>
           </div>
 
@@ -82,107 +104,126 @@ const  AmountForOfficeVisitsTable: NextPage = () => {
             type="number"
             name={"medicare_percentage"}
             id={"medicare_percentage_id"}
-            className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 pl-6 border-casal-300 rounded-md text-casal-400 font-medium justify-self-center md:justify-self-start"
+            className={"w-3/5 justify-self-center rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 md:justify-self-start " + (DetermineErrorStateForTwoDecimals(medicarePercentage).valid && checkPercentageSum()  ? "" : "border-red-500 focus:outline-red-500") }
             placeholder={"00000"}
             disabled={false}
             value={medicarePercentage}
-            onChange={(e) => { setMedicarePercentage(Number(e.target.value)) }}
+            onChange={(e) => {
+              setMedicarePercentage(Number(e.target.value));
+            }}
           />
         </div>
-        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => {
-          setMedicareFee(169);
-          setMedicarePercentage(90);
-        }}>
+        <span
+          className="cursor-pointer select-none self-center text-center text-casal-300"
+          onClick={() => {
+            setMedicareFee(169);
+            setMedicarePercentage(90);
+          }}
+        >
           Set to default
         </span>
         {/* Row */}
-        <div className="text-md font-medium mt-1">
+        <div className="text-md mt-1 font-medium">
           <span> Commercial Insurance </span>
         </div>
 
         <div className="relative">
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
             <span className="text-gray-500 sm:text-sm">$</span>
           </div>
           <input
             type="number"
             name={"medicare_fee"}
             id={"medicare_fee_Id"}
-            className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 pl-6 border-casal-300 rounded-md text-casal-400 font-medium justify-self-center md:justify-self-start ml-1 md:ml-0" 
+            className={"ml-1 w-3/5 justify-self-center rounded-md border border-casal-300 px-3 py-2 pl-6 font-medium text-casal-400 focus:border focus:outline-casal-300 md:ml-0 md:justify-self-start " + (DetermineErrorStateForTwoDecimals(commercialFee).valid ? "" : "border-red-500 focus:outline-red-500") }
             placeholder={"00000"}
             disabled={false}
             value={commercialFee}
-            onChange={(e) => { setCommercialFee(Number(e.target.value)) }}
+            onChange={(e) => {
+              setCommercialFee(Number(e.target.value));
+            }}
           />
         </div>
 
         <div className="relative">
-          <div className="absolute inset-y-0 right-0 pr-[45%] flex items-center pointer-events-none">
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-[45%]">
             <span className="text-gray-500 sm:text-sm">%</span>
           </div>
           <input
             type="number"
             name={"medicare_percentage"}
             id={"medicare_percentage_id"}
-            className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 pl-6 border-casal-300 rounded-md text-casal-400 font-medium justify-self-center md:justify-self-start"
+            className={"w-3/5 justify-self-center rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 md:justify-self-start " + (DetermineErrorStateForTwoDecimals(commercialPercentage).valid && checkPercentageSum() ? "" : "border-red-500 focus:outline-red-500") }
             placeholder={"00000"}
             disabled={false}
             value={commercialPercentage}
-            onChange={(e) => { setCommercialPercentage(Number(e.target.value)) }}
+            onChange={(e) => {
+              setCommercialPercentage(Number(e.target.value));
+            }}
           />
         </div>
 
-        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => {
-          setCommercialFee(100);
-          setCommercialPercentage(0);
-        }}>
+        <span
+          className="cursor-pointer select-none self-center text-center text-casal-300"
+          onClick={() => {
+            setCommercialFee(100);
+            setCommercialPercentage(0);
+          }}
+        >
           Set to default
         </span>
         {/* Row */}
-        <div className="text-md font-medium mt-1">
+        <div className="text-md mt-1 font-medium">
           <span> Other Insurance </span>
         </div>
 
         <div className="relative">
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
             <span className="text-gray-500 sm:text-sm">$</span>
           </div>
           <input
             type="number"
             name={"medicare_fee"}
             id={"medicare_fee_Id"}
-            className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 pl-6 border-casal-300 rounded-md text-casal-400 font-medium justify-self-center md:justify-self-start"
+            className={"w-3/5 justify-self-center rounded-md border border-casal-300 px-3 py-2 pl-6 font-medium text-casal-400 focus:border focus:outline-casal-300 md:justify-self-start " + (DetermineErrorStateForTwoDecimals(otherFee).valid ? "" : "border-red-500 focus:outline-red-500") }
             placeholder={"00000"}
             disabled={false}
             value={otherFee}
-            onChange={(e) => { setOtherFee(Number(e.target.value)) }}
+            onChange={(e) => {
+              setOtherFee(Number(e.target.value));
+            }}
           />
         </div>
 
         <div className="relative">
-          <div className="absolute inset-y-0 right-0 pr-[45%] flex items-center pointer-events-none">
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-[45%]">
             <span className="text-gray-500 sm:text-sm">%</span>
           </div>
           <input
             type="number"
             name={"medicare_percentage"}
             id={"medicare_percentage_id"}
-            className="focus:border focus:outline-casal-300 w-3/5 border px-3 py-2 pl-6 border-casal-300 rounded-md text-casal-400 font-medium"
+            className={"w-3/5 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " + (DetermineErrorStateForTwoDecimals(otherPercentage).valid && checkPercentageSum() ? "" : "border-red-500 focus:outline-red-500") }
             placeholder={"00000"}
             disabled={false}
             value={otherPercentage}
-            onChange={(e) => { setOtherPercentage(Number(e.target.value)) }}
+            onChange={(e) => {
+              setOtherPercentage(Number(e.target.value));
+            }}
           />
         </div>
-        <span className="self-center text-casal-300 cursor-pointer select-none" onClick={() => {
-          setOtherFee(80);
-          setOtherPercentage(10);
-        }}>
+        <span
+          className="cursor-pointer select-none self-center text-center text-casal-300"
+          onClick={() => {
+            setOtherFee(80);
+            setOtherPercentage(10);
+          }}
+        >
           Set to default
         </span>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default AmountForOfficeVisitsTable;

@@ -1,50 +1,63 @@
-import type { NextPage } from 'next'
-import { useState, useEffect } from 'react';
-import LargeInput from '../../util/large-input';
+import type { NextPage } from "next";
+import { useState, useEffect } from "react";
+import LargeInput from "../../util/large-input";
+import { DetermineErrorStateForTextTwoDecimals } from "../../../utils/helpers";
 
-const  AverageWageRateForSupportingStaff: NextPage = () => {
-  const [averageWageRateForSupportingStaff, setAverageWageRateForSupportingStaff] = useState('50.00');
+const AverageWageRateForSupportingStaff: NextPage = () => {
+  const [
+    averageWageRateForSupportingStaff,
+    setAverageWageRateForSupportingStaff,
+  ] = useState("50.00");
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    setAverageWageRateForSupportingStaff(window.localStorage.getItem('averageWageRateForSupportingStaff') || '50.00');
+    setAverageWageRateForSupportingStaff(
+      window.localStorage.getItem("averageWageRateForSupportingStaff") ||
+        "50.00"
+    );
     setLoading(false);
   }, []);
 
   useEffect(() => {
-    if(!loading) {
-      window.localStorage.setItem('averageWageRateForSupportingStaff', averageWageRateForSupportingStaff);
-      window.dispatchEvent(new Event('averageWageRateForSupportingStaff'));
+    if (!loading) {
+      window.localStorage.setItem(
+        "averageWageRateForSupportingStaff",
+        averageWageRateForSupportingStaff
+      );
+      window.dispatchEvent(new Event("averageWageRateForSupportingStaff"));
     }
   }, [averageWageRateForSupportingStaff, loading]);
 
   return (
-    <div className="grid mt-4 mx-4 px-6 py-6 md:mx-28 border rounded-xl border border-casal-300">
+    <div className="mx-4 mt-4 grid rounded-xl border border-casal-300 px-6 py-6 md:mx-28">
       <div className="flex justify-between md:pr-9">
-        <div className="text-lg font-semibold self-center">
+        <div className="self-center text-lg font-semibold">
           <span> Support Staff Salary ($/Hour) </span>
         </div>
-        <div className="flex space-x-4 col-span-2 justify-self-end">
+        <div className="col-span-2 flex space-x-4 justify-self-end">
           <div className="grid">
-          <LargeInput
-            {...{
-              label: '',
-              placeholder: '',
-              value: averageWageRateForSupportingStaff,
-              setValue: setAverageWageRateForSupportingStaff,
-              type: 'USD',
-              disabled: false,
-              errored: false
-            }}
-          />
+            <LargeInput
+              {...{
+                label: "",
+                placeholder: "",
+                value: averageWageRateForSupportingStaff,
+                setValue: setAverageWageRateForSupportingStaff,
+                type: "USD",
+                disabled: false,
+                errored: !DetermineErrorStateForTextTwoDecimals(averageWageRateForSupportingStaff).valid,
+              }}
+            />
           </div>
-          <span className="self-center mt-2 text-casal-300 cursor-pointer select-none" onClick={() => setAverageWageRateForSupportingStaff('50.00')}>
+          <span
+            className="mt-2 cursor-pointer select-none self-center text-casal-300"
+            onClick={() => setAverageWageRateForSupportingStaff("50.00")}
+          >
             Set to default
           </span>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default AverageWageRateForSupportingStaff;

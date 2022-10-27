@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import { useState, useEffect } from 'react';
 import LargeInput from '../../util/large-input';
+import { DetermineErrorStateForTextWholeNumbers } from '../../../utils/helpers';
 
 const  NumberOfDoctorsPerEConsult: NextPage = () => {
   const [numOfDoctors, setNumOfDoctors] = useState('1');
@@ -19,7 +20,7 @@ const  NumberOfDoctorsPerEConsult: NextPage = () => {
   }, [numOfDoctors, loading]);
 
   return (
-    <div className="grid mt-4 mx-4 px-6 py-6 md:mx-28 border rounded-xl border border-casal-300">
+    <div className="grid mt-4 mx-4 px-6 py-6 md:mx-28 border rounded-xl border-casal-300">
       <div className="flex justify-between md:pr-9">
         <div className="text-lg font-semibold self-center">
           <span> Number Of Doctors Per E-consult </span>
@@ -34,7 +35,7 @@ const  NumberOfDoctorsPerEConsult: NextPage = () => {
               setValue: setNumOfDoctors,
               type: 'integer',
               disabled: false,
-              errored: false
+              errored: !DetermineErrorStateForTextWholeNumbers(numOfDoctors).valid,
             }}
           />
           </div>
