@@ -68,6 +68,7 @@ export const DetermineErrorStateForTextPercent = (
 export const DetermineErrorStateForTextWholeNumbers = (
   input: string
 ): { correctedInput: string; valid: boolean } => {
+  // if the input is not a number, return the input and set valid to false
   if(isNaN(Number(input))){
     return {correctedInput: input, valid: false}
   }
