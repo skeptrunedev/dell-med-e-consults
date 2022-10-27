@@ -44,7 +44,7 @@ export const DetermineErrorStateForPercent = (
 export const DetermineErrorStateForTextTwoDecimals = (
   input: string
 ): { correctedInput: string; valid: boolean } => {
-  if(isNaN(input)) {
+  if(isNaN(Number(input))) {
     return {correctedInput: input, valid: false}
   }
 
@@ -56,7 +56,7 @@ export const DetermineErrorStateForTextTwoDecimals = (
 export const DetermineErrorStateForTextPercent = (
   input: string
 ): { correctedInput: string; valid: boolean } => {
-  if(isNaN(input)) {
+  if(isNaN(Number(input))) {
     return {correctedInput: input, valid: false}
   }
 
@@ -68,7 +68,7 @@ export const DetermineErrorStateForTextPercent = (
 export const DetermineErrorStateForTextWholeNumbers = (
   input: string
 ): { correctedInput: string; valid: boolean } => {
-  if(isNaN(input)){
+  if(isNaN(Number(input))){
     return {correctedInput: input, valid: false}
   }
 
