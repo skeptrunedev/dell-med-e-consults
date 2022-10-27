@@ -10,6 +10,7 @@ const calculateAmountForOfficeVisit = () => {
   amountForOfficeVisit += Number(window.localStorage.getItem('medicareFee') || '0') * Number(window.localStorage.getItem('medicarePercentage') || '0') / 100;
   amountForOfficeVisit += Number(window.localStorage.getItem('commercialFee') || '0') * Number(window.localStorage.getItem('commercialPercentage') || '0') / 100;
   amountForOfficeVisit += Number(window.localStorage.getItem('otherFee') || '0') * Number(window.localStorage.getItem('otherPercentage') || '0') / 100;
+  amountForOfficeVisit = Number(amountForOfficeVisit.toFixed(2));
   window.localStorage.setItem('amountForOfficeVisit', amountForOfficeVisit.toString());
 
   return String(amountForOfficeVisit);

@@ -11,7 +11,9 @@ const AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   const checkPercentageSum = (): boolean => {
-    return zeroAdmin + fiveAdmin + tenAdmin + fifteenAdmin + twentyAdmin === 100;
+    return (
+      zeroAdmin + fiveAdmin + tenAdmin + fifteenAdmin + twentyAdmin === 100
+    );
   };
 
   useEffect(() => {
@@ -63,7 +65,13 @@ const AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
             step="0.1"
             name={"seven_point_five"}
             id={"seven_point_five_Id"}
-            className={"w-3/5 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " + (DetermineErrorStateForTwoDecimals(zeroAdmin).valid && checkPercentageSum() ? "" : "border-red-500 focus:outline-red-500")}
+            className={
+              "w-3/5 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " +
+              (DetermineErrorStateForTwoDecimals(zeroAdmin).valid &&
+              checkPercentageSum()
+                ? ""
+                : "border-red-500 focus:outline-red-500")
+            }
             placeholder={"00000"}
             disabled={false}
             value={zeroAdmin}
@@ -95,7 +103,13 @@ const AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
             step="0.1"
             name={"seven_point_five"}
             id={"seven_point_five_Id"}
-            className={"w-3/5 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " + (DetermineErrorStateForTwoDecimals(fiveAdmin).valid && checkPercentageSum() ? "" : "border-red-500 focus:outline-red-500")} 
+            className={
+              "w-3/5 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " +
+              (DetermineErrorStateForTwoDecimals(fiveAdmin).valid &&
+              checkPercentageSum()
+                ? ""
+                : "border-red-500 focus:outline-red-500")
+            }
             placeholder={"00000"}
             disabled={false}
             value={fiveAdmin}
@@ -127,7 +141,13 @@ const AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
             step="0.1"
             name={"fourty_five"}
             id={"fourty_five_Id"}
-            className={"w-3/5 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " + (DetermineErrorStateForTwoDecimals(tenAdmin).valid && checkPercentageSum() ? "" : "border-red-500 focus:outline-red-500")}
+            className={
+              "w-3/5 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " +
+              (DetermineErrorStateForTwoDecimals(tenAdmin).valid &&
+              checkPercentageSum()
+                ? ""
+                : "border-red-500 focus:outline-red-500")
+            }
             placeholder={"00000"}
             disabled={false}
             value={tenAdmin}
@@ -159,7 +179,13 @@ const AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
             step="0.1"
             name={"fifteen"}
             id={"fifteen_Id"}
-            className={"w-3/5 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " + (DetermineErrorStateForTwoDecimals(fifteenAdmin).valid && checkPercentageSum() ? "" : "border-red-500 focus:outline-red-500")}
+            className={
+              "w-3/5 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " +
+              (DetermineErrorStateForTwoDecimals(fifteenAdmin).valid &&
+              checkPercentageSum()
+                ? ""
+                : "border-red-500 focus:outline-red-500")
+            }
             placeholder={"00000"}
             disabled={false}
             value={fifteenAdmin}
@@ -191,7 +217,13 @@ const AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
             step="0.1"
             name={"twenty_five"}
             id={"twenty_five_Id"}
-            className={"w-3/5 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " + (DetermineErrorStateForTwoDecimals(twentyAdmin).valid && checkPercentageSum() ? "" : "border-red-500 focus:outline-red-500")}
+            className={
+              "w-3/5 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " +
+              (DetermineErrorStateForTwoDecimals(twentyAdmin).valid &&
+              checkPercentageSum()
+                ? ""
+                : "border-red-500 focus:outline-red-500")
+            }
             placeholder={"00000"}
             disabled={false}
             value={twentyAdmin}
