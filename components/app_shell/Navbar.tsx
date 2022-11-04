@@ -26,7 +26,12 @@ const nav_items: NavItem[] = [
     name: "Results",
     link: "results",
     key: 4
-  }
+  },
+  {
+    name: "FAQ",
+    link: "faq",
+    key: 5
+  },
 ]
 
 const  Navbar: NextPage<NavbarProps> = ({ active_page }) => {
