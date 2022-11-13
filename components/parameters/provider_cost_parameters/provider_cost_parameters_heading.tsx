@@ -9,7 +9,7 @@ const  ProviderCostParametersHeading: NextPage = () => {
       <div className="grid grid-cols-2">
         <div className='flex'>
           {/* Formerly "Enter Costs From A Provider Perspective" */}
-          <span className="text-2xl font-semibold"> Payor Costs </span>
+          <span className="text-2xl font-semibold"> Provider Costs </span>
           <a href="/faq#provider-costs">
             <InformationCircleIcon className="ml-2 mt-1 h-6 w-6 hover:cursor-pointer hover:text-casal-600" />
           </a>
