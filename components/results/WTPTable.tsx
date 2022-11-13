@@ -80,9 +80,9 @@ const WTPTable: NextPage = () => {
           </p>
           <p className="">
             {" "}
-            Provider Average{" "}
+            Payor Average{" "}
             {Number(averageCostPerEConsultation) > 0 ? "Savings" : "Cost"} Per
-            E-consult{" "}
+            E-Consult{" "}
           </p>
         </div>
         <div className="text-center">
