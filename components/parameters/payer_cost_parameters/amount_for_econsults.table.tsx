@@ -73,12 +73,12 @@ const AmountForEConsultsTable: NextPage = () => {
 
   const codeInputs: ReactNode = codes.map((code, index) => {
     return (
-      <div className="grid grid-cols-6" key={index}>
+      <div className="grid grid-cols-5 md:grid-cols-6 gap-x-1 sm:gap-x-3 lg:gap-x-6" key={index}>
         <input
           type="text"
           name={"CPT_Code_" + index}
           id={"CPT_Code_" + index + "Id"}
-          className="w-3/5 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300"
+          className="rounded-md border border-casal-300 pl-1 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300"
           placeholder={"00000"}
           disabled={false}
           value={code.code}
@@ -93,7 +93,7 @@ const AmountForEConsultsTable: NextPage = () => {
           type="text"
           name={"code_details" + index}
           id={"code_details" + index + "Id"}
-          className="w-11/12 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300"
+          className="rounded-md border hidden md:block border-casal-300 pl-1 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300"
           placeholder={""}
           disabled={false}
           value={code.code_details}
@@ -106,14 +106,14 @@ const AmountForEConsultsTable: NextPage = () => {
         />
 
         <div className="relative">
-          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-            <span className="text-gray-500 sm:text-sm">$</span>
+          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-1 sm:pl-2">
+            <span className="text-gray-500 hidden sm:block">$</span>
           </div>
           <input
             type="number"
             name={"CMS_non_facility_price" + index}
             id={"CMS_non_facility_price" + index + "Id"}
-            className={"w-5/6 rounded-md border border-casal-300 px-3 py-2 pl-6 font-medium text-casal-400 focus:border focus:outline-casal-300 " + (DetermineErrorStateForTwoDecimals(code.CMS_non_facility_price).valid ? "" : "border-red-500 focus:outline-red-500")}
+            className={"w-full rounded-md border border-casal-300 py-2 sm:pl-6 font-medium text-casal-400 focus:border focus:outline-casal-300 " + (DetermineErrorStateForTwoDecimals(code.CMS_non_facility_price).valid ? "" : "border-red-500 focus:outline-red-500")}
             placeholder={"10.00"}
             disabled={false}
             value={code.CMS_non_facility_price}
@@ -127,15 +127,15 @@ const AmountForEConsultsTable: NextPage = () => {
         </div>
 
         <div className="relative">
-          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-[40%]">
-            <span className="text-gray-500 sm:text-sm">%</span>
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center sm:pr-[10%] pr-[3%]">
+            <span className="text-gray-500 hidden sm:block">%</span>
           </div>
 
           <input
             type="number"
             name={"percentage_of_total_visits_" + index}
             id={"percentage_of_total_visits_" + index + "_Id"}
-            className={"w-2/3 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 appearance-none " + (DetermineErrorStateForPercent(code.percentage_of_total_visits).valid && checkPercentageSum() ? "" : "border-red-500 focus:outline-red-500")}
+            className={"w-full rounded-md border border-casal-300 pl-1 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 appearance-none " + (DetermineErrorStateForPercent(code.percentage_of_total_visits).valid && checkPercentageSum() ? "" : "border-red-500 focus:outline-red-500")}
             placeholder={"0.00"}
             disabled={false}
             value={code.percentage_of_total_visits}
@@ -152,7 +152,7 @@ const AmountForEConsultsTable: NextPage = () => {
           type="number"
           name={"avg_physician_time_spent" + index}
           id={"avg_physician_time_spent" + index + "Id"}
-          className={"w-2/3 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " + (DetermineErrorStateForTwoDecimals(code.avg_physician_time_spent).valid ? "" : "border-red-500 focus:outline-red-500")}
+          className={"rounded-md border border-casal-300 pl-1 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " + (DetermineErrorStateForTwoDecimals(code.avg_physician_time_spent).valid ? "" : "border-red-500 focus:outline-red-500")}
           placeholder={"30"}
           disabled={false}
           value={code.avg_physician_time_spent}
@@ -185,9 +185,9 @@ const AmountForEConsultsTable: NextPage = () => {
   return (
     <div className="mt-6 grid w-full space-y-4 border-t border-casal-300">
       {/* Headings */}
-      <div className="mt-6 grid grid-cols-6 font-medium">
+      <div className="mt-6 grid grid-cols-5 md:grid-cols-6 font-medium">
         <div>CPT Codes</div>
-        <div>Visit Type</div>
+        <div className="hidden md:block">Visit Type</div>
         <div>Price Paid ($)</div>
         <div>% of total visits</div>
         <div>Time per e-consult (minutes)</div>

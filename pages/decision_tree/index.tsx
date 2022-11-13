@@ -15,6 +15,7 @@ import {
   calculatePayerCostUsualCare,
 } from "../../utils/decision-tree-calculations";
 import { DetermineErrorStateForTextPercent } from "../../utils/helpers";
+import { InformationCircleIcon } from "@heroicons/react/outline";
 
 const DecisionTree: NextPage = () => {
   // E-Consult
@@ -86,7 +87,9 @@ const DecisionTree: NextPage = () => {
   };
 
   const checkPercentageSumInPersonScheduleAppointment = () => {
-    const sum = Number(doNotScheduleAppointmentUsualCare) + Number(scheduleAppointmentUsualCare);
+    const sum =
+      Number(doNotScheduleAppointmentUsualCare) +
+      Number(scheduleAppointmentUsualCare);
     return sum === 100;
   };
 
@@ -96,22 +99,31 @@ const DecisionTree: NextPage = () => {
   };
 
   const checkPercentageSumScheduleAppointmentCallPatient = () => {
-    const sum = Number(scheduleAppointmentCallPatient) + Number(recommendPhysicianCallPatient) + Number(noActionCallPatient);
+    const sum =
+      Number(scheduleAppointmentCallPatient) +
+      Number(recommendPhysicianCallPatient) +
+      Number(noActionCallPatient);
     return sum === 100;
   };
 
   const checkPercentageSumScheduleAppointmentNoShows = () => {
-    const sum = Number(patientNoShowCallPatientEConsult) + Number(patientShowsCallPatientEConsult);
+    const sum =
+      Number(patientNoShowCallPatientEConsult) +
+      Number(patientShowsCallPatientEConsult);
     return sum === 100;
   };
 
   const checkPercentageSumScheduleAppointmentDoNotCallPatient = () => {
-    const sum = Number(scheduleAppointmentDoNotCallPatient) + Number(recommendPhysicianDoNotCallPatient);
+    const sum =
+      Number(scheduleAppointmentDoNotCallPatient) +
+      Number(recommendPhysicianDoNotCallPatient);
     return sum === 100;
   };
 
   const checkPercentageSumDoNotCallPatientNoShows = () => {
-    const sum = Number(patientNoShowDoNotCallPatientEConsult) + Number(patientShowsDoNotCallPatientEConsult);
+    const sum =
+      Number(patientNoShowDoNotCallPatientEConsult) +
+      Number(patientShowsDoNotCallPatientEConsult);
     return sum === 100;
   };
 
@@ -307,7 +319,9 @@ const DecisionTree: NextPage = () => {
                   setValue: setCallPatient,
                   type: "integer",
                   disabled: false,
-                  errored: !DetermineErrorStateForTextPercent(callPatient).valid || !checkPercentageSumEConsultContact(),
+                  errored:
+                    !DetermineErrorStateForTextPercent(callPatient).valid ||
+                    !checkPercentageSumEConsultContact(),
                   borderColor: "purple-500",
                 }}
               />
@@ -331,7 +345,9 @@ const DecisionTree: NextPage = () => {
                   setValue: setDoNotCallPatient,
                   type: "integer",
                   disabled: false,
-                  errored: !DetermineErrorStateForTextPercent(doNotCallPatient).valid || !checkPercentageSumEConsultContact(),
+                  errored:
+                    !DetermineErrorStateForTextPercent(doNotCallPatient)
+                      .valid || !checkPercentageSumEConsultContact(),
                   borderColor: "blue-500",
                 }}
               />
@@ -355,7 +371,10 @@ const DecisionTree: NextPage = () => {
                   setValue: setScheduleAppointmentUsualCare,
                   type: "integer",
                   disabled: false,
-                  errored: !DetermineErrorStateForTextPercent(scheduleAppointmentUsualCare).valid || !checkPercentageSumInPersonScheduleAppointment(),
+                  errored:
+                    !DetermineErrorStateForTextPercent(
+                      scheduleAppointmentUsualCare
+                    ).valid || !checkPercentageSumInPersonScheduleAppointment(),
                   borderColor: "yellow-500",
                 }}
               />
@@ -381,7 +400,10 @@ const DecisionTree: NextPage = () => {
                   setValue: setDoNotScheduleAppointmentUsualCare,
                   type: "integer",
                   disabled: false,
-                  errored: !DetermineErrorStateForTextPercent(doNotScheduleAppointmentUsualCare).valid || !checkPercentageSumInPersonScheduleAppointment(),
+                  errored:
+                    !DetermineErrorStateForTextPercent(
+                      doNotScheduleAppointmentUsualCare
+                    ).valid || !checkPercentageSumInPersonScheduleAppointment(),
                   borderColor: "orange-500",
                 }}
               />
@@ -394,6 +416,11 @@ const DecisionTree: NextPage = () => {
               className="mr-6 w-fit justify-self-end rounded-lg border-2 border-purple-500 bg-slate-100 px-5 py-4 font-semibold"
             >
               <span> Schedule Appointment </span>
+              <div className="flex w-full justify-center">
+                <a href="/faq#contact-patient-schedule-appointment">
+                  <InformationCircleIcon className="ml-2 mt-1 h-6 w-6 hover:cursor-pointer hover:text-purple-600" />
+                </a>
+              </div>
               <DecisionTreeInput
                 {...{
                   label: "",
@@ -402,7 +429,11 @@ const DecisionTree: NextPage = () => {
                   setValue: setScheduleAppointmentCallPatient,
                   type: "integer",
                   disabled: false,
-                  errored: !DetermineErrorStateForTextPercent(scheduleAppointmentCallPatient).valid || !checkPercentageSumScheduleAppointmentCallPatient(),
+                  errored:
+                    !DetermineErrorStateForTextPercent(
+                      scheduleAppointmentCallPatient
+                    ).valid ||
+                    !checkPercentageSumScheduleAppointmentCallPatient(),
                   borderColor: "purple-500",
                 }}
               />
@@ -420,6 +451,11 @@ const DecisionTree: NextPage = () => {
               className="w-fit rounded-lg border-2 border-purple-500 bg-purple-100 px-5 py-4 font-semibold"
             >
               <span> Make Recommendations </span>
+              <div className="flex w-full justify-center">
+                <a href="/faq#contact-patient-make-recommendations">
+                  <InformationCircleIcon className="ml-2 mt-1 h-6 w-6 hover:cursor-pointer hover:text-purple-600" />
+                </a>
+              </div>
               <DecisionTreeInput
                 {...{
                   label: "",
@@ -428,7 +464,11 @@ const DecisionTree: NextPage = () => {
                   setValue: setRecommendPhysicianCallPatient,
                   type: "integer",
                   disabled: false,
-                  errored: !DetermineErrorStateForTextPercent(recommendPhysicianCallPatient).valid || !checkPercentageSumScheduleAppointmentCallPatient(),
+                  errored:
+                    !DetermineErrorStateForTextPercent(
+                      recommendPhysicianCallPatient
+                    ).valid ||
+                    !checkPercentageSumScheduleAppointmentCallPatient(),
                   borderColor: "purple-500",
                 }}
               />
@@ -446,7 +486,10 @@ const DecisionTree: NextPage = () => {
                   setValue: setNoActionCallPatient,
                   type: "integer",
                   disabled: false,
-                  errored: !DetermineErrorStateForTextPercent(noActionCallPatient).valid || !checkPercentageSumScheduleAppointmentCallPatient(),
+                  errored:
+                    !DetermineErrorStateForTextPercent(noActionCallPatient)
+                      .valid ||
+                    !checkPercentageSumScheduleAppointmentCallPatient(),
                   borderColor: "purple-500",
                 }}
               />
@@ -464,7 +507,9 @@ const DecisionTree: NextPage = () => {
                   setValue: setPatientNoShowUsualCare,
                   type: "integer",
                   disabled: false,
-                  errored: !DetermineErrorStateForTextPercent(patientNoShowUsualCare).valid || !checkPercentageSumNoShowUsualCare(),
+                  errored:
+                    !DetermineErrorStateForTextPercent(patientNoShowUsualCare)
+                      .valid || !checkPercentageSumNoShowUsualCare(),
                   borderColor: "yellow-500",
                 }}
               />
@@ -482,7 +527,9 @@ const DecisionTree: NextPage = () => {
                   setValue: setPatientShowsUsualCare,
                   type: "integer",
                   disabled: false,
-                  errored: !DetermineErrorStateForTextPercent(patientShowsUsualCare).valid || !checkPercentageSumNoShowUsualCare(),
+                  errored:
+                    !DetermineErrorStateForTextPercent(patientShowsUsualCare)
+                      .valid || !checkPercentageSumNoShowUsualCare(),
                   borderColor: "yellow-500",
                 }}
               />
@@ -506,7 +553,10 @@ const DecisionTree: NextPage = () => {
                   setValue: setPatientNoShowCallPatientEConsult,
                   type: "integer",
                   disabled: false,
-                  errored: !DetermineErrorStateForTextPercent(patientNoShowCallPatientEConsult).valid || !checkPercentageSumScheduleAppointmentNoShows(),
+                  errored:
+                    !DetermineErrorStateForTextPercent(
+                      patientNoShowCallPatientEConsult
+                    ).valid || !checkPercentageSumScheduleAppointmentNoShows(),
                   borderColor: "purple-500",
                 }}
               />
@@ -527,7 +577,10 @@ const DecisionTree: NextPage = () => {
                   setValue: setPatientShowsCallPatientEConsult,
                   type: "integer",
                   disabled: false,
-                  errored: !DetermineErrorStateForTextPercent(patientShowsCallPatientEConsult).valid || !checkPercentageSumScheduleAppointmentNoShows(),
+                  errored:
+                    !DetermineErrorStateForTextPercent(
+                      patientShowsCallPatientEConsult
+                    ).valid || !checkPercentageSumScheduleAppointmentNoShows(),
                   borderColor: "purple-500",
                 }}
               />
@@ -541,6 +594,11 @@ const DecisionTree: NextPage = () => {
               className="mr-6 w-fit justify-self-end rounded-lg border-2 border-blue-500 bg-slate-100 px-5 py-4 font-semibold"
             >
               <span> Schedule Appointment </span>
+              <div className="flex w-full justify-center">
+                <a href="/faq#dont-contact-patient-schedule-appointment">
+                  <InformationCircleIcon className="ml-2 mt-1 h-6 w-6 hover:cursor-pointer hover:text-blue-600" />
+                </a>
+              </div>
               <DecisionTreeInput
                 {...{
                   label: "",
@@ -549,7 +607,11 @@ const DecisionTree: NextPage = () => {
                   setValue: setScheduleAppointmentDoNotCallPatient,
                   type: "integer",
                   disabled: false,
-                  errored: !DetermineErrorStateForTextPercent(scheduleAppointmentDoNotCallPatient).valid || !checkPercentageSumScheduleAppointmentDoNotCallPatient(),
+                  errored:
+                    !DetermineErrorStateForTextPercent(
+                      scheduleAppointmentDoNotCallPatient
+                    ).valid ||
+                    !checkPercentageSumScheduleAppointmentDoNotCallPatient(),
                   borderColor: "blue-500",
                 }}
               />
@@ -567,6 +629,11 @@ const DecisionTree: NextPage = () => {
               className="w-fit rounded-lg border-2 border-blue-500 bg-blue-100 px-5 py-4 font-semibold"
             >
               <span> Make Recommendations </span>
+              <div className="flex w-full justify-center">
+                <a href="/faq#dont-contact-patient-make-recommendations">
+                  <InformationCircleIcon className="ml-2 mt-1 h-6 w-6 hover:cursor-pointer hover:text-blue-600" />
+                </a>
+              </div>
               <DecisionTreeInput
                 {...{
                   label: "",
@@ -575,7 +642,11 @@ const DecisionTree: NextPage = () => {
                   setValue: setRecommendPhysicianDoNotCallPatient,
                   type: "integer",
                   disabled: false,
-                  errored: !DetermineErrorStateForTextPercent(recommendPhysicianDoNotCallPatient).valid || !checkPercentageSumScheduleAppointmentDoNotCallPatient(),
+                  errored:
+                    !DetermineErrorStateForTextPercent(
+                      recommendPhysicianDoNotCallPatient
+                    ).valid ||
+                    !checkPercentageSumScheduleAppointmentDoNotCallPatient(),
                   borderColor: "blue-500",
                 }}
               />
@@ -596,7 +667,10 @@ const DecisionTree: NextPage = () => {
                   setValue: setPatientNoShowDoNotCallPatientEConsult,
                   type: "integer",
                   disabled: false,
-                  errored: !DetermineErrorStateForTextPercent(patientNoShowDoNotCallPatientEConsult).valid || !checkPercentageSumDoNotCallPatientNoShows(),
+                  errored:
+                    !DetermineErrorStateForTextPercent(
+                      patientNoShowDoNotCallPatientEConsult
+                    ).valid || !checkPercentageSumDoNotCallPatientNoShows(),
                   borderColor: "blue-500",
                 }}
               />
@@ -614,7 +688,10 @@ const DecisionTree: NextPage = () => {
                   setValue: setPatientShowsDoNotCallPatientEConsult,
                   type: "integer",
                   disabled: false,
-                  errored: !DetermineErrorStateForTextPercent(patientShowsDoNotCallPatientEConsult).valid || !checkPercentageSumDoNotCallPatientNoShows(),
+                  errored:
+                    !DetermineErrorStateForTextPercent(
+                      patientShowsDoNotCallPatientEConsult
+                    ).valid || !checkPercentageSumDoNotCallPatientNoShows(),
                   borderColor: "blue-500",
                 }}
               />
