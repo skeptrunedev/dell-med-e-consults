@@ -1,7 +1,7 @@
 {
     "theme_color": "#e3ff88",
     "background_color": "#2b6563",
-    "display": "browser",
+    "display": "standalone",
     "scope": "/",
     "start_url": "/",
     "name": "EconAnalysis",
