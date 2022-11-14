@@ -19,8 +19,9 @@ Use [data from the Dell Medical School Gastroenterology eConsult program](https:
 
 ### Development Highlights 
 
-- Approximately 60 values stored in LocalStorage
+- Over 60 values stored in LocalStorage
 - Window events used to coordinate data changes across components
-- Detailed and Advanced CSS usage throughout 
+- Detailed and advanced CSS usage throughout 
 - 95 or higher on PageSpeedInsights for all pages 
-- DevOps being handled by Vercel and Namecheap 
+- Hosted through Vercel
+- PWA enabled for mobile. Though w/out the Decision Tree. 
