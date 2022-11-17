@@ -66,10 +66,10 @@ const AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
             name={"seven_point_five"}
             id={"seven_point_five_Id"}
             className={
-              "w-3/5 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " +
+              "w-3/5 rounded-md border px-3 py-2 font-medium text-casal-400 focus:border " +
               (DetermineErrorStateForTwoDecimals(zeroAdmin).valid &&
               checkPercentageSum()
-                ? ""
+                ? "border-casal-300 focus:outline-casal-300"
                 : "border-red-500 focus:outline-red-500")
             }
             placeholder={"00000"}
@@ -104,10 +104,10 @@ const AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
             name={"seven_point_five"}
             id={"seven_point_five_Id"}
             className={
-              "w-3/5 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " +
+              "w-3/5 rounded-md border px-3 py-2 font-medium text-casal-400 focus:border " +
               (DetermineErrorStateForTwoDecimals(fiveAdmin).valid &&
               checkPercentageSum()
-                ? ""
+                ? "border-casal-300 focus:outline-casal-300"
                 : "border-red-500 focus:outline-red-500")
             }
             placeholder={"00000"}
@@ -142,11 +142,11 @@ const AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
             name={"fourty_five"}
             id={"fourty_five_Id"}
             className={
-              "w-3/5 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " +
+              "w-3/5 rounded-md border px-3 py-2 font-medium text-casal-400 focus:border " +
               (DetermineErrorStateForTwoDecimals(tenAdmin).valid &&
               checkPercentageSum()
-                ? ""
-                : "border-red-500 focus:outline-red-500")
+              ? "border-casal-300 focus:outline-casal-300"
+              : "border-red-500 focus:outline-red-500")
             }
             placeholder={"00000"}
             disabled={false}
@@ -180,11 +180,11 @@ const AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
             name={"fifteen"}
             id={"fifteen_Id"}
             className={
-              "w-3/5 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " +
+              "w-3/5 rounded-md border px-3 py-2 font-medium text-casal-400 focus:border " +
               (DetermineErrorStateForTwoDecimals(fifteenAdmin).valid &&
               checkPercentageSum()
-                ? ""
-                : "border-red-500 focus:outline-red-500")
+              ? "border-casal-300 focus:outline-casal-300"
+              : "border-red-500 focus:outline-red-500")
             }
             placeholder={"00000"}
             disabled={false}
@@ -218,11 +218,11 @@ const AverageTimeSpentOnAdministrativeWorkTable: NextPage = () => {
             name={"twenty_five"}
             id={"twenty_five_Id"}
             className={
-              "w-3/5 rounded-md border border-casal-300 px-3 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " +
+              "w-3/5 rounded-md border px-3 py-2 font-medium text-casal-400 focus:border " +
               (DetermineErrorStateForTwoDecimals(twentyAdmin).valid &&
               checkPercentageSum()
-                ? ""
-                : "border-red-500 focus:outline-red-500")
+              ? "border-casal-300 focus:outline-casal-300"
+              : "border-red-500 focus:outline-red-500")
             }
             placeholder={"00000"}
             disabled={false}

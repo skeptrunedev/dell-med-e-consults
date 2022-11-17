@@ -24,10 +24,10 @@ const SmallInput: NextPage<SmallInputProps> = ({
         <input
           type="text"
           className={
-            "w-full rounded-md border px-2 py-1 font-medium text-casal-400 focus:border focus:outline-casal-300" +
+            "w-full rounded-md border px-2 py-1 font-medium text-casal-400 focus:border" +
             (errored
               ? " border-red-500 focus:outline-red-500"
-              : " border-casal-300") +
+              : " border-casal-300 focus:outline-casal-300") +
             (type == "USD" ? " pl-6" : type == "percentage" ? " pl-6" : " pr-6")
           }
           placeholder={placeholder}

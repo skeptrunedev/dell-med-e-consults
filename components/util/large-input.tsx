@@ -21,7 +21,7 @@ const  LargeInput: NextPage<LargeInputProps> = ({label, placeholder, value, setV
           type="text"
           name={label}
           id={label + "Id"}
-          className={ "focus:border focus:outline-casal-300 w-11/12 border px-3 py-2 rounded-md text-casal-400 font-medium" + (errored ? " border-red-500 focus:outline-red-500" : " border-casal-300") + (type == 'USD' ? ' pl-6' : type == "percentage" ? ' pl-6' : '')}
+          className={ "focus:border w-11/12 border px-3 py-2 rounded-md text-casal-400 font-medium" + (errored ? " border-red-500 focus:outline-red-500" : " border-casal-300 focus:outline-casal-300") + (type == 'USD' ? ' pl-6' : type == "percentage" ? ' pl-6' : '')}
           placeholder={placeholder}
           disabled={disabled}
           value={value}

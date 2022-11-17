@@ -86,10 +86,10 @@ const AmountForOfficeVisitsTable: NextPage = () => {
             name={"medicare_fee"}
             id={"medicare_fee_Id"}
             className={
-              "w-full justify-self-center rounded-md border border-casal-300 py-2 pl-4 sm:pl-6 font-medium text-casal-400 focus:border focus:outline-casal-300 md:justify-self-start " +
+              "w-full justify-self-center rounded-md border py-2 pl-4 sm:pl-6 font-medium text-casal-400 focus:border md:justify-self-start " +
               (DetermineErrorStateForTwoDecimals(medicareFee).valid
-                ? ""
-                : "border-red-500 focus:outline-red-500")
+              ? "border-casal-300 focus:outline-casal-300"
+              : "border-red-500 focus:outline-red-500")
             }
             placeholder={"00000"}
             disabled={false}
@@ -110,11 +110,11 @@ const AmountForOfficeVisitsTable: NextPage = () => {
             name={"medicare_percentage"}
             id={"medicare_percentage_id"}
             className={
-              "w-full justify-self-center rounded-md border border-casal-300 pl-2 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 md:justify-self-start " +
+              "w-full justify-self-center rounded-md border pl-2 py-2 font-medium text-casal-400 focus:border md:justify-self-start " +
               (DetermineErrorStateForTwoDecimals(medicarePercentage).valid &&
               checkPercentageSum()
-                ? ""
-                : "border-red-500 focus:outline-red-500")
+              ? "border-casal-300 focus:outline-casal-300"
+              : "border-red-500 focus:outline-red-500")
             }
             placeholder={"00000"}
             disabled={false}
@@ -147,10 +147,10 @@ const AmountForOfficeVisitsTable: NextPage = () => {
             name={"medicare_fee"}
             id={"medicare_fee_Id"}
             className={
-              "w-full justify-self-center rounded-md border border-casal-300 py-2 pl-4 sm:pl-6 font-medium text-casal-400 focus:border focus:outline-casal-300 md:ml-0 md:justify-self-start " +
+              "w-full justify-self-center rounded-md border py-2 pl-4 sm:pl-6 font-medium text-casal-400 focus:border md:ml-0 md:justify-self-start " +
               (DetermineErrorStateForTwoDecimals(commercialFee).valid
-                ? ""
-                : "border-red-500 focus:outline-red-500")
+              ? "border-casal-300 focus:outline-casal-300"
+              : "border-red-500 focus:outline-red-500")
             }
             placeholder={"00000"}
             disabled={false}
@@ -170,11 +170,11 @@ const AmountForOfficeVisitsTable: NextPage = () => {
             name={"medicare_percentage"}
             id={"medicare_percentage_id"}
             className={
-              "w-full justify-self-center rounded-md border border-casal-300 pl-2 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 md:justify-self-start " +
+              "w-full justify-self-center rounded-md border pl-2 py-2 font-medium text-casal-400 focus:border md:justify-self-start " +
               (DetermineErrorStateForTwoDecimals(commercialPercentage).valid &&
               checkPercentageSum()
-                ? ""
-                : "border-red-500 focus:outline-red-500")
+              ? "border-casal-300 focus:outline-casal-300"
+              : "border-red-500 focus:outline-red-500")
             }
             placeholder={"00000"}
             disabled={false}
@@ -208,10 +208,10 @@ const AmountForOfficeVisitsTable: NextPage = () => {
             name={"medicare_fee"}
             id={"medicare_fee_Id"}
             className={
-              "w-full justify-self-center rounded-md border border-casal-300 py-2 pl-4 sm:pl-6 font-medium text-casal-400 focus:border focus:outline-casal-300 md:justify-self-start " +
+              "w-full justify-self-center rounded-md border py-2 pl-4 sm:pl-6 font-medium text-casal-400 focus:border md:justify-self-start " +
               (DetermineErrorStateForTwoDecimals(otherFee).valid
-                ? ""
-                : "border-red-500 focus:outline-red-500")
+              ? "border-casal-300 focus:outline-casal-300"
+              : "border-red-500 focus:outline-red-500")
             }
             placeholder={"00000"}
             disabled={false}
@@ -231,11 +231,11 @@ const AmountForOfficeVisitsTable: NextPage = () => {
             name={"medicare_percentage"}
             id={"medicare_percentage_id"}
             className={
-              "w-full rounded-md border border-casal-300 pl-2 py-2 font-medium text-casal-400 focus:border focus:outline-casal-300 " +
+              "w-full rounded-md border pl-2 py-2 font-medium text-casal-400 focus:border " +
               (DetermineErrorStateForTwoDecimals(otherPercentage).valid &&
               checkPercentageSum()
-                ? ""
-                : "border-red-500 focus:outline-red-500")
+              ? "border-casal-300 focus:outline-casal-300"
+              : "border-red-500 focus:outline-red-500")
             }
             placeholder={"00000"}
             disabled={false}
