@@ -8,15 +8,17 @@ export const calculatePayerCostScheduleAppointmentCallPatient = () => {
   const amountForEConsultsWeightedCostPerVisit = Number(window.localStorage.getItem('amountForEConsultsWeightedCostPerVisit')); // DecisionTree!Q7
   const doNotShowInPerson = 0; // DecisionTree!Q13
   const costsPayorOne = amountForEConsultsWeightedCostPerVisit + doNotShowInPerson; // DecisionTree!Q19
-  const noShowPercentage = Number(window.localStorage.getItem('patientNoShowCallPatientEConsult')) / 100;
+  const noShowPercentage = Number(window.localStorage.getItem('patientNoShowCallPatientEConsult')) / 100; // DecisionTree!N19
   const eConsultUpside = costsPayorOne * noShowPercentage;
   
   const amountForOfficeVisit = Number(window.localStorage.getItem('amountForOfficeVisit')); // DecisionTree!Q21
-  const showPercentage = Number(window.localStorage.getItem('patientShowsCallPatientEConsult')) / 100;
+  console.log("Q21: ", amountForOfficeVisit)
+  const showPercentage = Number(window.localStorage.getItem('patientShowsCallPatientEConsult')) / 100; // DecisionTree!N22
   const officeVisitUpside = amountForOfficeVisit * showPercentage;
+  console.log("Q21 * N22: ", officeVisitUpside)
 
   const result = String(Number(eConsultUpside + officeVisitUpside).toFixed(2));
-  window.localStorage.setItem('payerCostScheduleAppointmentCallPatientDT', result);
+  window.localStorage.setItem('payerCostScheduleAppointmentCallPatientDT', result); // DecisionTree!L20
 
   return result;
 }
@@ -24,11 +26,12 @@ export const calculatePayerCostScheduleAppointmentCallPatient = () => {
 // DecisionTree!J23
 export const calculatePayerCostCallPatient = () => {
   const payerCostScheduleAppointment = calculatePayerCostScheduleAppointmentCallPatient(); // DecisionTree!L20
+  console.log("L20: ", payerCostScheduleAppointment)
   const payerCostScheduleAppointmentPercentage = Number(window.localStorage.getItem('scheduleAppointmentCallPatient')) / 100; // DecisionTree!K22
   const payerCostScheduleAppointmentUpside = Number(payerCostScheduleAppointment) * payerCostScheduleAppointmentPercentage;
 
-  const reccToPCP = 36.34 // DecisionTree!Q11 & Q29
-  const reccToPCPPercentage = Number(window.localStorage.getItem('recommendPhysicianCallPatient')) / 100;
+  const reccToPCP = Number(window.localStorage.getItem('amountForEConsultsWeightedCostPerVisit')) // DecisionTree!Q7 & Q29 - Parameters!E66
+  const reccToPCPPercentage = Number(window.localStorage.getItem('recommendPhysicianCallPatient')) / 100; // DecisionTree!K28
   const reccToPCPUpside = reccToPCP * reccToPCPPercentage;
 
   const doNothing = Number(window.localStorage.getItem('amountForEConsultsWeightedCostPerVisit')); // DecisionTree!Q7

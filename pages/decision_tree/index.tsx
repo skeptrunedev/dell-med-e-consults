@@ -289,7 +289,7 @@ const DecisionTree: NextPage = () => {
               className="w-fit rounded-lg border-2 border-purple-500 bg-slate-100 px-20 py-4 font-semibold"
             >
               E-Consult
-              <div className="mt-2 grid hidden grid-cols-2 justify-items-start gap-x-2 font-normal">
+              <div className="mt-2 hidden grid-cols-2 justify-items-start gap-x-2 font-normal">
                 <p className="text-green-700">Payor:</p>
                 <p className="text-green-700">{payerCostEConsult}</p>
               </div>
@@ -299,7 +299,7 @@ const DecisionTree: NextPage = () => {
               className="w-fit rounded-lg border-2 border-orange-500 bg-slate-100 px-20 py-4 font-semibold"
             >
               In Person Clinic Visit
-              <div className="mt-2 grid hidden grid-cols-2 justify-items-start gap-x-2 font-normal">
+              <div className="mt-2 hidden grid-cols-2 justify-items-start gap-x-2 font-normal">
                 <p className="text-green-700">Payor:</p>
                 <p className="text-green-700">{payerCostUsualCare}</p>
               </div>
@@ -326,7 +326,7 @@ const DecisionTree: NextPage = () => {
                 }}
               />
               <div className="flex w-full justify-center">
-                <div className="mt-2 grid hidden grid-cols-2 justify-items-start gap-x-2 font-normal">
+                <div className="mt-2 hidden grid-cols-2 justify-items-start gap-x-2 font-normal">
                   <p className="text-green-700">Payor:</p>
                   <p className="text-green-700">{payerCostCallPatient}</p>
                 </div>
@@ -352,7 +352,7 @@ const DecisionTree: NextPage = () => {
                 }}
               />
               <div className="flex w-full justify-center">
-                <div className="mt-2 grid hidden grid-cols-2 justify-items-start gap-x-2 font-normal">
+                <div className="mt-2 hidden grid-cols-2 justify-items-start gap-x-2 font-normal">
                   <p className="text-green-700">Payor:</p>
                   <p className="text-green-700">{payerCostDoNotCallPatient}</p>
                 </div>
@@ -379,7 +379,7 @@ const DecisionTree: NextPage = () => {
                 }}
               />
               <div className="flex w-full justify-center">
-                <div className="mt-2 grid hidden grid-cols-2 justify-items-start gap-x-2 font-normal">
+                <div className="mt-2 hidden grid-cols-2 justify-items-start gap-x-2 font-normal">
                   <p className="text-green-700">Payor:</p>
                   <p className="text-green-700">
                     {payerCostScheduleAppointmentUsualCare}
@@ -438,7 +438,7 @@ const DecisionTree: NextPage = () => {
                 }}
               />
               <div className="flex w-full justify-center">
-                <div className="mt-2 grid hidden grid-cols-2 justify-items-start gap-x-2 font-normal">
+                <div className="mt-2 hidden grid-cols-2 justify-items-start gap-x-2 font-normal">
                   <p className="text-green-700">Payor:</p>
                   <p className="text-green-700">
                     {payerCostScheduleAppointmentCallPatient}
@@ -616,7 +616,7 @@ const DecisionTree: NextPage = () => {
                 }}
               />
               <div className="flex w-full justify-center">
-                <div className="mt-2 grid hidden grid-cols-2 justify-items-start gap-x-2 font-normal">
+                <div className="mt-2 hidden grid-cols-2 justify-items-start gap-x-2 font-normal">
                   <p className="text-green-700">Payor:</p>
                   <p className="text-green-700">
                     {payerCostScheduleAppointmentDoNotCallPatient}
