@@ -82,12 +82,12 @@ const WTPTable: NextPage = () => {
             {" "}
             Payor Average{" "}
             {Number(averageCostPerEConsultation) > 0 ? "Savings" : "Cost"} Per
-            E-Consult{" "}
+            Patient With E-Consults Program
           </p>
         </div>
         <div className="text-center">
           <p className="text-2xl font-semibold"> $ {wtpPerEConsultation}</p>
-          <p className=""> Payors Willingness To Pay Per E-consult </p>
+          <p className=""> Payor Willingness To Pay Per E-consult </p>
         </div>
         <div className="text-center">
           <p
@@ -105,7 +105,7 @@ const WTPTable: NextPage = () => {
           <p className="">
             {" "}
             Provider Average{" "}
-            {Number(lossGainPerEConsultation) > 0 ? "Gain" : "Loss"} Per
+            {Number(lossGainPerEConsultation) > 0 ? "Profit" : "Loss"} Per
             E-consult{" "}
           </p>
         </div>
@@ -127,7 +127,7 @@ const WTPTable: NextPage = () => {
             <div className="mt-6 grid grid-cols-2 gap-x-6 font-medium">
               <div className="flex">
                 <div className="font-bold">
-                  Average cost per e-consult visit
+                  Payor Average Cost Per Patient With E-Consults Program
                 </div>
                 <a href="/faq#payor-average-cost-per-patient-with-e-consults-program">
                   <InformationCircleIcon className="ml-2 h-6 w-6 hover:cursor-pointer hover:text-casal-100" />
@@ -141,7 +141,7 @@ const WTPTable: NextPage = () => {
             <div className="mt-6 grid grid-cols-2 gap-x-6 font-medium">
               <div className="flex">
                 <div className="font-bold">
-                  Average cost per in-person clinic visit
+                  Payor Average Cost Per Patient With In-Person Clinic
                 </div>
                 <a href="/faq#payor-average-cost-per-patient-with-in-person-clinic">
                   <InformationCircleIcon className="ml-2 h-6 w-6 hover:cursor-pointer hover:text-casal-100" />
@@ -155,7 +155,8 @@ const WTPTable: NextPage = () => {
             <div className="mt-6 grid grid-cols-2 gap-x-6 font-medium">
               <div className="flex">
                 <div className="font-bold">
-                  Average savings per e-consult visit
+                  Payor Average Savings or Loss Per Patient If Using an
+                  E-Consult Program
                 </div>
                 <a href="/faq#payor-average-savings-or-loss-per-patient-if-using-an-e-consult-program">
                   <InformationCircleIcon className="ml-2 h-6 w-6 hover:cursor-pointer hover:text-casal-100" />
@@ -169,7 +170,8 @@ const WTPTable: NextPage = () => {
             <div className="mt-6 grid grid-cols-2 gap-x-6 font-medium">
               <div className="flex">
                 <div className="font-bold">
-                  Cost per e-consult averaged over program
+                  Payor Cost Per Patient Taken Care of by E-Consults Without
+                  Need for In-Person Clinic
                 </div>
                 <a href="/faq#payor-cost-per-patient-taken-care-of-by-e-consults-without-need-for-in-person-clinic">
                   <InformationCircleIcon className="ml-2 h-6 w-6 hover:cursor-pointer hover:text-casal-100" />
@@ -182,7 +184,9 @@ const WTPTable: NextPage = () => {
             {/* Row */}
             <div className="mt-6 grid grid-cols-2 gap-x-6 font-medium">
               <div className="flex">
-                <div className="font-bold">WTP per e-consult</div>
+                <div className="font-bold">
+                  Payor Willingness to Pay Per E-Consult
+                </div>
                 <a href="/faq#payor-willingness-to-pay-per-e-consult">
                   <InformationCircleIcon className="ml-2 h-6 w-6 hover:cursor-pointer hover:text-casal-100" />
                 </a>
@@ -204,7 +208,9 @@ const WTPTable: NextPage = () => {
             {/* Row */}
             <div className="mt-6 grid grid-cols-2 gap-x-6 font-medium">
               <div className="flex">
-                <div className="font-bold">Total cost per e-consult</div>
+                <div className="font-bold">
+                  Provider Total Cost Per E-Consult
+                </div>
                 <a href="/faq#provider-total-cost-per-e-consult">
                   <InformationCircleIcon className="ml-2 h-6 w-6 hover:cursor-pointer hover:text-casal-100" />
                 </a>
@@ -217,8 +223,7 @@ const WTPTable: NextPage = () => {
             <div className="mt-6 grid grid-cols-2 gap-x-6 font-medium">
               <div className="flex">
                 <div className="font-bold">
-                  {Number(lossGainPerEConsultation) > 0 ? "Gain" : "Loss"} per
-                  e-consult
+                  Provider Average Profit or Loss Per E-Consult
                 </div>
                 <a href="/faq#provider-average-profit-or-loss-per-e-consult">
                   <InformationCircleIcon className="ml-2 h-6 w-6 hover:cursor-pointer hover:text-casal-100" />
