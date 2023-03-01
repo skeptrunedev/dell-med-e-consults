@@ -82,7 +82,7 @@ const WTPTable: NextPage = () => {
             {" "}
             Payor Average{" "}
             {Number(averageCostPerEConsultation) > 0 ? "Savings" : "Cost"} Per
-            Patient With E-Consults Program
+            Patient With E-Consult Program
           </p>
         </div>
         <div className="text-center">
@@ -127,7 +127,7 @@ const WTPTable: NextPage = () => {
             <div className="mt-6 grid grid-cols-2 gap-x-6 font-medium">
               <div className="flex">
                 <div className="font-bold">
-                  Payor Average Cost Per Patient With E-Consults Program
+                  Payor Average Cost Per Patient With E-Consult Program
                 </div>
                 <a href="/faq#payor-average-cost-per-patient-with-e-consults-program">
                   <InformationCircleIcon className="ml-2 h-6 w-6 hover:cursor-pointer hover:text-casal-100" />

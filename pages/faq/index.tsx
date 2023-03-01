@@ -113,7 +113,7 @@ const faqs: Array<FAQ> = [
   },
   {
     id: "payor-average-cost-per-patient-with-e-consults-program",
-    question: "Payor Average Cost Per Patient With E-Consults Program",
+    question: "Payor Average Cost Per Patient With E-Consult Program",
     answers: [
       `The average cost per patient from the payor perspective if every patient gets an E-consult first. If I am an insurance company, how much am I paying on average for every patient if every patient is evaluated via an E-consult first. Keep in mind, not every patient can have their referral question resolved with telemedicine alone. This cost includes patients who are seen with E-consults first and are determined to need an in-person clinic visit to resolve the referral question.`,
     ],
