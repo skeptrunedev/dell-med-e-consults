@@ -10,11 +10,13 @@ const nextConfig = {
       },
       {
         source: '/js/feasible.js',
-        destination: 'https://plausible.io/js/script.js'
+        destination: 'https://plausible.io/js/script.js',
+        permanent: true,
       },
       {
         source: '/api/event',
-        destination: 'https://plausible.io/api/event'
+        destination: 'https://plausible.io/api/event',
+        permanent: true,
       }
     ];
   }
