@@ -104,11 +104,6 @@ const Navbar: NextPage<NavbarProps> = ({ active_page }) => {
           sizes="16x16"
           href="/favicon-16x16.png"
         />
-        <script
-          defer
-          data-domain="econanalysis.io"
-          src="/js/feasible.js"
-        ></script>
       </Head>
       <Disclosure as="nav" className="bg-white shadow">
         {({ open }) => (
