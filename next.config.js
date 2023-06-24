@@ -8,6 +8,14 @@ const nextConfig = {
         destination: '/home',
         permanent: true,
       },
+      {
+        source: '/js/feasible.js',
+        destination: 'https://plausible.io/js/script.js'
+      },
+      {
+        source: '/api/event',
+        destination: 'https://plausible.io/api/event'
+      }
     ];
   }
 }
