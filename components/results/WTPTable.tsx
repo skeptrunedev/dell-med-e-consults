@@ -69,14 +69,14 @@ const WTPTable: NextPage = () => {
           <p
             className={
               "text-2xl font-semibold " +
-              (Number(averageCostPerEConsultation) > 0
+              (Number(averageSavingsPerEConsultation) > 0
                 ? "text-green-500"
                 : "text-red-600")
             }
           >
             {" "}
-            $ {Number(averageCostPerEConsultation) > 0 ? "+" : ""}{" "}
-            {averageCostPerEConsultation}
+            $ {Number(averageSavingsPerEConsultation) > 0 ? "+" : ""}{" "}
+            {averageSavingsPerEConsultation}
           </p>
           <p className="">
             {" "}
