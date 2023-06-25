@@ -1,13 +1,8 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import PlausibleProvider from 'next-plausible'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <PlausibleProvider domain="econanalysis.io">
-      <Component {...pageProps} />
-    </PlausibleProvider>
-  )
+  return <Component {...pageProps} />;
 }
 
-export default MyApp
+export default MyApp;
